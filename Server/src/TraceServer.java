@@ -9,7 +9,7 @@ public class TraceServer extends org.restlet.resource.ServerResource {
 	
 	public static void main(String[] args){
 		System.setProperty("java.util.logging.config.file",
-		        "C:\\Users\\Sylvain\\Documents\\GitHub\\pld-smartCity\\Server\\libs\\logging.properties");
+		        "./libs/logging.properties");
 		TraceServer test = new TraceServer();
 	    try {
 			test.createTraceServer();

@@ -1,6 +1,0 @@
-avr. 29, 2015 12:21:18 PM org.restlet.engine.connector.NetServerHelper start
-INFOS: Starting the internal [HTTP/1.1] server on port 8183
-avr. 29, 2015 12:21:20 PM org.restlet.engine.log.LogFilter afterHandle
-INFOS: 2015-04-29	12:21:20	0:0:0:0:0:0:0:1	-	-	8183	GET	/trace	-	200	215	0	156	http://localhost:8183	Mozilla/5.0 (Windows NT 6.1; rv:37.0) Gecko/20100101 Firefox/37.0	-
-avr. 29, 2015 12:21:38 PM org.restlet.engine.connector.NetServerHelper stop
-INFOS: Stopping the internal server

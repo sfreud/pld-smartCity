@@ -4,6 +4,7 @@ import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.util.Base64;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -13,7 +14,10 @@ import android.widget.TextView;
 
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
+import org.apache.http.client.ResponseHandler;
 import org.apache.http.client.methods.HttpGet;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.impl.client.BasicResponseHandler;
 import org.apache.http.impl.client.DefaultHttpClient;
 
 import java.io.BufferedInputStream;
@@ -56,8 +60,11 @@ public class MainActivity extends ActionBarActivity {
             t2.setText("NetworkState " + " L'interface de connexion active est du mobile : " + mobile);
         }
 
-        SendingGetRequestTask sg = new SendingGetRequestTask();
-        sg.execute();
+        //SendingGetRequestTask sg = new SendingGetRequestTask();
+        //sg.execute();
+
+        AuthenficationRequestTask art = new AuthenficationRequestTask();
+        art.execute();
     }
 
     @Override
@@ -83,11 +90,11 @@ public class MainActivity extends ActionBarActivity {
     }
 
 
-    protected class SendingGetRequestTask extends AsyncTask<TextView, Void, String> {
+    protected class SendingGetRequestTask extends AsyncTask<Void, Void, String> {
         String contentAsString = "";
 
         @Override
-        protected String doInBackground(TextView... params) {
+        protected String doInBackground(Void... params) {
             InputStream inputStream = null;
             String result = "";
             try {
@@ -163,5 +170,75 @@ public class MainActivity extends ActionBarActivity {
             return sb.toString();
         }
     };
+
+    protected class AuthenficationRequestTask extends AsyncTask<Void, Void, Void> {
+        protected Void doInBackground(Void... params) {
+            InputStream inputStream = null;
+            String result = "";
+            try {
+
+                String login = "loginB";
+                String pwd = "secret";
+                String url = "http://10.0.2.2:8183/trace";
+                HttpPost post = new HttpPost(url);
+                HttpClient client = new DefaultHttpClient();
+
+                Log.v("AUTHENTICATION URL = ", url);
+                post.addHeader("Authorization", "Basic " + getCredentials(login, pwd));
+                HttpResponse httpResponse = client.execute(post);
+
+                inputStream = httpResponse.getEntity().getContent();
+
+                // convert inputstream to string
+                if(inputStream != null)
+                    result = getStringFromInputStream(inputStream);
+                else
+                    result = "Did not work!";
+
+                Log.v("SERVER RESPONSE DATA = ", result);
+
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            return null;
+        }
+
+            private String getCredentials(String u, String p)
+            {
+                Log.v("USER NAME = ",u);
+                Log.v("PASSWORD = ",p);
+                return(Base64.encodeToString((u + ":" + p).getBytes(),Base64.DEFAULT));
+            }
+
+        // convert InputStream to String
+        private String getStringFromInputStream(InputStream is) {
+
+            BufferedReader br = null;
+            StringBuilder sb = new StringBuilder();
+
+            String line;
+            try {
+
+                br = new BufferedReader(new InputStreamReader(is));
+                while ((line = br.readLine()) != null) {
+                    sb.append(line);
+                }
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            } finally {
+                if (br != null) {
+                    try {
+                        br.close();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+            return sb.toString();
+        }
+    };
+
+
 
 }

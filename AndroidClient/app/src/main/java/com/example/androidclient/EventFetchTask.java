@@ -86,8 +86,13 @@ public class EventFetchTask extends AsyncTask<Void, Void, Void> {
                 // the start date.
                 start = event.getStart().getDate();
             }
+            String location = event.getLocation();
+
+            if (location == null) {
+                location = "No location found";
+            }
             eventStrings.add(
-                    String.format("%s (%s)", event.getSummary(), start));
+                    String.format("%s (%s) Location : %s", event.getSummary(), start,location));
         }
         return eventStrings;
     }

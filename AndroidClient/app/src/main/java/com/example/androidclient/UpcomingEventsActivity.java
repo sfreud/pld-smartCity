@@ -92,7 +92,7 @@ public class UpcomingEventsActivity extends Activity {
 
         mService = new com.google.api.services.calendar.Calendar.Builder(
                 transport, jsonFactory, credential)
-                .setApplicationName("Calendar API Android Quickstart")
+                .setApplicationName("AndroidClient")
                 .build();
     }
 

@@ -43,28 +43,19 @@ public class MainActivity extends ActionBarActivity {
         t2 = (TextView) findViewById(R.id.textView2);
         t3 = (TextView) findViewById(R.id.textView3);
 
-        b1.setOnClickListener( new View.OnClickListener() {
-                                   @Override
-                                   public void onClick(View v) {
+        ConnectivityManager connectivityManager = (ConnectivityManager) getSystemService(CONNECTIVITY_SERVICE);
+        NetworkInfo networkInfo = connectivityManager.getActiveNetworkInfo();
 
-                                       ConnectivityManager connectivityManager = (ConnectivityManager) getSystemService(CONNECTIVITY_SERVICE);
-                                       NetworkInfo networkInfo = connectivityManager.getActiveNetworkInfo();
+        if(networkInfo != null && networkInfo.isAvailable() && networkInfo.isConnected()) {
+            boolean wifi = networkInfo.getType() == ConnectivityManager.TYPE_WIFI;
+            t1.setText("NetworkState " + " L'interface de connexion active est du Wifi : " + wifi);
+        }
 
-                                       if(networkInfo != null && networkInfo.isAvailable() && networkInfo.isConnected()) {
-                                           boolean wifi = networkInfo.getType() == ConnectivityManager.TYPE_WIFI;
-                                           t1.setText("NetworkState " + " L'interface de connexion active est du Wifi : " + wifi);
-                                       }
+        if(networkInfo != null && networkInfo.isAvailable() && networkInfo.isConnected()) {
+            boolean mobile = networkInfo.getType() == ConnectivityManager.TYPE_MOBILE;
+            t2.setText("NetworkState " + " L'interface de connexion active est du mobile : " + mobile);
+        }
 
-                                       if(networkInfo != null && networkInfo.isAvailable() && networkInfo.isConnected()) {
-                                           boolean mobile = networkInfo.getType() == ConnectivityManager.TYPE_MOBILE;
-                                           t2.setText("NetworkState " + " L'interface de connexion active est du mobile : " + mobile);
-                                       }
-
-                                       /*SendingGetRequestTask sg = new SendingGetRequestTask();
-                                       sg.execute();*/
-                                   }
-                               }
-        );
         SendingGetRequestTask sg = new SendingGetRequestTask();
         sg.execute();
     }

@@ -1,0 +1,4 @@
+avr. 29, 2015 2:14:16 PM org.restlet.engine.connector.NetServerHelper start
+INFOS: Starting the internal [HTTP/1.1] server on port 8183
+avr. 29, 2015 2:14:36 PM org.restlet.engine.connector.NetServerHelper stop
+INFOS: Stopping the internal server

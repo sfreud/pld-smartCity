@@ -1,16 +1,21 @@
 package com.example.androidclient;
 
 import android.os.AsyncTask;
+import android.util.Log;
+
 import com.google.api.client.googleapis.extensions.android.gms.auth.GooglePlayServicesAvailabilityIOException;
 import com.google.api.client.googleapis.extensions.android.gms.auth.UserRecoverableAuthIOException;
 import com.google.api.client.util.DateTime;
 
+import com.google.api.services.calendar.model.EventDateTime;
 import com.google.api.services.calendar.model.Events;
 import com.google.api.services.calendar.model.Event;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+import java.util.TimeZone;
 
 /**
  * An asynchronous task that handles the Calendar API event list retrieval.
@@ -35,6 +40,7 @@ public class EventFetchTask extends AsyncTask<Void, Void, Void> {
     protected Void doInBackground(Void... params) {
         try {
             mActivity.clearEvents();
+            //addEvent();
             mActivity.updateEventList(fetchEventsFromCalendar());
 
         } catch (final GooglePlayServicesAvailabilityIOException availabilityException) {
@@ -95,6 +101,23 @@ public class EventFetchTask extends AsyncTask<Void, Void, Void> {
                     String.format("%s (%s) Location : %s", event.getSummary(), start,location));
         }
         return eventStrings;
+    }
+
+    private void addEvent() throws IOException    {
+        Event event = new Event();
+        event.setSummary("Test Création Evenement");
+        event.setLocation("Somewhere");
+
+        Date startDate = new Date();
+        Date endDate = new Date(startDate.getTime() + 3600000);
+        DateTime start = new DateTime(startDate, TimeZone.getTimeZone("UTC"));
+        event.setStart(new EventDateTime().setDateTime(start));
+        DateTime end = new DateTime(endDate, TimeZone.getTimeZone("UTC"));
+        event.setEnd(new EventDateTime().setDateTime(end));
+
+        // Insert the new event
+        Event createdEvent = mActivity.mService.events().insert("primary", event).execute();
+        Log.v("EVENT_CREATE","L'identifiant de l'évènement créé est "+createdEvent.getId());
     }
 
 }

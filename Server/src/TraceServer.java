@@ -2,10 +2,11 @@ import org.restlet.Component;
 import org.restlet.Request;
 import org.restlet.Response;
 import org.restlet.Restlet;
+import org.restlet.data.ChallengeScheme;
 import org.restlet.data.MediaType;
 import org.restlet.data.Protocol;
-import org.restlet.ext.crypto.DigestAuthenticator;
 import org.restlet.representation.StringRepresentation;
+import org.restlet.security.ChallengeAuthenticator;
 import org.restlet.security.MapVerifier;
 
 public class TraceServer extends org.restlet.resource.ServerResource {
@@ -33,7 +34,7 @@ public class TraceServer extends org.restlet.resource.ServerResource {
 		    public void handle(Request request, Response response) {
 		        response.setEntity(new StringRepresentation("A web service will be added here soon.\n"+request.toString(), MediaType.TEXT_PLAIN));
 		        
-		        //récupération des paramètres
+		        //rï¿½cupï¿½ration des paramï¿½tres
 		        /*
 		        Form form = request.getResourceRef().getQueryAsForm(); 
 		        for (Parameter parameter : form) {
@@ -41,7 +42,7 @@ public class TraceServer extends org.restlet.resource.ServerResource {
 		            System.out.println("/" + parameter.getValue());
 		        }
 		        */
-		        //récupération des cookies
+		        //rï¿½cupï¿½ration des cookies
 	            /*
 	            for (Cookie cookie : request.getCookies()) {
 		            System.out.println("name = " + cookie.getName());
@@ -60,14 +61,14 @@ public class TraceServer extends org.restlet.resource.ServerResource {
 	    
 	    
 		 // Guard the restlet with BASIC authentication.
-		DigestAuthenticator guard = new DigestAuthenticator(null, "TestRealm", "mySecretServerKey");
-		//ChallengeAuthenticator guard = new ChallengeAuthenticator(null, ChallengeScheme.HTTP_BASIC, "testRealm");
+		//DigestAuthenticator guard = new DigestAuthenticator(null, "TestRealm", "mySecretServerKey");
+		ChallengeAuthenticator guard = new ChallengeAuthenticator(null, ChallengeScheme.HTTP_BASIC, "testRealm");
 	    // Instantiates a Verifier of identifier/secret couples based on a simple Map.
 	    MapVerifier mapVerifier = new MapVerifier();
 	    // Load a single static login/secret pair.
 	    mapVerifier.getLocalSecrets().put("loginB", "secret".toCharArray());
-	    guard.setWrappedVerifier(mapVerifier);
-	    //guard.setVerifier(mapVerifier);
+	    //guard.setWrappedVerifier(mapVerifier);
+	    guard.setVerifier(mapVerifier);
 
 	    guard.setNext(restlet);
 	    Component component = new Component();
@@ -85,7 +86,7 @@ public class TraceServer extends org.restlet.resource.ServerResource {
 
 	    
 	    //extinction auto au bout de 20s
-	    Thread.sleep(20000);
+	    Thread.sleep(120000);
 	    component.stop();
 	}
 

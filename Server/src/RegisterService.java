@@ -15,6 +15,8 @@ public class RegisterService extends org.restlet.resource.ServerResource{
 		
 
 		String username = getQuery().getValues("username");
+		if(username==null || username.length()>50)
+			return "Incorrect username";
         //for (Parameter parameter : form) {
         	
             //System.out.print("parameter " + parameter.getName());
@@ -58,11 +60,12 @@ public class RegisterService extends org.restlet.resource.ServerResource{
 			s = sb.toString();*/
 			if(r==1)
 				s = "Successfully registered.";
-			else
-				s = "Operation failed.";
+			//else
+				//s = "Operation failed.";
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+			s = "Registration failed. Reason was :\n" + e.toString();
 		}
 
 		return s;

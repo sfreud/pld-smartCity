@@ -7,6 +7,7 @@ import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import com.google.android.gms.maps.*;
@@ -16,12 +17,16 @@ import android.os.Bundle;
 
 import com.google.android.gms.maps.MapView;
 
+import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.ExecutionException;
 
 
 public class MyMapActivity extends Activity implements OnMapReadyCallback {
@@ -49,22 +54,8 @@ public class MyMapActivity extends Activity implements OnMapReadyCallback {
 
         myMap = map;
 
-        start = new LatLng(45.782640, 4.878073);
-        double sourcelat = start.latitude;
-        double sourcelog = start.longitude;
-
-        end = new LatLng(45.757198, 4.831219);
-        double destlat = end.latitude;
-        double destlog = end.longitude;
-
-
-        LatLng mapCenter = new LatLng((start.latitude+end.latitude)/2, (start.longitude+end.longitude)/2);
-        myMap.setMyLocationEnabled(true);
-        myMap.moveCamera(CameraUpdateFactory.newLatLngZoom(mapCenter, 13));
-
-        String url = makeURL (sourcelat, sourcelog, destlat, destlog );
-        ConnectAsyncTask cat = new ConnectAsyncTask(url);
-        cat.execute();
+        ConnectAsyncTask2 cat2 = new ConnectAsyncTask2("INSA de Lyon","Place Bellecour, Lyon");
+        cat2.execute();
     }
 
     public void drawPath(String  result) {
@@ -153,6 +144,36 @@ public class MyMapActivity extends Activity implements OnMapReadyCallback {
         return urlString.toString();
     }
 
+    public String makeGeocodingRequestURL(String adress) throws UnsupportedEncodingException {
+        StringBuilder urlString = new StringBuilder();
+        urlString.append("https://maps.googleapis.com/maps/api/geocode/json?address=");
+        urlString.append(URLEncoder.encode(adress, "UTF-8"));
+        urlString.append("&key=");
+        urlString.append(getString(R.string.Geocoding_API_KEY));
+        return urlString.toString();
+    }
+
+    public LatLng getLatLng(String result)
+    {
+        LatLng ll = null;
+        try {
+            //Tranform the string into a json object
+            final JSONObject json = new JSONObject(result);
+            JSONArray resultsArray = json.getJSONArray("results");
+            JSONObject results = resultsArray.getJSONObject(0);
+            JSONObject geometry = results.getJSONObject("geometry");
+            JSONObject location = geometry.getJSONObject("location");
+            Double lat = location.getDouble("lat");
+            Double lng = location.getDouble("lng");
+            Log.d("LatLng found",lat+","+lng);
+            ll = new LatLng(lat,lng);
+        }
+        catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return ll;
+    }
+
     public class ConnectAsyncTask extends AsyncTask<Void, Void, String> {
         private ProgressDialog progressDialog;
         String url;
@@ -163,7 +184,6 @@ public class MyMapActivity extends Activity implements OnMapReadyCallback {
 
         @Override
         protected void onPreExecute() {
-            // TODO Auto-generated method stub
             super.onPreExecute();
             progressDialog = new ProgressDialog(MyMapActivity.this);
             progressDialog.setMessage("Fetching route, Please wait...");
@@ -194,6 +214,84 @@ public class MyMapActivity extends Activity implements OnMapReadyCallback {
                         .position(end);
                 myMap.addMarker(endMarker);
             }
+        }
+    };
+
+    public class ConnectAsyncTask2 extends AsyncTask<Void, Void, List<LatLng>> {
+        private ProgressDialog progressDialog;
+        String startAdress;
+        String endAdress;
+
+        ConnectAsyncTask2(String sAdr,String eAdress) {
+            startAdress = sAdr;
+            endAdress = eAdress;
+        }
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            progressDialog = new ProgressDialog(MyMapActivity.this);
+            progressDialog.setMessage("Fetching route, Please wait...");
+            progressDialog.setIndeterminate(true);
+            progressDialog.show();
+        }
+
+        @Override
+        protected List<LatLng> doInBackground(Void... params) {
+            List<LatLng> lls = new ArrayList<LatLng>();
+
+            LatLng ll1 = null;
+            JSONParser jParser = new JSONParser();
+            String json = null;
+            try {
+                json = jParser.getJSONFromUrl(makeGeocodingRequestURL(startAdress));
+            } catch (UnsupportedEncodingException e) {
+                e.printStackTrace();
+            }
+            if(json!=null)
+            {
+                ll1 = getLatLng(json);
+            }
+            lls.add(ll1);
+
+            LatLng ll2 = null;
+            String json2 = null;
+            try {
+                json2 = jParser.getJSONFromUrl(makeGeocodingRequestURL(endAdress));
+            } catch (UnsupportedEncodingException e) {
+                e.printStackTrace();
+            }
+            if(json2!=null)
+            {
+                ll2 = getLatLng(json2);
+            }
+            lls.add(ll2);
+
+            return lls;
+        }
+
+        @Override
+        protected void onPostExecute(List<LatLng> result) {
+            super.onPostExecute(result);
+            progressDialog.hide();
+
+            //start = new LatLng(45.782640, 4.878073);
+            start = result.get(0);
+            double sourcelat = start.latitude;
+            double sourcelog = start.longitude;
+
+            //end = new LatLng(45.757198, 4.831219);
+            end = result.get(1);
+            double destlat = end.latitude;
+            double destlog = end.longitude;
+
+            LatLng mapCenter = new LatLng((start.latitude+end.latitude)/2, (start.longitude+end.longitude)/2);
+            myMap.setMyLocationEnabled(true);
+            myMap.moveCamera(CameraUpdateFactory.newLatLngZoom(mapCenter, 13));
+
+            String url = makeURL (sourcelat, sourcelog, destlat, destlog );
+            ConnectAsyncTask cat = new ConnectAsyncTask(url);
+            cat.execute();
         }
     };
 

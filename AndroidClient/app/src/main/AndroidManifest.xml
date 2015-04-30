@@ -19,13 +19,16 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name=".UpcomingEventsActivity"
+            android:name=".MainActivity"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".UpcomingEventsActivity"
+            android:label="@string/title_activity_upcoming_events" />
         <activity
             android:name=".MyMapActivity"
             android:label="@string/title_activity_my_map" >
@@ -36,7 +39,7 @@
             android:value="@integer/google_play_services_version" />
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyA2h0_JGUTq9Ix1nqSHgXmAdRBUQfkSfqA" />
+            android:value="@string/API_KEY" />
 
     </application>
 

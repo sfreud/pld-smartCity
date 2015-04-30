@@ -1,6 +1,5 @@
 package com.example.androidclient;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
@@ -14,25 +13,19 @@ import android.widget.TextView;
 
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
-import org.apache.http.client.ResponseHandler;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
-import org.apache.http.impl.client.BasicResponseHandler;
 import org.apache.http.impl.client.DefaultHttpClient;
 
-import java.io.BufferedInputStream;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.io.Reader;
-import java.io.UnsupportedEncodingException;
-import java.net.HttpURLConnection;
-import java.net.URL;
 
 
 public class MainActivity extends ActionBarActivity {
-    Button b1 = null;
+    Button getEventsListButton= null;
+    Button getMapButton = null;
     TextView t1 = null;
     TextView t2 =  null;
     TextView t3 =  null;
@@ -42,29 +35,33 @@ public class MainActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        b1 = (Button) findViewById(R.id.button);
+        getEventsListButton = (Button) findViewById(R.id.button);
+        getMapButton = (Button) findViewById(R.id.button2);
         t1 = (TextView) findViewById(R.id.textView);
         t2 = (TextView) findViewById(R.id.textView2);
         t3 = (TextView) findViewById(R.id.textView3);
 
-        ConnectivityManager connectivityManager = (ConnectivityManager) getSystemService(CONNECTIVITY_SERVICE);
-        NetworkInfo networkInfo = connectivityManager.getActiveNetworkInfo();
+        getEventsListButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, UpcomingEventsActivity.class);
+                startActivity(intent);
+            }
+        });
 
-        if(networkInfo != null && networkInfo.isAvailable() && networkInfo.isConnected()) {
-            boolean wifi = networkInfo.getType() == ConnectivityManager.TYPE_WIFI;
-            t1.setText("NetworkState " + " L'interface de connexion active est du Wifi : " + wifi);
-        }
-
-        if(networkInfo != null && networkInfo.isAvailable() && networkInfo.isConnected()) {
-            boolean mobile = networkInfo.getType() == ConnectivityManager.TYPE_MOBILE;
-            t2.setText("NetworkState " + " L'interface de connexion active est du mobile : " + mobile);
-        }
+        getMapButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, MyMapActivity.class);
+                startActivity(intent);
+            }
+        });
 
         //SendingGetRequestTask sg = new SendingGetRequestTask();
         //sg.execute();
 
-        AuthenficationRequestTask art = new AuthenficationRequestTask();
-        art.execute();
+       /* AuthenficationRequestTask art = new AuthenficationRequestTask();
+        art.execute();*/
     }
 
     @Override

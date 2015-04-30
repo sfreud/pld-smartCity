@@ -17,7 +17,7 @@ public class test {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        Graph g = new Graph();
+        Graph g = new Graph(0);
         g.addEdge(0, 1, 5);
         g.addEdge(0, 2, 3);
         g.addEdge(0, 3, 2);

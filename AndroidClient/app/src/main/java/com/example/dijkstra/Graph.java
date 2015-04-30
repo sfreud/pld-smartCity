@@ -6,8 +6,8 @@ import java.util.List;
 public class Graph {
 
     private GraphNode begin;
-    public Graph() {
-        begin = new GraphNode(0);
+    public Graph(int IDbegin) {
+        begin = new GraphNode(IDbegin);
     }
 
     public List<GraphNode> getGraphNodes(){

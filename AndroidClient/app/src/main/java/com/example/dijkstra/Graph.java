@@ -13,11 +13,7 @@ public abstract class Graph {
         graphEdges = new ArrayList<GraphEdge>();
     }
 
-    public List<GraphNode> getGraphNodes() {
-        return graphNodes;
-    }
+    public abstract List<GraphNode> getGraphNodes();
 
-    public List<GraphEdge> getGraphEdges() {
-        return graphEdges;
-    }
+    public abstract List<GraphEdge> getGraphEdges();
 }

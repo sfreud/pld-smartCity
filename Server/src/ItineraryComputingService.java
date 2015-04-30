@@ -13,6 +13,21 @@ public class ItineraryComputingService extends org.restlet.resource.ServerResour
 	 */
 	@Get
 	public String represent(){
+		String departureLatitude = getQuery().getValues("dlat");
+		String departureLongitude = getQuery().getValues("dlong");
+		String arrivalLatitude = getQuery().getValues("alat");
+		String arrivalLongitude = getQuery().getValues("along");
+		
+		//convert the given String parameters to ...? (object representating gps coordinates)
+		// = Float.valueOf(departureLatitude);
+		
+		
+		//call to the class implementing the calculation, with parameters
+		
+		
+		
+		
+		//the results are returned to the client
 		return "test";
 	}
 

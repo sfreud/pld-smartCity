@@ -22,7 +22,10 @@ import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.text.method.ScrollingMovementMethod;
+import android.util.Log;
+import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -38,8 +41,10 @@ public class UpcomingEventsActivity extends Activity {
     com.google.api.services.calendar.Calendar mService;
 
     GoogleAccountCredential credential;
+    private TextView debugText;
     private TextView mStatusText;
     private TextView mEventText;
+    private Button bouton;
     final HttpTransport transport = AndroidHttp.newCompatibleTransport();
     final JsonFactory jsonFactory = GsonFactory.getDefaultInstance();
 
@@ -68,6 +73,12 @@ public class UpcomingEventsActivity extends Activity {
                 ViewGroup.LayoutParams.WRAP_CONTENT,
                 ViewGroup.LayoutParams.WRAP_CONTENT);
 
+        debugText = new TextView(this);
+        debugText.setLayoutParams(tlp);
+        debugText.setTypeface(null, Typeface.BOLD);
+        debugText.setText("Rien");
+        activityLayout.addView(debugText);
+
         mStatusText = new TextView(this);
         mStatusText.setLayoutParams(tlp);
         mStatusText.setTypeface(null, Typeface.BOLD);
@@ -81,6 +92,18 @@ public class UpcomingEventsActivity extends Activity {
         mEventText.setMovementMethod(new ScrollingMovementMethod());
         activityLayout.addView(mEventText);
 
+        bouton = new Button(this);
+        bouton.setText("Afficher la map");
+        activityLayout.addView(bouton);
+
+        bouton.setOnClickListener( new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(UpcomingEventsActivity.this, MyMapActivity.class);
+                startActivity(intent);
+            }
+        });
+
         setContentView(activityLayout);
 
         // Initialize credentials and calendar service.
@@ -89,6 +112,8 @@ public class UpcomingEventsActivity extends Activity {
                 getApplicationContext(), Arrays.asList(SCOPES))
                 .setBackOff(new ExponentialBackOff())
                 .setSelectedAccountName(settings.getString(PREF_ACCOUNT_NAME, null));
+        debugText.setText(credential.getSelectedAccountName());
+//        Log.v("Selected account :", credential.getSelectedAccountName());
 
         mService = new com.google.api.services.calendar.Calendar.Builder(
                 transport, jsonFactory, credential)

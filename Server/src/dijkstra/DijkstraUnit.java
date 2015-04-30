@@ -1,7 +1,4 @@
-package com.example.dijkstra;
-
-
-
+package dijkstra;
 
 import java.util.ArrayList;
 import java.util.HashMap;

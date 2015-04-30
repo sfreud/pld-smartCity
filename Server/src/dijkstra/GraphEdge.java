@@ -1,4 +1,4 @@
-package com.example.dijkstra;
+package dijkstra;
 
 public  class GraphEdge {
     private Long weight;

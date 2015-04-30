@@ -26,8 +26,12 @@ import java.util.List;
 
 public class MyMapActivity extends Activity implements OnMapReadyCallback {
 
-    MapFragment mapFragment = null;
-    GoogleMap myMap = null;
+    private MapFragment mapFragment = null;
+    private GoogleMap myMap = null;
+    LatLng start = null;
+    LatLng end = null;
+    double totalDistance = 0;
+    double totalDuration = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,29 +47,20 @@ public class MyMapActivity extends Activity implements OnMapReadyCallback {
     @Override
     public void onMapReady(GoogleMap map) {
 
-
-
         myMap = map;
 
-        LatLng start = new LatLng(45.782640, 4.878073);
+        start = new LatLng(45.782640, 4.878073);
         double sourcelat = start.latitude;
         double sourcelog = start.longitude;
 
-        map.addMarker(new MarkerOptions()
-                .title("Start")
-                .position( start));
-
-        LatLng end = new LatLng(45.757198, 4.831219);
+        end = new LatLng(45.757198, 4.831219);
         double destlat = end.latitude;
         double destlog = end.longitude;
 
-        map.addMarker(new MarkerOptions()
-                .title("End")
-                .position(end));
 
         LatLng mapCenter = new LatLng((start.latitude+end.latitude)/2, (start.longitude+end.longitude)/2);
-        map.setMyLocationEnabled(true);
-        map.moveCamera(CameraUpdateFactory.newLatLngZoom(mapCenter, 13));
+        myMap.setMyLocationEnabled(true);
+        myMap.moveCamera(CameraUpdateFactory.newLatLngZoom(mapCenter, 13));
 
         String url = makeURL (sourcelat, sourcelog, destlat, destlog );
         ConnectAsyncTask cat = new ConnectAsyncTask(url);
@@ -79,6 +74,15 @@ public class MyMapActivity extends Activity implements OnMapReadyCallback {
             final JSONObject json = new JSONObject(result);
             JSONArray routeArray = json.getJSONArray("routes");
             JSONObject routes = routeArray.getJSONObject(0);
+            JSONArray legsArray = routes.getJSONArray("legs");
+            JSONObject leg = legsArray.getJSONObject(0);
+            JSONObject distanceObject = leg.getJSONObject("distance");
+            String distanceValue = distanceObject.getString("value");
+            totalDistance = Double.parseDouble(distanceValue)/1000;
+            JSONObject durationObject = leg.getJSONObject("duration");
+            String durationValue = durationObject.getString("value");
+            totalDuration = Double.parseDouble(durationValue)/60;
+
             JSONObject overviewPolylines = routes.getJSONObject("overview_polyline");
             String encodedString = overviewPolylines.getString("points");
             List<LatLng> list = decodePoly(encodedString);
@@ -180,6 +184,15 @@ public class MyMapActivity extends Activity implements OnMapReadyCallback {
             progressDialog.hide();
             if (result != null) {
                 drawPath(result);
+                MarkerOptions startMarker = new MarkerOptions()
+                        .title("Start")
+                        .position(start);
+                myMap.addMarker(startMarker);
+                MarkerOptions endMarker = new MarkerOptions()
+                        .title("End")
+                        .snippet(totalDistance + "km ("+totalDuration+" minutes)")
+                        .position(end);
+                myMap.addMarker(endMarker);
             }
         }
     };

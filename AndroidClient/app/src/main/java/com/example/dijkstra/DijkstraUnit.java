@@ -1,6 +1,8 @@
 package com.example.dijkstra;
 
 
+import android.util.Pair;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -8,7 +10,7 @@ import java.util.Map;
 
 public class DijkstraUnit {
 
-	public static List<GraphNode> dijkstraAlgorithm(GraphNode start, GraphNode end, Graph graph) {
+	public static Pair<List<GraphNode>,Long> dijkstraAlgorithm(GraphNode start, GraphNode end, Graph graph) {
         List<GraphNode> nodes = graph.getGraphNodes();
 		Map<GraphNode, Long> seen = new HashMap<GraphNode, Long>();
 		Map<GraphNode, GraphNode> previous = new HashMap<GraphNode, GraphNode>();
@@ -47,7 +49,7 @@ public class DijkstraUnit {
 		}
 		path.add(0, start);
 
-		return path;
+		return new Pair(path,seen.get(end));
 	}
 
 	private static GraphNode minimum(Map<GraphNode, Long> seen, List<GraphNode> nodes) {

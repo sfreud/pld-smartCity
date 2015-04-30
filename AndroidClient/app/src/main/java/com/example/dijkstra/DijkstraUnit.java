@@ -1,7 +1,7 @@
 package com.example.dijkstra;
 
 
-import android.util.Pair;
+
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -49,7 +49,7 @@ public class DijkstraUnit {
 		}
 		path.add(0, start);
 
-		return new Pair(path,seen.get(end));
+		return new Pair<>(path,seen.get(end));
 	}
 
 	private static GraphNode minimum(Map<GraphNode, Long> seen, List<GraphNode> nodes) {

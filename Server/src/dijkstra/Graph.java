@@ -2,12 +2,71 @@ package dijkstra;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 public class Graph {
 
     private GraphNode begin;
-    public Graph(int IDbegin) {
-        begin = new GraphNode(IDbegin);
+    public Graph(Map<Long, Map<Long,Long>> edges) throws GraphException {
+        if(edges.isEmpty())
+        {
+            throw new GraphException();
+        }
+        
+        for(Long nodeToVerify : edges.keySet())
+        {
+            boolean weCanGoTo = false;
+            for(Long nodeBeg : edges.keySet())
+            {
+                for(Long nodeArr : edges.get(nodeBeg).keySet())
+                {
+                    if(nodeToVerify.equals(nodeArr))
+                    {
+                        weCanGoTo = true;
+                    }
+                }
+            }
+            if(!weCanGoTo)
+            {
+                throw new GraphException();
+            }
+        }
+        for(Long nodeBeg : edges.keySet())
+        {
+            for(Long nodeArr : edges.get(nodeBeg).keySet())
+            {
+                if(!edges.keySet().contains(nodeArr))
+                {
+                    throw new GraphException();
+                }
+            }
+        }
+        
+        begin = new GraphNode((Long)edges.keySet().toArray()[0]);
+        List<Long> nodesBlack = new ArrayList<>();
+        List<Long> nodesGrey = new ArrayList<>();
+        nodesGrey.add((Long)edges.keySet().toArray()[0]);
+        while(nodesBlack.size()!=edges.keySet().size())
+        {
+           Long cur = nodesGrey.get(0);
+           Map<Long,Long> edgesLeaving = edges.get(cur);
+           if(edgesLeaving == null)
+           {
+               throw new GraphException();
+           }
+           for(Long arr : edgesLeaving.keySet())
+           {
+               if(!this.addEdge(cur, arr, edgesLeaving.get(arr)))
+               {
+                   throw new GraphException();
+               }
+               nodesGrey.add(arr);
+           }
+           nodesGrey.remove(cur);
+           nodesBlack.add(cur);
+        }
+        
+        
     }
 
     public List<GraphNode> getGraphNodes(){
@@ -58,7 +117,7 @@ public class Graph {
         return max;
     }
     
-    public boolean addEdge(long nbBegin, long nbEnd, long length)
+    public final boolean addEdge(long nbBegin, long nbEnd, long length)
     {
         GraphNode nodeBegin = null;
         GraphNode nodeEnd = null;
@@ -128,7 +187,7 @@ public class Graph {
         return DijkstraUnit.dijkstraAlgorithm(begin, end, this);
     }
     
-    public GraphNode getNode(long ID)
+    public final GraphNode getNode(long ID)
     {
         GraphNode ret = null;
         List<GraphNode> greyNodes = new ArrayList<>();

@@ -174,7 +174,7 @@ public class MyMapActivity extends Activity implements OnMapReadyCallback {
         return ll;
     }
 
-    public class ConnectAsyncTask extends AsyncTask<Void, Void, String> {
+    protected class ConnectAsyncTask extends AsyncTask<Void, Void, String> {
         private ProgressDialog progressDialog;
         String url;
 

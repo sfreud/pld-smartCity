@@ -11,12 +11,10 @@ import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.Button;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GooglePlayServicesUtil;
@@ -38,7 +36,7 @@ import java.util.List;
 
 public class UpcomingEventsActivity extends Activity {
 
-    public final static String SELECTED_EVENT = "com.example.android.SELECTED_EVENT";
+    public final static String SELECTED_EVENT = "com.example.androidclient.SELECTED_EVENT";
     /**
      * A Calendar service object used to query or modify calendars via the
      * Calendar API. Note: Do not confuse this class with the
@@ -49,7 +47,6 @@ public class UpcomingEventsActivity extends Activity {
     GoogleAccountCredential credential;
     protected TextView debugText;
     protected TextView mStatusText;
-    protected Button getMapButton;
     protected ListView eventsListView;
     final HttpTransport transport = AndroidHttp.newCompatibleTransport();
     final JsonFactory jsonFactory = GsonFactory.getDefaultInstance();
@@ -75,15 +72,6 @@ public class UpcomingEventsActivity extends Activity {
         mStatusText = (TextView) findViewById(R.id.mStatusText);
 
         eventsListView = (ListView) findViewById(R.id.eventsListView);
-
-        getMapButton = (Button) findViewById(R.id.getMap);
-        getMapButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(UpcomingEventsActivity.this, MyMapActivity.class);
-                startActivity(intent);
-            }
-        });
 
         // Initialize credentials and calendar service.
         SharedPreferences settings = getPreferences(Context.MODE_PRIVATE);
@@ -251,7 +239,6 @@ public class UpcomingEventsActivity extends Activity {
                         @Override
                         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                             Event selectedEvent = events.get(position);
-                            Toast.makeText(getBaseContext(), selectedEvent.getSummary() + " (" + selectedEvent.getStart().getDateTime() + ")", Toast.LENGTH_LONG).show();
                             Intent intent = new Intent(UpcomingEventsActivity.this, SelectedEventActivity.class);
                             ArrayList<CharSequence> eventToList = new ArrayList<CharSequence>();
                             eventToList.add(selectedEvent.getSummary());
@@ -261,7 +248,7 @@ public class UpcomingEventsActivity extends Activity {
                                 location = "No location found";
                             }
                             eventToList.add(location);
-                            intent. putCharSequenceArrayListExtra(SELECTED_EVENT,eventToList);
+                            intent.putCharSequenceArrayListExtra(SELECTED_EVENT, eventToList);
                             startActivity(intent);
                         }
                     });

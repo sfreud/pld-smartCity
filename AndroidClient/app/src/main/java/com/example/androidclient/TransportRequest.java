@@ -6,14 +6,13 @@ import com.google.api.services.calendar.model.Event;
 public class TransportRequest {
 
 
-
     /**
      * arrivalAddress: adresse du lieu de l'évènement
      * startAddress: adresse du lieu de départ
      * startStop : adresse de l'arrêt de départ
      * arrivalStop : adresse de l'arrêt d'arrivée
      * beginEvent : date de début de l'évènement
-     * */
+     */
     private String arrivalAddress;
     private String startAddress;
     private String startStop;
@@ -21,9 +20,7 @@ public class TransportRequest {
     private DateTime beginEvent;
 
 
-
-    public TransportRequest(Event event, String startAddress)
-    {
+    public TransportRequest(Event event, String startAddress) {
         this.startAddress = startAddress;
         this.beginEvent = event.getStart().getDateTime();
         this.arrivalAddress = event.getLocation();
@@ -47,9 +44,11 @@ public class TransportRequest {
     public void setStartStop(String startStop) {
         this.startStop = startStop;
     }
+
     public String getArrivalAddress() {
         return arrivalAddress;
     }
+
     public String getStartAddress() {
         return startAddress;
     }
@@ -58,8 +57,7 @@ public class TransportRequest {
         return beginEvent;
     }
 
-    public Object calculateTransport()
-    {
+    public Object calculateTransport() {
         return null;
     }
 

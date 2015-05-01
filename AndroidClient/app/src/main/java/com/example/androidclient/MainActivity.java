@@ -1,8 +1,9 @@
 package com.example.androidclient;
+
 import android.content.Intent;
 import android.os.AsyncTask;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.util.Base64;
 import android.util.Log;
 import android.view.Menu;
@@ -24,11 +25,10 @@ import java.io.InputStreamReader;
 
 
 public class MainActivity extends ActionBarActivity {
-    Button getEventsListButton= null;
-    Button getMapButton = null;
+    Button getEventsListButton = null;
     TextView t1 = null;
-    TextView t2 =  null;
-    TextView t3 =  null;
+    TextView t2 = null;
+    TextView t3 = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,7 +36,6 @@ public class MainActivity extends ActionBarActivity {
         setContentView(R.layout.activity_main);
 
         getEventsListButton = (Button) findViewById(R.id.button);
-        getMapButton = (Button) findViewById(R.id.button2);
         t1 = (TextView) findViewById(R.id.textView);
         t2 = (TextView) findViewById(R.id.textView2);
         t3 = (TextView) findViewById(R.id.textView3);
@@ -45,14 +44,6 @@ public class MainActivity extends ActionBarActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, UpcomingEventsActivity.class);
-                startActivity(intent);
-            }
-        });
-
-        getMapButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, MyMapActivity.class);
                 startActivity(intent);
             }
         });
@@ -106,7 +97,7 @@ public class MainActivity extends ActionBarActivity {
                 inputStream = httpResponse.getEntity().getContent();
 
                 // convert inputstream to string
-                if(inputStream != null)
+                if (inputStream != null)
                     result = getStringFromInputStream(inputStream);
                 else
                     result = "Did not work!";
@@ -116,7 +107,7 @@ public class MainActivity extends ActionBarActivity {
             }
             contentAsString = result;
             Log.d("ENDING", "Requete get terminee");
-            Log.d("Page Web",contentAsString);
+            Log.d("Page Web", contentAsString);
         /*try {
 
             URL url = new URL("http://www.android.com");
@@ -166,7 +157,9 @@ public class MainActivity extends ActionBarActivity {
             }
             return sb.toString();
         }
-    };
+    }
+
+    ;
 
     protected class AuthenficationRequestTask extends AsyncTask<Void, Void, Void> {
         protected Void doInBackground(Void... params) {
@@ -187,7 +180,7 @@ public class MainActivity extends ActionBarActivity {
                 inputStream = httpResponse.getEntity().getContent();
 
                 // convert inputstream to string
-                if(inputStream != null)
+                if (inputStream != null)
                     result = getStringFromInputStream(inputStream);
                 else
                     result = "Did not work!";
@@ -200,11 +193,10 @@ public class MainActivity extends ActionBarActivity {
             return null;
         }
 
-        private String getCredentials(String u, String p)
-        {
-            Log.v("USER NAME = ",u);
-            Log.v("PASSWORD = ",p);
-            return(Base64.encodeToString((u + ":" + p).getBytes(),Base64.DEFAULT));
+        private String getCredentials(String u, String p) {
+            Log.v("USER NAME = ", u);
+            Log.v("PASSWORD = ", p);
+            return (Base64.encodeToString((u + ":" + p).getBytes(), Base64.DEFAULT));
         }
 
         // convert InputStream to String
@@ -234,8 +226,9 @@ public class MainActivity extends ActionBarActivity {
             }
             return sb.toString();
         }
-    };
+    }
 
+    ;
 
 
 }

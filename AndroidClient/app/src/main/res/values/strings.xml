@@ -10,4 +10,5 @@
     <string name="Geocoding_API_KEY">AIzaSyDoUEQPVEHEV0RIGqu838upq1gmoIMlS6Q</string>
     <string name="retrieving_events">Retrieving events...</string>
     <string name="title_activity_selected_event">SelectedEventActivity</string>
+    <string name="verifyLocations">Vérifier les localisations</string>
 </resources>

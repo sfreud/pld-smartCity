@@ -42,7 +42,6 @@ public class EventFetchTask extends AsyncTask<Void, Void, Void> {
             mActivity.clearEvents();
             //addEvent();
             mActivity.updateEventList(fetchEventsFromCalendar());
-
         } catch (final GooglePlayServicesAvailabilityIOException availabilityException) {
             mActivity.showGooglePlayServicesAvailabilityErrorDialog(
                     availabilityException.getConnectionStatusCode());
@@ -61,22 +60,13 @@ public class EventFetchTask extends AsyncTask<Void, Void, Void> {
 
     /**
      * Fetch a list of the next 10 events from the primary calendar.
-     * @return List of Strings describing returned events.
+     * @return List of events.
      * @throws IOException
      */
-    private List<String> fetchEventsFromCalendar() throws IOException {
+    private List<Event> fetchEventsFromCalendar() throws IOException {
         // List the next 10 events from the primary calendar.
         DateTime now = new DateTime(System.currentTimeMillis());
         List<String> eventStrings = new ArrayList<String>();
-        /* Calendar.Events events() : An accessor for creating requests from the Events collection. return :
-         * Calendar.Events.List list(java.lang.String calendarId) : Returns events on the specified calendar.
-          Create a request for the method "events.list". This request holds the parameters needed by the calendar server.
-           After setting any optional parameters, call the AbstractGoogleClientRequest.execute() method to invoke the remote operation.
-         * Calendar.Events.List setMaxResults(java.lang.Integer maxResults) : Maximum number of events returned on one result page.
-         * Calendar.Events.List setOrderBy(java.lang.String orderBy) : The order of the events returned in the result.
-         * Calendar.Events.List setSingleEvents(java.lang.Boolean singleEvents) : Whether to expand recurring events into instances
-           and only return single one-off events and instances of recurring events, but not the underlying recurring events themselves.
-        */
         Events events = mActivity.mService.events().list("primary")
                 .setMaxResults(10)
                 .setTimeMin(now)
@@ -85,22 +75,7 @@ public class EventFetchTask extends AsyncTask<Void, Void, Void> {
                 .execute();
         List<Event> items = events.getItems();
 
-        for (Event event : items) {
-            DateTime start = event.getStart().getDateTime();
-            if (start == null) {
-                // All-day events don't have start times, so just use
-                // the start date.
-                start = event.getStart().getDate();
-            }
-            String location = event.getLocation();
-
-            if (location == null) {
-                location = "No location found";
-            }
-            eventStrings.add(
-                    String.format("%s (%s) Location : %s", event.getSummary(), start,location));
-        }
-        return eventStrings;
+        return items;
     }
 
     private void addEvent() throws IOException    {

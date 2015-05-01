@@ -7,8 +7,10 @@ import com.google.android.gms.common.GooglePlayServicesUtil;
 import com.google.api.client.json.JsonFactory;
 import com.google.api.client.json.gson.GsonFactory;
 import com.google.api.client.http.HttpTransport;
+import com.google.api.client.util.DateTime;
 import com.google.api.client.util.ExponentialBackOff;
 import com.google.api.services.calendar.CalendarScopes;
+import com.google.api.services.calendar.model.Event;
 
 import android.accounts.AccountManager;
 import android.app.Activity;
@@ -16,20 +18,22 @@ import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.graphics.Typeface;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.text.method.ScrollingMovementMethod;
-import android.util.Log;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.LinearLayout;
+import android.widget.ListAdapter;
+import android.widget.ListView;
+import android.widget.SimpleAdapter;
 import android.widget.TextView;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 
 public class UpcomingEventsActivity extends Activity {
@@ -43,8 +47,8 @@ public class UpcomingEventsActivity extends Activity {
     GoogleAccountCredential credential;
     private TextView debugText;
     private TextView mStatusText;
-    private TextView mEventText;
-    private Button bouton;
+    private Button getMapButton;
+    private ListView eventsListView;
     final HttpTransport transport = AndroidHttp.newCompatibleTransport();
     final JsonFactory jsonFactory = GsonFactory.getDefaultInstance();
 
@@ -61,50 +65,22 @@ public class UpcomingEventsActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        LinearLayout activityLayout = new LinearLayout(this);
-        LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(
-                LinearLayout.LayoutParams.MATCH_PARENT,
-                LinearLayout.LayoutParams.MATCH_PARENT);
-        activityLayout.setLayoutParams(lp);
-        activityLayout.setOrientation(LinearLayout.VERTICAL);
-        activityLayout.setPadding(16, 16, 16, 16);
+        setContentView(R.layout.activity_upcoming_events);
 
-        ViewGroup.LayoutParams tlp = new ViewGroup.LayoutParams(
-                ViewGroup.LayoutParams.WRAP_CONTENT,
-                ViewGroup.LayoutParams.WRAP_CONTENT);
+        debugText = (TextView) findViewById(R.id.debugText);
 
-        debugText = new TextView(this);
-        debugText.setLayoutParams(tlp);
-        debugText.setTypeface(null, Typeface.BOLD);
-        debugText.setText("Rien");
-        activityLayout.addView(debugText);
+        mStatusText = (TextView) findViewById(R.id.mStatusText);
 
-        mStatusText = new TextView(this);
-        mStatusText.setLayoutParams(tlp);
-        mStatusText.setTypeface(null, Typeface.BOLD);
-        mStatusText.setText("Retrieving events...");
-        activityLayout.addView(mStatusText);
+        eventsListView = (ListView) findViewById(R.id.eventsListView);
 
-        mEventText = new TextView(this);
-        mEventText.setLayoutParams(tlp);
-        mEventText.setPadding(16, 16, 16, 16);
-        mEventText.setVerticalScrollBarEnabled(true);
-        mEventText.setMovementMethod(new ScrollingMovementMethod());
-        activityLayout.addView(mEventText);
-
-        bouton = new Button(this);
-        bouton.setText("Afficher la map");
-        activityLayout.addView(bouton);
-
-        bouton.setOnClickListener( new View.OnClickListener() {
+        getMapButton = (Button) findViewById(R.id.getMap);
+        getMapButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(UpcomingEventsActivity.this, MyMapActivity.class);
                 startActivity(intent);
             }
         });
-
-        setContentView(activityLayout);
 
         // Initialize credentials and calendar service.
         SharedPreferences settings = getPreferences(Context.MODE_PRIVATE);
@@ -113,7 +89,6 @@ public class UpcomingEventsActivity extends Activity {
                 .setBackOff(new ExponentialBackOff())
                 .setSelectedAccountName(settings.getString(PREF_ACCOUNT_NAME, null));
         debugText.setText(credential.getSelectedAccountName());
-//        Log.v("Selected account :", credential.getSelectedAccountName());
 
         mService = new com.google.api.services.calendar.Calendar.Builder(
                 transport, jsonFactory, credential)
@@ -215,29 +190,57 @@ public class UpcomingEventsActivity extends Activity {
             @Override
             public void run() {
                 mStatusText.setText("Retrieving events…");
-                mEventText.setText("");
             }
         });
     }
 
     /**
-     * Fill the event display with the given List of strings; called from
+     * Fill the event display called from
      * background threads and async tasks that need to update the UI (in the
      * UI thread).
-     * @param eventStrings a List of Strings to populate the event display with.
+     * @param events a List of Event
      */
-    public void updateEventList(final List<String> eventStrings) {
+    public void updateEventList(final List<Event> events) {
         runOnUiThread(new Runnable() {
             @Override
             public void run() {
-                if (eventStrings == null) {
+                if (events == null) {
                     mStatusText.setText("Error retrieving events!");
-                } else if (eventStrings.size() == 0) {
+                } else if (events.size() == 0) {
                     mStatusText.setText("No upcoming events found.");
                 } else {
                     mStatusText.setText("Your upcoming events retrieved using" +
                             " the Google Calendar API:");
-                    mEventText.setText(TextUtils.join("\n\n", eventStrings));
+                    //mEventText.setText(TextUtils.join("\n\n", events));
+                    List<HashMap<String, String>> liste = new ArrayList<HashMap<String, String>>();
+                    HashMap<String, String> element;
+                    for(int i = 0 ; i < events.size() ; i++) {
+                        Event event = events.get(i);
+                        element = new HashMap<String, String>();
+                        element.put("summary", event.getSummary());
+                        DateTime start = event.getStart().getDateTime();
+                        if (start == null) {
+                            // All-day events don't have start times, so just use
+                            // the start date.
+                            start = event.getStart().getDate();
+                        }
+                        Date startDate = new Date(start.getValue());
+                        String location = event.getLocation();
+                        element.put("startTime", startDate.toString());                        
+
+                        if (location == null) {
+                            location = "No location found";
+                        }
+                        element.put("location", location);
+                        liste.add(element);
+                    }
+
+                    ListAdapter adapter = new SimpleAdapter(UpcomingEventsActivity.this,
+                            liste,
+                            R.layout.simple_events_list,
+                            new String[] {"summary", "startTime","location"},
+                            new int[] {R.id.eventSummary, R.id.eventStartTime, R.id.eventLocation });
+                    eventsListView.setAdapter(adapter);
                 }
             }
         });

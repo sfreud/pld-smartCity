@@ -7,17 +7,17 @@ import java.util.Map;
 
 public class DijkstraUnit {
 
-	public static Pair<List<GraphNode>,Long> dijkstraAlgorithm(GraphNode start, GraphNode end, Graph graph) {
+	public static Pair<List<GraphNode>,Float> dijkstraAlgorithm(GraphNode start, GraphNode end, Graph graph) {
         List<GraphNode> nodes = graph.getGraphNodes();
-		Map<GraphNode, Long> seen = new HashMap<GraphNode, Long>();
+		Map<GraphNode, Float> seen = new HashMap<GraphNode, Float>();
 		Map<GraphNode, GraphNode> previous = new HashMap<GraphNode, GraphNode>();
 
 		for (GraphNode n : nodes) {
-			seen.put(n, (Long.MAX_VALUE)/2);
+			seen.put(n, (Float.MAX_VALUE)/2);
 			previous.put(n, start);
 		}
 
-		seen.put(start, (long) 0);
+		seen.put(start, (float) 0);
 
 		List<GraphNode> notSeenYet = new ArrayList<GraphNode>();
 		notSeenYet.addAll(nodes);
@@ -28,7 +28,7 @@ public class DijkstraUnit {
 			List<GraphNode> sons = n1.getSons();
 			for (GraphNode n2 : sons) {
 				GraphEdge edgeP1P2 = n1.getGraphEdgeWith(n2);
-				long newWeight = seen.get(n1) + edgeP1P2.getWeight();
+				float newWeight = seen.get(n1) + edgeP1P2.getWeight();
 				if (seen.get(n2) > newWeight) {
 					seen.put(n2, newWeight);
 					previous.put(n2, n1);
@@ -49,12 +49,12 @@ public class DijkstraUnit {
 		return new Pair<>(path,seen.get(end));
 	}
 
-	private static GraphNode minimum(Map<GraphNode, Long> seen, List<GraphNode> nodes) {
-		long minValue = seen.get(nodes.get(0));
+	private static GraphNode minimum(Map<GraphNode, Float> seen, List<GraphNode> nodes) {
+		float minValue = seen.get(nodes.get(0));
 		GraphNode minNode = nodes.get(0);
 
 		for (GraphNode n : nodes) {
-			long seenNode = seen.get(n);
+			float seenNode = seen.get(n);
 			if (minValue > seenNode) {
 				minValue = seenNode;
 				minNode = n;

@@ -7,7 +7,7 @@ import java.util.Map;
 public class Graph {
 
     private GraphNode begin;
-    public Graph(Map<Long, Map<Long,Long>> edges) throws GraphException {
+    public Graph(Map<Long, Map<Long,Float>> edges) throws GraphException {
         if(edges.isEmpty())
         {
             throw new GraphException();
@@ -49,7 +49,7 @@ public class Graph {
         while(nodesBlack.size()!=edges.keySet().size())
         {
            Long cur = nodesGrey.get(0);
-           Map<Long,Long> edgesLeaving = edges.get(cur);
+           Map<Long,Float> edgesLeaving = edges.get(cur);
            if(edgesLeaving == null)
            {
                throw new GraphException();
@@ -117,7 +117,7 @@ public class Graph {
         return max;
     }
     
-    public final boolean addEdge(long nbBegin, long nbEnd, long length)
+    public final boolean addEdge(long nbBegin, long nbEnd, float length)
     {
         GraphNode nodeBegin = null;
         GraphNode nodeEnd = null;
@@ -182,7 +182,7 @@ public class Graph {
         }
     }
     
-    public Pair<List<GraphNode>, Long> getShorterWay(GraphNode begin, GraphNode end)
+    public Pair<List<GraphNode>, Float> getShorterWay(GraphNode begin, GraphNode end)
     {
         return DijkstraUnit.dijkstraAlgorithm(begin, end, this);
     }

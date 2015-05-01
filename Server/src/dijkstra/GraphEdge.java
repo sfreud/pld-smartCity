@@ -1,18 +1,18 @@
 package dijkstra;
 
 public  class GraphEdge {
-    private Long weight;
+    private Float weight;
     private GraphNode begin;    
     private GraphNode end;
     
-    public GraphEdge(GraphNode b, GraphNode e, Long w){
+    public GraphEdge(GraphNode b, GraphNode e, Float w){
         begin = b;
         end = e; 
         weight = w;
         begin.addEdge(this);
     }
     
-    public Long getWeight() {
+    public Float getWeight() {
         return weight;
     }
     public GraphNode getBegin() {

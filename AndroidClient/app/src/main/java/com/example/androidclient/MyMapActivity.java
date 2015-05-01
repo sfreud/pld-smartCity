@@ -285,9 +285,9 @@ public class MyMapActivity extends Activity implements OnMapReadyCallback {
             double destlat = end.latitude;
             double destlog = end.longitude;
 
-            LatLng mapCenter = new LatLng((start.latitude+end.latitude)/2, (start.longitude+end.longitude)/2);
+            //LatLng mapCenter = new LatLng((start.latitude+end.latitude)/2, (start.longitude+end.longitude)/2);
             myMap.setMyLocationEnabled(true);
-            myMap.moveCamera(CameraUpdateFactory.newLatLngZoom(mapCenter, 13));
+            myMap.moveCamera(CameraUpdateFactory.newLatLngZoom(start, 13));
 
             String url = makeURL (sourcelat, sourcelog, destlat, destlog );
             ConnectAsyncTask cat = new ConnectAsyncTask(url);

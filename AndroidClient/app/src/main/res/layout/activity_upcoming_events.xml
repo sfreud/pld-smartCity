@@ -9,7 +9,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_weight="5"
-        android:text="Rien"
         android:textStyle="bold" />
 
     <TextView
@@ -17,7 +16,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_weight="5"
-        android:text="Retrieving events..."
+        android:text="@string/retrieving_events"
         android:textStyle="bold" />
 
     <ListView
@@ -25,7 +24,7 @@
         android:layout_width="fill_parent"
         android:layout_height="0dip"
         android:layout_weight="85"
-        android:choiceMode="singleChoice"></ListView>
+        android:choiceMode="singleChoice"/>
 
     <Button
         android:id="@+id/getMap"

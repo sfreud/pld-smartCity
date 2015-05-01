@@ -1,17 +1,5 @@
 package com.example.androidclient;
 
-import com.google.android.gms.common.ConnectionResult;
-import com.google.api.client.extensions.android.http.AndroidHttp;
-import com.google.api.client.googleapis.extensions.android.gms.auth.GoogleAccountCredential;
-import com.google.android.gms.common.GooglePlayServicesUtil;
-import com.google.api.client.json.JsonFactory;
-import com.google.api.client.json.gson.GsonFactory;
-import com.google.api.client.http.HttpTransport;
-import com.google.api.client.util.DateTime;
-import com.google.api.client.util.ExponentialBackOff;
-import com.google.api.services.calendar.CalendarScopes;
-import com.google.api.services.calendar.model.Event;
-
 import android.accounts.AccountManager;
 import android.app.Activity;
 import android.app.Dialog;
@@ -21,14 +9,26 @@ import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
-import android.text.TextUtils;
-import android.text.method.ScrollingMovementMethod;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.google.android.gms.common.ConnectionResult;
+import com.google.android.gms.common.GooglePlayServicesUtil;
+import com.google.api.client.extensions.android.http.AndroidHttp;
+import com.google.api.client.googleapis.extensions.android.gms.auth.GoogleAccountCredential;
+import com.google.api.client.http.HttpTransport;
+import com.google.api.client.json.JsonFactory;
+import com.google.api.client.json.gson.GsonFactory;
+import com.google.api.client.util.DateTime;
+import com.google.api.client.util.ExponentialBackOff;
+import com.google.api.services.calendar.CalendarScopes;
+import com.google.api.services.calendar.model.Event;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -37,6 +37,8 @@ import java.util.HashMap;
 import java.util.List;
 
 public class UpcomingEventsActivity extends Activity {
+
+    public final static String SELECTED_EVENT = "com.example.android.SELECTED_EVENT";
     /**
      * A Calendar service object used to query or modify calendars via the
      * Calendar API. Note: Do not confuse this class with the
@@ -45,10 +47,10 @@ public class UpcomingEventsActivity extends Activity {
     com.google.api.services.calendar.Calendar mService;
 
     GoogleAccountCredential credential;
-    private TextView debugText;
-    private TextView mStatusText;
-    private Button getMapButton;
-    private ListView eventsListView;
+    protected TextView debugText;
+    protected TextView mStatusText;
+    protected Button getMapButton;
+    protected ListView eventsListView;
     final HttpTransport transport = AndroidHttp.newCompatibleTransport();
     final JsonFactory jsonFactory = GsonFactory.getDefaultInstance();
 
@@ -56,10 +58,11 @@ public class UpcomingEventsActivity extends Activity {
     static final int REQUEST_AUTHORIZATION = 1001;
     static final int REQUEST_GOOGLE_PLAY_SERVICES = 1002;
     private static final String PREF_ACCOUNT_NAME = "accountName";
-    private static final String[] SCOPES = {CalendarScopes.CALENDAR,CalendarScopes.CALENDAR_READONLY};
+    private static final String[] SCOPES = {CalendarScopes.CALENDAR, CalendarScopes.CALENDAR_READONLY};
 
     /**
      * Create the main activity.
+     *
      * @param savedInstanceState previously saved instance data.
      */
     @Override
@@ -115,17 +118,18 @@ public class UpcomingEventsActivity extends Activity {
      * Called when an activity launched here (specifically, AccountPicker
      * and authorization) exits, giving you the requestCode you started it with,
      * the resultCode it returned, and any additional data from it.
+     *
      * @param requestCode code indicating which activity result is incoming.
-     * @param resultCode code indicating the result of the incoming
-     *     activity result.
-     * @param data Intent (containing result data) returned by incoming
-     *     activity result.
+     * @param resultCode  code indicating the result of the incoming
+     *                    activity result.
+     * @param data        Intent (containing result data) returned by incoming
+     *                    activity result.
      */
     @Override
     protected void onActivityResult(
             int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        switch(requestCode) {
+        switch (requestCode) {
             case REQUEST_GOOGLE_PLAY_SERVICES:
                 if (resultCode == RESULT_OK) {
                     refreshEventList();
@@ -198,6 +202,7 @@ public class UpcomingEventsActivity extends Activity {
      * Fill the event display called from
      * background threads and async tasks that need to update the UI (in the
      * UI thread).
+     *
      * @param events a List of Event
      */
     public void updateEventList(final List<Event> events) {
@@ -214,7 +219,7 @@ public class UpcomingEventsActivity extends Activity {
                     //mEventText.setText(TextUtils.join("\n\n", events));
                     List<HashMap<String, String>> liste = new ArrayList<HashMap<String, String>>();
                     HashMap<String, String> element;
-                    for(int i = 0 ; i < events.size() ; i++) {
+                    for (int i = 0; i < events.size(); i++) {
                         Event event = events.get(i);
                         element = new HashMap<String, String>();
                         element.put("summary", event.getSummary());
@@ -225,9 +230,9 @@ public class UpcomingEventsActivity extends Activity {
                             start = event.getStart().getDate();
                         }
                         Date startDate = new Date(start.getValue());
-                        String location = event.getLocation();
-                        element.put("startTime", startDate.toString());                        
+                        element.put("startTime", startDate.toString());
 
+                        String location = event.getLocation();
                         if (location == null) {
                             location = "No location found";
                         }
@@ -238,9 +243,28 @@ public class UpcomingEventsActivity extends Activity {
                     ListAdapter adapter = new SimpleAdapter(UpcomingEventsActivity.this,
                             liste,
                             R.layout.simple_events_list,
-                            new String[] {"summary", "startTime","location"},
-                            new int[] {R.id.eventSummary, R.id.eventStartTime, R.id.eventLocation });
+                            new String[]{"summary", "startTime", "location"},
+                            new int[]{R.id.eventSummary, R.id.eventStartTime, R.id.eventLocation});
                     eventsListView.setAdapter(adapter);
+
+                    eventsListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                        @Override
+                        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                            Event selectedEvent = events.get(position);
+                            Toast.makeText(getBaseContext(), selectedEvent.getSummary() + " (" + selectedEvent.getStart().getDateTime() + ")", Toast.LENGTH_LONG).show();
+                            Intent intent = new Intent(UpcomingEventsActivity.this, SelectedEventActivity.class);
+                            ArrayList<CharSequence> eventToList = new ArrayList<CharSequence>();
+                            eventToList.add(selectedEvent.getSummary());
+                            eventToList.add(selectedEvent.getStart().getDateTime().toString());
+                            String location = selectedEvent.getLocation();
+                            if (location == null) {
+                                location = "No location found";
+                            }
+                            eventToList.add(location);
+                            intent. putCharSequenceArrayListExtra(SELECTED_EVENT,eventToList);
+                            startActivity(intent);
+                        }
+                    });
                 }
             }
         });
@@ -249,6 +273,7 @@ public class UpcomingEventsActivity extends Activity {
     /**
      * Show a status message in the list header TextView; called from background
      * threads and async tasks that need to update the UI (in the UI thread).
+     *
      * @param message a String to display in the UI header TextView.
      */
     public void updateStatus(final String message) {
@@ -271,6 +296,7 @@ public class UpcomingEventsActivity extends Activity {
 
     /**
      * Checks whether the device currently has a network connection.
+     *
      * @return true if the device has a network connection, false otherwise.
      */
     private boolean isDeviceOnline() {
@@ -284,8 +310,9 @@ public class UpcomingEventsActivity extends Activity {
      * Check that Google Play services APK is installed and up to date. Will
      * launch an error dialog for the user to update Google Play Services if
      * possible.
+     *
      * @return true if Google Play Services is available and up to
-     *     date on this device; false otherwise.
+     * date on this device; false otherwise.
      */
     private boolean isGooglePlayServicesAvailable() {
         final int connectionStatusCode =
@@ -293,7 +320,7 @@ public class UpcomingEventsActivity extends Activity {
         if (GooglePlayServicesUtil.isUserRecoverableError(connectionStatusCode)) {
             showGooglePlayServicesAvailabilityErrorDialog(connectionStatusCode);
             return false;
-        } else if (connectionStatusCode != ConnectionResult.SUCCESS ) {
+        } else if (connectionStatusCode != ConnectionResult.SUCCESS) {
             return false;
         }
         return true;
@@ -302,8 +329,9 @@ public class UpcomingEventsActivity extends Activity {
     /**
      * Display an error dialog showing that Google Play Services is missing
      * or out of date.
+     *
      * @param connectionStatusCode code describing the presence (or lack of)
-     *     Google Play Services on this device.
+     *                             Google Play Services on this device.
      */
     void showGooglePlayServicesAvailabilityErrorDialog(
             final int connectionStatusCode) {

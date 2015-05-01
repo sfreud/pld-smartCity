@@ -6,13 +6,11 @@ import android.util.Log;
 import com.google.api.client.googleapis.extensions.android.gms.auth.GooglePlayServicesAvailabilityIOException;
 import com.google.api.client.googleapis.extensions.android.gms.auth.UserRecoverableAuthIOException;
 import com.google.api.client.util.DateTime;
-
+import com.google.api.services.calendar.model.Event;
 import com.google.api.services.calendar.model.EventDateTime;
 import com.google.api.services.calendar.model.Events;
-import com.google.api.services.calendar.model.Event;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.TimeZone;
@@ -26,6 +24,7 @@ public class EventFetchTask extends AsyncTask<Void, Void, Void> {
 
     /**
      * Constructor.
+     *
      * @param activity UpcomingEventsActivity that spawned this task.
      */
     EventFetchTask(UpcomingEventsActivity activity) {
@@ -34,6 +33,7 @@ public class EventFetchTask extends AsyncTask<Void, Void, Void> {
 
     /**
      * Background task to call Calendar API to fetch event list.
+     *
      * @param params no parameters needed for this task.
      */
     @Override
@@ -45,7 +45,6 @@ public class EventFetchTask extends AsyncTask<Void, Void, Void> {
         } catch (final GooglePlayServicesAvailabilityIOException availabilityException) {
             mActivity.showGooglePlayServicesAvailabilityErrorDialog(
                     availabilityException.getConnectionStatusCode());
-
         } catch (UserRecoverableAuthIOException userRecoverableException) {
             mActivity.startActivityForResult(
                     userRecoverableException.getIntent(),
@@ -60,25 +59,24 @@ public class EventFetchTask extends AsyncTask<Void, Void, Void> {
 
     /**
      * Fetch a list of the next 10 events from the primary calendar.
+     *
      * @return List of events.
      * @throws IOException
      */
     private List<Event> fetchEventsFromCalendar() throws IOException {
         // List the next 10 events from the primary calendar.
         DateTime now = new DateTime(System.currentTimeMillis());
-        List<String> eventStrings = new ArrayList<String>();
         Events events = mActivity.mService.events().list("primary")
                 .setMaxResults(10)
                 .setTimeMin(now)
                 .setOrderBy("startTime")
                 .setSingleEvents(true)
                 .execute();
-        List<Event> items = events.getItems();
 
-        return items;
+        return events.getItems();
     }
 
-    private void addEvent() throws IOException    {
+    private void addEvent() throws IOException {
         Event event = new Event();
         event.setSummary("Test Création Evenement");
         event.setLocation("Somewhere");
@@ -92,7 +90,7 @@ public class EventFetchTask extends AsyncTask<Void, Void, Void> {
 
         // Insert the new event
         Event createdEvent = mActivity.mService.events().insert("primary", event).execute();
-        Log.v("EVENT_CREATE","L'identifiant de l'évènement créé est "+createdEvent.getId());
+        Log.v("EVENT_CREATE", "L'identifiant de l'évènement créé est " + createdEvent.getId());
     }
 
 }

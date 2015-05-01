@@ -65,7 +65,6 @@ public class test {
         g.displayGraph();
         
         //Sol : 0,1,2,4,
-        
         //0 : 0, A : 1, B : 2, C : 3, D : 4, E : 5, T : 6
         List<GraphNode> way = g.getShorterWay(g.getNode(0), g.getNode(6)).first;
         for(GraphNode n : way)
@@ -77,6 +76,10 @@ public class test {
         catch(Exception e)
         {
             System.out.println(e.getMessage());
+        }
+        if(g != null){
+            System.out.println("Super");
+            System.out.println(g.getBiggestNumberNode());
         }
     }
 }

@@ -1,0 +1,79 @@
+{
+   "results" : [
+      {
+         "address_components" : [
+            {
+               "long_name" : "INSA de Lyon",
+               "short_name" : "INSA de Lyon",
+               "types" : [ "establishment" ]
+            },
+            {
+               "long_name" : "20",
+               "short_name" : "20",
+               "types" : [ "street_number" ]
+            },
+            {
+               "long_name" : "Avenue Albert Einstein",
+               "short_name" : "Avenue Albert Einstein",
+               "types" : [ "route" ]
+            },
+            {
+               "long_name" : "Villeurbanne cedex",
+               "short_name" : "Villeurbanne cedex",
+               "types" : [ "locality", "political" ]
+            },
+            {
+               "long_name" : "Rhône",
+               "short_name" : "69",
+               "types" : [ "administrative_area_level_2", "political" ]
+            },
+            {
+               "long_name" : "Rhône-Alpes",
+               "short_name" : "RA",
+               "types" : [ "administrative_area_level_1", "political" ]
+            },
+            {
+               "long_name" : "France",
+               "short_name" : "FR",
+               "types" : [ "country", "political" ]
+            },
+            {
+               "long_name" : "69621",
+               "short_name" : "69621",
+               "types" : [ "postal_code" ]
+            }
+         ],
+         "formatted_address" : "INSA de Lyon, 20 Avenue Albert Einstein, 69621 Villeurbanne cedex",
+         "geometry" : {
+            "bounds" : {
+               "northeast" : {
+                  "lat" : 45.78582,
+                  "lng" : 4.8843934
+               },
+               "southwest" : {
+                  "lat" : 45.780458,
+                  "lng" : 4.8711673
+               }
+            },
+            "location" : {
+               "lat" : 45.7829609,
+               "lng" : 4.8750313
+            },
+            "location_type" : "APPROXIMATE",
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 45.78582,
+                  "lng" : 4.8843934
+               },
+               "southwest" : {
+                  "lat" : 45.780458,
+                  "lng" : 4.8711673
+               }
+            }
+         },
+         "place_id" : "ChIJq4MHrh_A9EcR69ImN2ZmTuI",
+         "types" : [ "university", "establishment" ]
+      }
+   ],
+   "status" : "OK"
+}

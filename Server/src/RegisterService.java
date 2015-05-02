@@ -17,6 +17,8 @@ public class RegisterService extends org.restlet.resource.ServerResource{
 		String username = getQuery().getValues("username");
 		if(username.equals("") || username.length()>50)
 			return "Incorrect username (empty or too long).";
+		if(username.contains(":"))
+			return "Username cannot contain the semicolon character ( : )";
         //for (Parameter parameter : form) {
         	
             //System.out.print("parameter " + parameter.getName());

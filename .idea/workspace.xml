@@ -1,7 +1,616 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ada60201-5e19-46be-8706-420bc69f4fb5" name="Default" comment="" />
+    <list default="true" id="ada60201-5e19-46be-8706-420bc69f4fb5" name="Default" comment="">
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\eps\ace1.eps" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/eps/ace1.eps" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\eps\add198.eps" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/eps/add198.eps" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\eps\arrow647.eps" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/eps/arrow647.eps" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\eps\attached.eps" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/eps/attached.eps" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\eps\audio58.eps" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/eps/audio58.eps" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\eps\ball40.eps" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/eps/ball40.eps" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\eps\basket26.eps" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/eps/basket26.eps" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\eps\battery164.eps" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/eps/battery164.eps" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\eps\binoculars19.eps" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/eps/binoculars19.eps" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\eps\binoculars20.eps" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/eps/binoculars20.eps" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\eps\business188.eps" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/eps/business188.eps" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\eps\business189.eps" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/eps/business189.eps" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\eps\calendar171.eps" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/eps/calendar171.eps" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\eps\camera95.eps" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/eps/camera95.eps" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\eps\cancel20.eps" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/eps/cancel20.eps" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\eps\car169.eps" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/eps/car169.eps" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\eps\cart8.eps" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/eps/cart8.eps" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\eps\cds.eps" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/eps/cds.eps" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\eps\cell14.eps" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/eps/cell14.eps" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\eps\cells2.eps" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/eps/cells2.eps" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\eps\check58.eps" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/eps/check58.eps" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\eps\checked21.eps" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/eps/checked21.eps" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\eps\circle110.eps" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/eps/circle110.eps" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\eps\clip16.eps" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/eps/clip16.eps" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\eps\clipboard103.eps" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/eps/clipboard103.eps" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\eps\clipboard104.eps" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/eps/clipboard104.eps" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\eps\clock114.eps" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/eps/clock114.eps" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\eps\clover6.eps" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/eps/clover6.eps" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\eps\coffee117.eps" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/eps/coffee117.eps" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\eps\collate.eps" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/eps/collate.eps" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\eps\column4.eps" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/eps/column4.eps" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\eps\column5.eps" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/eps/column5.eps" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\eps\combination3.eps" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/eps/combination3.eps" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\eps\compass112.eps" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/eps/compass112.eps" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\eps\continuous line.eps" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/eps/continuous line.eps" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\eps\contrast26.eps" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/eps/contrast26.eps" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\eps\crown34.eps" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/eps/crown34.eps" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\eps\database47.eps" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/eps/database47.eps" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\eps\database48.eps" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/eps/database48.eps" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\eps\date8.eps" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/eps/date8.eps" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\eps\delete102.eps" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/eps/delete102.eps" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\eps\delete103.eps" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/eps/delete103.eps" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\eps\diamond39.eps" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/eps/diamond39.eps" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\eps\die.eps" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/eps/die.eps" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\eps\division2.eps" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/eps/division2.eps" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\eps\document178.eps" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/eps/document178.eps" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\eps\document179.eps" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/eps/document179.eps" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\eps\document180.eps" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/eps/document180.eps" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\eps\document181.eps" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/eps/document181.eps" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\eps\document182.eps" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/eps/document182.eps" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\eps\document183.eps" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/eps/document183.eps" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\eps\door28.eps" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/eps/door28.eps" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\eps\down arrow6.eps" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/eps/down arrow6.eps" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\eps\down arrow7.eps" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/eps/down arrow7.eps" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\eps\download176.eps" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/eps/download176.eps" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\eps\edit49.eps" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/eps/edit49.eps" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\eps\edit50.eps" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/eps/edit50.eps" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\eps\eighth5.eps" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/eps/eighth5.eps" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\eps\email112.eps" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/eps/email112.eps" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\eps\entry4.eps" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/eps/entry4.eps" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\eps\envelope51.eps" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/eps/envelope51.eps" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\eps\file100.eps" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/eps/file100.eps" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\eps\folder249.eps" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/eps/folder249.eps" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\eps\funnel13.eps" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/eps/funnel13.eps" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\eps\geometry2.eps" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/eps/geometry2.eps" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\eps\graphic34.eps" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/eps/graphic34.eps" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\eps\guitar38.eps" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/eps/guitar38.eps" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\eps\hand177.eps" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/eps/hand177.eps" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\eps\happy60.eps" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/eps/happy60.eps" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\eps\hard drive.eps" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/eps/hard drive.eps" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\eps\heart307.eps" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/eps/heart307.eps" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\eps\heart308.eps" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/eps/heart308.eps" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\eps\home158.eps" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/eps/home158.eps" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\eps\hospital 1.eps" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/eps/hospital 1.eps" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\eps\hourglass13.eps" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/eps/hourglass13.eps" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\eps\image85.eps" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/eps/image85.eps" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\eps\import1.eps" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/eps/import1.eps" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\eps\info26.eps" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/eps/info26.eps" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\eps\insert5.eps" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/eps/insert5.eps" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\eps\insert6.eps" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/eps/insert6.eps" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\eps\insert7.eps" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/eps/insert7.eps" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\eps\insert8.eps" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/eps/insert8.eps" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\eps\insert9.eps" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/eps/insert9.eps" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\eps\jewel1.eps" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/eps/jewel1.eps" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\eps\key180.eps" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/eps/key180.eps" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\eps\key181.eps" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/eps/key181.eps" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\eps\key182.eps" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/eps/key182.eps" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\eps\key183.eps" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/eps/key183.eps" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\eps\king12.eps" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/eps/king12.eps" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\eps\lamp26.eps" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/eps/lamp26.eps" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\eps\left arrow7.eps" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/eps/left arrow7.eps" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\eps\left arrow8.eps" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/eps/left arrow8.eps" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\eps\letter95.eps" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/eps/letter95.eps" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\eps\light96.eps" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/eps/light96.eps" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\eps\link70.eps" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/eps/link70.eps" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\eps\list 1.eps" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/eps/list 1.eps" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\eps\location51.eps" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/eps/location51.eps" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\eps\lock74.eps" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/eps/lock74.eps" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\eps\locked68.eps" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/eps/locked68.eps" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\eps\magic23.eps" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/eps/magic23.eps" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\eps\magic24.eps" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/eps/magic24.eps" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\eps\magnifying glass10.eps" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/eps/magnifying glass10.eps" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\eps\magnifying glass7.eps" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/eps/magnifying glass7.eps" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\eps\magnifying glass9.eps" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/eps/magnifying glass9.eps" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\eps\maths10.eps" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/eps/maths10.eps" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\eps\message26.eps" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/eps/message26.eps" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\eps\microphone90.eps" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/eps/microphone90.eps" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\eps\movie44.eps" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/eps/movie44.eps" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\eps\music238.eps" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/eps/music238.eps" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\eps\navigation13.eps" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/eps/navigation13.eps" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\eps\navigation14.eps" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/eps/navigation14.eps" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\eps\navigation15.eps" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/eps/navigation15.eps" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\eps\no entry2.eps" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/eps/no entry2.eps" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\eps\notebook71.eps" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/eps/notebook71.eps" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\eps\notebook72.eps" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/eps/notebook72.eps" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\eps\nucleus.eps" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/eps/nucleus.eps" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\eps\one65.eps" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/eps/one65.eps" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\eps\open214.eps" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/eps/open214.eps" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\eps\organization3.eps" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/eps/organization3.eps" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\eps\padlock64.eps" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/eps/padlock64.eps" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\eps\padlock65.eps" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/eps/padlock65.eps" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\eps\painting38.eps" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/eps/painting38.eps" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\eps\phone book.eps" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/eps/phone book.eps" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\eps\phonebook.eps" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/eps/phonebook.eps" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\eps\phonebook1.eps" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/eps/phonebook1.eps" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\eps\picture31.eps" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/eps/picture31.eps" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\eps\pie54.eps" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/eps/pie54.eps" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\eps\planet31.eps" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/eps/planet31.eps" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\eps\plug41.eps" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/eps/plug41.eps" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\eps\plug42.eps" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/eps/plug42.eps" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\eps\pound sign.eps" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/eps/pound sign.eps" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\eps\power107.eps" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/eps/power107.eps" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\eps\price17.eps" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/eps/price17.eps" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\eps\printer93.eps" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/eps/printer93.eps" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\eps\printer94.eps" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/eps/printer94.eps" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\eps\printing24.eps" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/eps/printing24.eps" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\eps\prohibition24.eps" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/eps/prohibition24.eps" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\eps\protection6.eps" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/eps/protection6.eps" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\eps\quaver.eps" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/eps/quaver.eps" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\eps\question55.eps" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/eps/question55.eps" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\eps\refresh68.eps" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/eps/refresh68.eps" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\eps\reload8.eps" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/eps/reload8.eps" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\eps\repair tool.eps" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/eps/repair tool.eps" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\eps\right arrow7.eps" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/eps/right arrow7.eps" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\eps\right248.eps" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/eps/right248.eps" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\eps\road43.eps" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/eps/road43.eps" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\eps\row.eps" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/eps/row.eps" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\eps\rubbish7.eps" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/eps/rubbish7.eps" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\eps\rubbish8.eps" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/eps/rubbish8.eps" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\eps\save28.eps" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/eps/save28.eps" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\eps\scissors69.eps" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/eps/scissors69.eps" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\eps\screen57.eps" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/eps/screen57.eps" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\eps\screen58.eps" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/eps/screen58.eps" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\eps\screwdriver25.eps" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/eps/screwdriver25.eps" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\eps\search105.eps" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/eps/search105.eps" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\eps\search106.eps" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/eps/search106.eps" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\eps\selection11.eps" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/eps/selection11.eps" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\eps\selection12.eps" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/eps/selection12.eps" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\eps\settings59.eps" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/eps/settings59.eps" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\eps\smartphone31.eps" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/eps/smartphone31.eps" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\eps\sound35.eps" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/eps/sound35.eps" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\eps\spanner8.eps" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/eps/spanner8.eps" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\eps\speaker115.eps" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/eps/speaker115.eps" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\eps\speaker116.eps" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/eps/speaker116.eps" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\eps\speaker117.eps" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/eps/speaker117.eps" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\eps\speech bubble13.eps" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/eps/speech bubble13.eps" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\eps\speech bubble14.eps" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/eps/speech bubble14.eps" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\eps\spreadsheet8.eps" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/eps/spreadsheet8.eps" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\eps\spreadsheet9.eps" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/eps/spreadsheet9.eps" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\eps\stack22.eps" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/eps/stack22.eps" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\eps\stack23.eps" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/eps/stack23.eps" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\eps\statistics13.eps" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/eps/statistics13.eps" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\eps\steering7.eps" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/eps/steering7.eps" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\eps\storage19.eps" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/eps/storage19.eps" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\eps\subtraction2.eps" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/eps/subtraction2.eps" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\eps\t-shirt2.eps" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/eps/t-shirt2.eps" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\eps\table42.eps" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/eps/table42.eps" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\eps\table43.eps" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/eps/table43.eps" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\eps\table44.eps" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/eps/table44.eps" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\eps\table45.eps" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/eps/table45.eps" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\eps\table46.eps" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/eps/table46.eps" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\eps\target44.eps" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/eps/target44.eps" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\eps\taxi23.eps" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/eps/taxi23.eps" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\eps\text155.eps" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/eps/text155.eps" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\eps\thumb up1.eps" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/eps/thumb up1.eps" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\eps\thumb55.eps" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/eps/thumb55.eps" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\eps\traffic23.eps" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/eps/traffic23.eps" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\eps\transport9.eps" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/eps/transport9.eps" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\eps\up arrow14.eps" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/eps/up arrow14.eps" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\eps\update8.eps" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/eps/update8.eps" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\eps\user166.eps" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/eps/user166.eps" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\eps\user167.eps" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/eps/user167.eps" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\eps\user168.eps" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/eps/user168.eps" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\eps\videogame1.eps" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/eps/videogame1.eps" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\eps\widening.eps" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/eps/widening.eps" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\eps\widening1.eps" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/eps/widening1.eps" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\eps\wifi93.eps" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/eps/wifi93.eps" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\eps\window64.eps" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/eps/window64.eps" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\eps\window65.eps" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/eps/window65.eps" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\eps\woman137.eps" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/eps/woman137.eps" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\flaticon.css" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/flaticon.css" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\flaticon.eot" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/flaticon.eot" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\flaticon.html" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/flaticon.html" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\flaticon.svg" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/flaticon.svg" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\flaticon.ttf" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/flaticon.ttf" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\flaticon.woff" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/flaticon.woff" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\license.pdf" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/license.pdf" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\png\ace1.png" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/png/ace1.png" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\png\add198.png" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/png/add198.png" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\png\arrow647.png" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/png/arrow647.png" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\png\attached.png" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/png/attached.png" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\png\audio58.png" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/png/audio58.png" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\png\ball40.png" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/png/ball40.png" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\png\basket26.png" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/png/basket26.png" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\png\battery164.png" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/png/battery164.png" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\png\binoculars19.png" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/png/binoculars19.png" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\png\binoculars20.png" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/png/binoculars20.png" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\png\business188.png" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/png/business188.png" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\png\business189.png" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/png/business189.png" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\png\calendar171.png" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/png/calendar171.png" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\png\camera95.png" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/png/camera95.png" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\png\cancel20.png" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/png/cancel20.png" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\png\car169.png" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/png/car169.png" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\png\cart8.png" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/png/cart8.png" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\png\cds.png" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/png/cds.png" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\png\cell14.png" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/png/cell14.png" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\png\cells2.png" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/png/cells2.png" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\png\check58.png" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/png/check58.png" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\png\checked21.png" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/png/checked21.png" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\png\circle110.png" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/png/circle110.png" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\png\clip16.png" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/png/clip16.png" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\png\clipboard103.png" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/png/clipboard103.png" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\png\clipboard104.png" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/png/clipboard104.png" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\png\clock114.png" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/png/clock114.png" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\png\clover6.png" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/png/clover6.png" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\png\coffee117.png" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/png/coffee117.png" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\png\collate.png" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/png/collate.png" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\png\column4.png" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/png/column4.png" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\png\column5.png" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/png/column5.png" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\png\combination3.png" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/png/combination3.png" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\png\compass112.png" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/png/compass112.png" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\png\continuous line.png" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/png/continuous line.png" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\png\contrast26.png" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/png/contrast26.png" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\png\crown34.png" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/png/crown34.png" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\png\database47.png" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/png/database47.png" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\png\database48.png" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/png/database48.png" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\png\date8.png" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/png/date8.png" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\png\delete102.png" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/png/delete102.png" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\png\delete103.png" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/png/delete103.png" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\png\diamond39.png" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/png/diamond39.png" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\png\die.png" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/png/die.png" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\png\division2.png" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/png/division2.png" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\png\document178.png" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/png/document178.png" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\png\document179.png" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/png/document179.png" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\png\document180.png" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/png/document180.png" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\png\document181.png" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/png/document181.png" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\png\document182.png" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/png/document182.png" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\png\document183.png" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/png/document183.png" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\png\door28.png" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/png/door28.png" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\png\down arrow6.png" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/png/down arrow6.png" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\png\down arrow7.png" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/png/down arrow7.png" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\png\download176.png" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/png/download176.png" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\png\edit49.png" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/png/edit49.png" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\png\edit50.png" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/png/edit50.png" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\png\eighth5.png" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/png/eighth5.png" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\png\email112.png" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/png/email112.png" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\png\entry4.png" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/png/entry4.png" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\png\envelope51.png" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/png/envelope51.png" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\png\file100.png" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/png/file100.png" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\png\folder249.png" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/png/folder249.png" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\png\funnel13.png" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/png/funnel13.png" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\png\geometry2.png" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/png/geometry2.png" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\png\graphic34.png" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/png/graphic34.png" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\png\guitar38.png" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/png/guitar38.png" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\png\hand177.png" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/png/hand177.png" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\png\happy60.png" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/png/happy60.png" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\png\hard drive.png" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/png/hard drive.png" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\png\heart307.png" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/png/heart307.png" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\png\heart308.png" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/png/heart308.png" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\png\home158.png" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/png/home158.png" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\png\hospital 1.png" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/png/hospital 1.png" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\png\hourglass13.png" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/png/hourglass13.png" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\png\image85.png" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/png/image85.png" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\png\import1.png" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/png/import1.png" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\png\info26.png" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/png/info26.png" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\png\insert5.png" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/png/insert5.png" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\png\insert6.png" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/png/insert6.png" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\png\insert7.png" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/png/insert7.png" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\png\insert8.png" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/png/insert8.png" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\png\insert9.png" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/png/insert9.png" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\png\jewel1.png" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/png/jewel1.png" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\png\key180.png" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/png/key180.png" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\png\key181.png" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/png/key181.png" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\png\key182.png" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/png/key182.png" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\png\key183.png" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/png/key183.png" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\png\king12.png" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/png/king12.png" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\png\lamp26.png" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/png/lamp26.png" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\png\left arrow7.png" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/png/left arrow7.png" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\png\left arrow8.png" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/png/left arrow8.png" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\png\letter95.png" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/png/letter95.png" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\png\light96.png" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/png/light96.png" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\png\link70.png" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/png/link70.png" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\png\list 1.png" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/png/list 1.png" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\png\location51.png" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/png/location51.png" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\png\lock74.png" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/png/lock74.png" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\png\locked68.png" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/png/locked68.png" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\png\magic23.png" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/png/magic23.png" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\png\magic24.png" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/png/magic24.png" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\png\magnifying glass10.png" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/png/magnifying glass10.png" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\png\magnifying glass7.png" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/png/magnifying glass7.png" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\png\magnifying glass9.png" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/png/magnifying glass9.png" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\png\maths10.png" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/png/maths10.png" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\png\message26.png" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/png/message26.png" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\png\microphone90.png" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/png/microphone90.png" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\png\movie44.png" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/png/movie44.png" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\png\music238.png" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/png/music238.png" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\png\navigation13.png" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/png/navigation13.png" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\png\navigation14.png" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/png/navigation14.png" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\png\navigation15.png" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/png/navigation15.png" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\png\no entry2.png" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/png/no entry2.png" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\png\notebook71.png" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/png/notebook71.png" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\png\notebook72.png" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/png/notebook72.png" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\png\nucleus.png" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/png/nucleus.png" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\png\one65.png" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/png/one65.png" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\png\open214.png" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/png/open214.png" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\png\organization3.png" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/png/organization3.png" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\png\padlock64.png" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/png/padlock64.png" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\png\padlock65.png" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/png/padlock65.png" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\png\painting38.png" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/png/painting38.png" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\png\phone book.png" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/png/phone book.png" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\png\phonebook.png" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/png/phonebook.png" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\png\phonebook1.png" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/png/phonebook1.png" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\png\picture31.png" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/png/picture31.png" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\png\pie54.png" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/png/pie54.png" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\png\planet31.png" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/png/planet31.png" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\png\plug41.png" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/png/plug41.png" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\png\plug42.png" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/png/plug42.png" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\png\pound sign.png" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/png/pound sign.png" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\png\power107.png" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/png/power107.png" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\png\price17.png" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/png/price17.png" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\png\printer93.png" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/png/printer93.png" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\png\printer94.png" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/png/printer94.png" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\png\printing24.png" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/png/printing24.png" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\png\prohibition24.png" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/png/prohibition24.png" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\png\protection6.png" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/png/protection6.png" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\png\quaver.png" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/png/quaver.png" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\png\question55.png" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/png/question55.png" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\png\refresh68.png" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/png/refresh68.png" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\png\reload8.png" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/png/reload8.png" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\png\repair tool.png" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/png/repair tool.png" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\png\right arrow7.png" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/png/right arrow7.png" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\png\right248.png" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/png/right248.png" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\png\road43.png" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/png/road43.png" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\png\row.png" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/png/row.png" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\png\rubbish7.png" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/png/rubbish7.png" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\png\rubbish8.png" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/png/rubbish8.png" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\png\save28.png" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/png/save28.png" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\png\scissors69.png" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/png/scissors69.png" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\png\screen57.png" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/png/screen57.png" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\png\screen58.png" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/png/screen58.png" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\png\screwdriver25.png" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/png/screwdriver25.png" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\png\search105.png" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/png/search105.png" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\png\search106.png" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/png/search106.png" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\png\selection11.png" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/png/selection11.png" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\png\selection12.png" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/png/selection12.png" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\png\settings59.png" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/png/settings59.png" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\png\smartphone31.png" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/png/smartphone31.png" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\png\sound35.png" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/png/sound35.png" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\png\spanner8.png" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/png/spanner8.png" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\png\speaker115.png" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/png/speaker115.png" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\png\speaker116.png" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/png/speaker116.png" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\png\speaker117.png" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/png/speaker117.png" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\png\speech bubble13.png" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/png/speech bubble13.png" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\png\speech bubble14.png" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/png/speech bubble14.png" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\png\spreadsheet8.png" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/png/spreadsheet8.png" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\png\spreadsheet9.png" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/png/spreadsheet9.png" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\png\stack22.png" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/png/stack22.png" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\png\stack23.png" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/png/stack23.png" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\png\statistics13.png" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/png/statistics13.png" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\png\steering7.png" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/png/steering7.png" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\png\storage19.png" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/png/storage19.png" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\png\subtraction2.png" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/png/subtraction2.png" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\png\t-shirt2.png" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/png/t-shirt2.png" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\png\table42.png" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/png/table42.png" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\png\table43.png" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/png/table43.png" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\png\table44.png" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/png/table44.png" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\png\table45.png" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/png/table45.png" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\png\table46.png" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/png/table46.png" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\png\target44.png" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/png/target44.png" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\png\taxi23.png" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/png/taxi23.png" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\png\text155.png" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/png/text155.png" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\png\thumb up1.png" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/png/thumb up1.png" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\png\thumb55.png" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/png/thumb55.png" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\png\traffic23.png" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/png/traffic23.png" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\png\transport9.png" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/png/transport9.png" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\png\up arrow14.png" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/png/up arrow14.png" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\png\update8.png" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/png/update8.png" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\png\user166.png" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/png/user166.png" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\png\user167.png" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/png/user167.png" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\png\user168.png" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/png/user168.png" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\png\videogame1.png" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/png/videogame1.png" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\png\widening.png" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/png/widening.png" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\png\widening1.png" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/png/widening1.png" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\png\wifi93.png" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/png/wifi93.png" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\png\window64.png" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/png/window64.png" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\png\window65.png" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/png/window65.png" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\png\woman137.png" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/png/woman137.png" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\svg\ace1.svg" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/svg/ace1.svg" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\svg\add198.svg" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/svg/add198.svg" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\svg\arrow647.svg" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/svg/arrow647.svg" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\svg\attached.svg" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/svg/attached.svg" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\svg\audio58.svg" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/svg/audio58.svg" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\svg\ball40.svg" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/svg/ball40.svg" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\svg\basket26.svg" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/svg/basket26.svg" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\svg\battery164.svg" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/svg/battery164.svg" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\svg\binoculars19.svg" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/svg/binoculars19.svg" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\svg\binoculars20.svg" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/svg/binoculars20.svg" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\svg\business188.svg" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/svg/business188.svg" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\svg\business189.svg" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/svg/business189.svg" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\svg\calendar171.svg" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/svg/calendar171.svg" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\svg\camera95.svg" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/svg/camera95.svg" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\svg\cancel20.svg" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/svg/cancel20.svg" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\svg\car169.svg" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/svg/car169.svg" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\svg\cart8.svg" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/svg/cart8.svg" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\svg\cds.svg" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/svg/cds.svg" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\svg\cell14.svg" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/svg/cell14.svg" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\svg\cells2.svg" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/svg/cells2.svg" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\svg\check58.svg" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/svg/check58.svg" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\svg\checked21.svg" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/svg/checked21.svg" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\svg\circle110.svg" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/svg/circle110.svg" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\svg\clip16.svg" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/svg/clip16.svg" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\svg\clipboard103.svg" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/svg/clipboard103.svg" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\svg\clipboard104.svg" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/svg/clipboard104.svg" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\svg\clock114.svg" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/svg/clock114.svg" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\svg\clover6.svg" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/svg/clover6.svg" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\svg\coffee117.svg" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/svg/coffee117.svg" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\svg\collate.svg" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/svg/collate.svg" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\svg\column4.svg" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/svg/column4.svg" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\svg\column5.svg" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/svg/column5.svg" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\svg\combination3.svg" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/svg/combination3.svg" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\svg\compass112.svg" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/svg/compass112.svg" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\svg\continuous line.svg" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/svg/continuous line.svg" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\svg\contrast26.svg" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/svg/contrast26.svg" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\svg\crown34.svg" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/svg/crown34.svg" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\svg\database47.svg" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/svg/database47.svg" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\svg\database48.svg" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/svg/database48.svg" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\svg\date8.svg" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/svg/date8.svg" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\svg\delete102.svg" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/svg/delete102.svg" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\svg\delete103.svg" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/svg/delete103.svg" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\svg\diamond39.svg" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/svg/diamond39.svg" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\svg\die.svg" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/svg/die.svg" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\svg\division2.svg" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/svg/division2.svg" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\svg\document178.svg" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/svg/document178.svg" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\svg\document179.svg" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/svg/document179.svg" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\svg\document180.svg" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/svg/document180.svg" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\svg\document181.svg" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/svg/document181.svg" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\svg\document182.svg" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/svg/document182.svg" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\svg\document183.svg" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/svg/document183.svg" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\svg\door28.svg" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/svg/door28.svg" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\svg\down arrow6.svg" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/svg/down arrow6.svg" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\svg\down arrow7.svg" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/svg/down arrow7.svg" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\svg\download176.svg" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/svg/download176.svg" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\svg\edit49.svg" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/svg/edit49.svg" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\svg\edit50.svg" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/svg/edit50.svg" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\svg\eighth5.svg" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/svg/eighth5.svg" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\svg\email112.svg" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/svg/email112.svg" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\svg\entry4.svg" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/svg/entry4.svg" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\svg\envelope51.svg" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/svg/envelope51.svg" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\svg\file100.svg" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/svg/file100.svg" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\svg\folder249.svg" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/svg/folder249.svg" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\svg\funnel13.svg" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/svg/funnel13.svg" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\svg\geometry2.svg" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/svg/geometry2.svg" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\svg\graphic34.svg" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/svg/graphic34.svg" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\svg\guitar38.svg" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/svg/guitar38.svg" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\svg\hand177.svg" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/svg/hand177.svg" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\svg\happy60.svg" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/svg/happy60.svg" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\svg\hard drive.svg" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/svg/hard drive.svg" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\svg\heart307.svg" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/svg/heart307.svg" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\svg\heart308.svg" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/svg/heart308.svg" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\svg\home158.svg" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/svg/home158.svg" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\svg\hospital 1.svg" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/svg/hospital 1.svg" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\svg\hourglass13.svg" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/svg/hourglass13.svg" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\svg\image85.svg" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/svg/image85.svg" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\svg\import1.svg" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/svg/import1.svg" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\svg\info26.svg" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/svg/info26.svg" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\svg\insert5.svg" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/svg/insert5.svg" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\svg\insert6.svg" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/svg/insert6.svg" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\svg\insert7.svg" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/svg/insert7.svg" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\svg\insert8.svg" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/svg/insert8.svg" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\svg\insert9.svg" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/svg/insert9.svg" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\svg\jewel1.svg" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/svg/jewel1.svg" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\svg\key180.svg" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/svg/key180.svg" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\svg\key181.svg" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/svg/key181.svg" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\svg\key182.svg" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/svg/key182.svg" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\svg\key183.svg" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/svg/key183.svg" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\svg\king12.svg" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/svg/king12.svg" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\svg\lamp26.svg" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/svg/lamp26.svg" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\svg\left arrow7.svg" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/svg/left arrow7.svg" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\svg\left arrow8.svg" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/svg/left arrow8.svg" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\svg\letter95.svg" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/svg/letter95.svg" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\svg\light96.svg" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/svg/light96.svg" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\svg\link70.svg" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/svg/link70.svg" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\svg\list 1.svg" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/svg/list 1.svg" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\svg\location51.svg" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/svg/location51.svg" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\svg\lock74.svg" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/svg/lock74.svg" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\svg\locked68.svg" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/svg/locked68.svg" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\svg\magic23.svg" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/svg/magic23.svg" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\svg\magic24.svg" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/svg/magic24.svg" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\svg\magnifying glass10.svg" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/svg/magnifying glass10.svg" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\svg\magnifying glass7.svg" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/svg/magnifying glass7.svg" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\svg\magnifying glass9.svg" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/svg/magnifying glass9.svg" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\svg\maths10.svg" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/svg/maths10.svg" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\svg\message26.svg" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/svg/message26.svg" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\svg\microphone90.svg" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/svg/microphone90.svg" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\svg\movie44.svg" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/svg/movie44.svg" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\svg\music238.svg" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/svg/music238.svg" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\svg\navigation13.svg" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/svg/navigation13.svg" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\svg\navigation14.svg" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/svg/navigation14.svg" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\svg\navigation15.svg" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/svg/navigation15.svg" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\svg\no entry2.svg" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/svg/no entry2.svg" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\svg\notebook71.svg" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/svg/notebook71.svg" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\svg\notebook72.svg" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/svg/notebook72.svg" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\svg\nucleus.svg" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/svg/nucleus.svg" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\svg\one65.svg" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/svg/one65.svg" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\svg\open214.svg" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/svg/open214.svg" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\svg\organization3.svg" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/svg/organization3.svg" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\svg\padlock64.svg" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/svg/padlock64.svg" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\svg\padlock65.svg" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/svg/padlock65.svg" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\svg\painting38.svg" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/svg/painting38.svg" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\svg\phone book.svg" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/svg/phone book.svg" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\svg\phonebook.svg" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/svg/phonebook.svg" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\svg\phonebook1.svg" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/svg/phonebook1.svg" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\svg\picture31.svg" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/svg/picture31.svg" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\svg\pie54.svg" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/svg/pie54.svg" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\svg\planet31.svg" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/svg/planet31.svg" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\svg\plug41.svg" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/svg/plug41.svg" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\svg\plug42.svg" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/svg/plug42.svg" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\svg\pound sign.svg" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/svg/pound sign.svg" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\svg\power107.svg" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/svg/power107.svg" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\svg\price17.svg" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/svg/price17.svg" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\svg\printer93.svg" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/svg/printer93.svg" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\svg\printer94.svg" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/svg/printer94.svg" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\svg\printing24.svg" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/svg/printing24.svg" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\svg\prohibition24.svg" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/svg/prohibition24.svg" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\svg\protection6.svg" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/svg/protection6.svg" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\svg\quaver.svg" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/svg/quaver.svg" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\svg\question55.svg" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/svg/question55.svg" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\svg\refresh68.svg" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/svg/refresh68.svg" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\svg\reload8.svg" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/svg/reload8.svg" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\svg\repair tool.svg" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/svg/repair tool.svg" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\svg\right arrow7.svg" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/svg/right arrow7.svg" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\svg\right248.svg" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/svg/right248.svg" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\svg\road43.svg" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/svg/road43.svg" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\svg\row.svg" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/svg/row.svg" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\svg\rubbish7.svg" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/svg/rubbish7.svg" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\svg\rubbish8.svg" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/svg/rubbish8.svg" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\svg\save28.svg" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/svg/save28.svg" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\svg\scissors69.svg" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/svg/scissors69.svg" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\svg\screen57.svg" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/svg/screen57.svg" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\svg\screen58.svg" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/svg/screen58.svg" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\svg\screwdriver25.svg" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/svg/screwdriver25.svg" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\svg\search105.svg" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/svg/search105.svg" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\svg\search106.svg" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/svg/search106.svg" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\svg\selection11.svg" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/svg/selection11.svg" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\svg\selection12.svg" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/svg/selection12.svg" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\svg\settings59.svg" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/svg/settings59.svg" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\svg\smartphone31.svg" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/svg/smartphone31.svg" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\svg\sound35.svg" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/svg/sound35.svg" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\svg\spanner8.svg" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/svg/spanner8.svg" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\svg\speaker115.svg" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/svg/speaker115.svg" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\svg\speaker116.svg" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/svg/speaker116.svg" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\svg\speaker117.svg" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/svg/speaker117.svg" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\svg\speech bubble13.svg" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/svg/speech bubble13.svg" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\svg\speech bubble14.svg" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/svg/speech bubble14.svg" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\svg\spreadsheet8.svg" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/svg/spreadsheet8.svg" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\svg\spreadsheet9.svg" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/svg/spreadsheet9.svg" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\svg\stack22.svg" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/svg/stack22.svg" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\svg\stack23.svg" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/svg/stack23.svg" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\svg\statistics13.svg" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/svg/statistics13.svg" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\svg\steering7.svg" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/svg/steering7.svg" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\svg\storage19.svg" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/svg/storage19.svg" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\svg\subtraction2.svg" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/svg/subtraction2.svg" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\svg\t-shirt2.svg" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/svg/t-shirt2.svg" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\svg\table42.svg" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/svg/table42.svg" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\svg\table43.svg" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/svg/table43.svg" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\svg\table44.svg" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/svg/table44.svg" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\svg\table45.svg" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/svg/table45.svg" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\svg\table46.svg" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/svg/table46.svg" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\svg\target44.svg" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/svg/target44.svg" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\svg\taxi23.svg" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/svg/taxi23.svg" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\svg\text155.svg" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/svg/text155.svg" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\svg\thumb up1.svg" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/svg/thumb up1.svg" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\svg\thumb55.svg" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/svg/thumb55.svg" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\svg\traffic23.svg" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/svg/traffic23.svg" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\svg\transport9.svg" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/svg/transport9.svg" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\svg\up arrow14.svg" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/svg/up arrow14.svg" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\svg\update8.svg" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/svg/update8.svg" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\svg\user166.svg" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/svg/user166.svg" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\svg\user167.svg" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/svg/user167.svg" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\svg\user168.svg" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/svg/user168.svg" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\svg\videogame1.svg" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/svg/videogame1.svg" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\svg\widening.svg" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/svg/widening.svg" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\svg\widening1.svg" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/svg/widening1.svg" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\svg\wifi93.svg" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/svg/wifi93.svg" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\svg\window64.svg" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/svg/window64.svg" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\svg\window65.svg" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/svg/window65.svg" />
+      <change type="MOVED" beforePath="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\lib\android-app\svg\woman137.svg" afterPath="$PROJECT_DIR$/AndroidClient/app/lib/android-app/svg/woman137.svg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+    </list>
     <ignored path="pld-smartCity.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -31,7 +640,7 @@
       <file leaf-file-name=".gitignore" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/.gitignore">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="306">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="306">
               <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
@@ -41,13 +650,9 @@
       <file leaf-file-name="ApplicationTest.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/AndroidClient/app/src/androidTest/java/com/example/androidclient/ApplicationTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="255">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="306">
               <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding>
-                <element signature="imports" expanded="false" />
-                <element signature="e#313#314#0" expanded="false" />
-                <element signature="e#353#354#0" expanded="false" />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
@@ -55,7 +660,7 @@
       <file leaf-file-name="MainActivity.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/AndroidClient/app/src/main/java/com/example/androidclient/MainActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.057921637" vertical-offset="0" max-vertical-offset="714">
+            <state vertical-scroll-proportion="0.0" vertical-offset="34" max-vertical-offset="714">
               <caret line="5" column="29" selection-start-line="5" selection-start-column="29" selection-end-line="5" selection-end-column="29" />
               <folding />
             </state>
@@ -157,123 +762,13 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="pld-smartCity" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="pld-smartCity" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="AndroidClient" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="pld-smartCity" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="pld-smartCity" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="AndroidClient" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="com" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="example" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="androidclient" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="pld-smartCity" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="pld-smartCity" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="AndroidClient" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="androidTest" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="com" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="example" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="androidclient" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
       <pane id="Scope" />
-      <pane id="PackagesPane" />
       <pane id="AndroidView">
         <subPane />
       </pane>
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -285,6 +780,11 @@
     <property name="MemberChooser.copyJavadoc" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/.." />
     <property name="recentsLimit" value="5" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Marine\.AndroidStudio\pld-smartCity\AndroidClient\app" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration default="true" type="AndroidTestRunConfigurationType" factoryName="Android Tests">
@@ -460,28 +960,28 @@
     <frame x="57" y="-8" width="1317" height="784" extended-state="6" />
     <editor active="false" />
     <layout>
-      <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32961783" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32961783" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32961783" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32961783" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32961783" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24980111" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3293556" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.33492443" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25536993" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25536993" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Memory Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Memory Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
     </layout>
@@ -509,20 +1009,26 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/lib/android-app/png/basket26.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/android-app/png/arrow647.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/android-app/flaticon.css">
+    <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="10574">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="306">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AndroidClient/app/src/androidTest/java/com/example/androidclient/ApplicationTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="306">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AndroidClient/app/src/main/java/com/example/androidclient/MainActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="34" max-vertical-offset="714">
+          <caret line="5" column="29" selection-start-line="5" selection-start-column="29" selection-end-line="5" selection-end-column="29" />
           <folding />
         </state>
       </provider>
@@ -539,17 +1045,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="587">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#313#314#0" expanded="false" />
-            <element signature="e#353#354#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/AndroidClient/app/src/main/java/com/example/androidclient/MainActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.057921637" vertical-offset="0" max-vertical-offset="714">
+        <state vertical-scroll-proportion="0.0" vertical-offset="34" max-vertical-offset="714">
           <caret line="5" column="29" selection-start-line="5" selection-start-column="29" selection-end-line="5" selection-end-column="29" />
           <folding />
         </state>

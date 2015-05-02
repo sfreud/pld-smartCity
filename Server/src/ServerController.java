@@ -37,6 +37,10 @@ public class ServerController {
 		auth1.setNext(ItineraryComputingService.class);
 		server.getDefaultHost().attach("/itinerary",auth1);
 		
+		ChallengeAuthenticator auth2 = createHTTPBasic();
+		auth2.setNext(EventRetrievingService.class);
+		server.getDefaultHost().attach("/event",auth2);
+		
 		
 		/* Build the graph for Dijkstra calculation from xml map. This will be done only once
 		 * at server startup.
@@ -70,11 +74,35 @@ public class ServerController {
 		
 		
 	}
-	public static ChallengeAuthenticator createHTTPBasic(){
+	
+	/*
+//from org.restlet.security
+//Implementation of DB-backed authentication : 
+public class TestVerifier extends LocalVerifier {
+
+    @Override
+    public char[] getLocalSecret(String identifier) {
+        // Could have a look into a database, LDAP directory, etc.
+         * 
+         * See EventRetrievingService for SQL DB parsing, to retain pass & username
+         * 
+         * 
+        if ("login".equals(identifier)) {
+            return "secret".toCharArray();
+        }
+
+        return null;
+    }
+
+}
+	 */
+	
+	
+	public static ChallengeAuthenticator createHTTPBasic(){		
 		
 		// Instantiates a Verifier of identifier/secret couples based on a simple Map.
 		MapVerifier mapVerifier = new MapVerifier();
-		mapVerifier.getLocalSecrets().put("loginB", "secret".toCharArray());
+		mapVerifier.getLocalSecrets().put("paf", "secret".toCharArray());
 		
 		//Create an authenticator for HTTP BASIC auth
 		ChallengeAuthenticator guard = new ChallengeAuthenticator(null, ChallengeScheme.HTTP_BASIC, "testRealm");

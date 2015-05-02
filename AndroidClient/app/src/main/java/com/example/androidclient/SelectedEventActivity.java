@@ -83,9 +83,14 @@ public class SelectedEventActivity extends Activity {
                                                    @Override
                                                    public void onClick(View v) {
                                                        Intent intent2 = new Intent(SelectedEventActivity.this, MyMapActivity.class);
-                                                       double[] latlngArray = {selectedEventStartLatLng.latitude, selectedEventStartLatLng.longitude
-                                                               , selectedEventEndLatLng.latitude, selectedEventEndLatLng.longitude};
-                                                       intent2.putExtra(START_END_LATLNG, latlngArray);
+                                                       Bundle bundle = new Bundle();
+                                                       bundle.putString("startAdress",selectedEventStartLocation.getText().toString());
+                                                       bundle.putDouble("startLat",selectedEventStartLatLng.latitude);
+                                                       bundle.putDouble("startLng",selectedEventStartLatLng.longitude);
+                                                       bundle.putString("endAdress",selectedEventEndLocation.getText().toString());
+                                                       bundle.putDouble("endLat",selectedEventEndLatLng.latitude);
+                                                       bundle.putDouble("endLng",selectedEventEndLatLng.longitude);
+                                                       intent2.putExtra(START_END_LATLNG, bundle);
                                                        startActivity(intent2);
                                                    }
                                                }

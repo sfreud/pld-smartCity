@@ -32,6 +32,8 @@ public class MyMapActivity extends Activity implements OnMapReadyCallback {
     LatLng end = null;
     double totalDistance = 0;
     double totalDuration = 0;
+    String startAdress;
+    String endAdress;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,17 +50,19 @@ public class MyMapActivity extends Activity implements OnMapReadyCallback {
     public void onMapReady(GoogleMap map) {
         myMap = map;
         Intent intent = getIntent();
-        double[] startEndLatLng = intent.getDoubleArrayExtra(SelectedEventActivity.START_END_LATLNG);
+        Bundle bundle = intent.getBundleExtra(SelectedEventActivity.START_END_LATLNG);
 
         //start = new LatLng(45.782640, 4.878073);
-        start = new LatLng(startEndLatLng[0], startEndLatLng[1]);
+        start = new LatLng(bundle.getDouble("startLat"), bundle.getDouble("startLng"));
         double sourcelat = start.latitude;
         double sourcelog = start.longitude;
+        startAdress = bundle.getString("startAdress");
 
         //end = new LatLng(45.757198, 4.831219);
-        end = new LatLng(startEndLatLng[2], startEndLatLng[3]);
+        end = new LatLng(bundle.getDouble("endLat"), bundle.getDouble("endLng"));
         double destlat = end.latitude;
         double destlog = end.longitude;
+        endAdress = bundle.getString("endAdress");
 
         myMap.setMyLocationEnabled(true);
         myMap.moveCamera(CameraUpdateFactory.newLatLngZoom(start, 13));
@@ -185,11 +189,12 @@ public class MyMapActivity extends Activity implements OnMapReadyCallback {
                 drawPath(result);
                 MarkerOptions startMarker = new MarkerOptions()
                         .title("Start")
+                        .snippet(startAdress)
                         .position(start);
                 myMap.addMarker(startMarker);
                 MarkerOptions endMarker = new MarkerOptions()
                         .title("End")
-                        .snippet(totalDistance + "km (" + totalDuration + " minutes)")
+                        .snippet(endAdress +"\n"+totalDistance + "km (" + totalDuration + " minutes)")
                         .position(end);
                 myMap.addMarker(endMarker);
             }

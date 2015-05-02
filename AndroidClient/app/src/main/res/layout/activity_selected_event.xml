@@ -38,6 +38,12 @@
         android:text="@string/verifyLocations" />
 
     <Button
+        android:id="@+id/create_transport_request"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/create_transport_request" />
+
+    <Button
         android:id="@+id/selected_event_get_Map"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

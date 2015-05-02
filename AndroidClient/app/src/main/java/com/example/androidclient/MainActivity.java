@@ -22,29 +22,51 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.util.Date;
+import java.util.List;
 
 
 public class MainActivity extends ActionBarActivity {
-    Button getEventsListButton = null;
     TextView t1 = null;
     TextView t2 = null;
     TextView t3 = null;
+    Button getEventsListButton = null;
+    Button getTransportRequestListButton = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        getEventsListButton = (Button) findViewById(R.id.button);
         t1 = (TextView) findViewById(R.id.textView);
         t2 = (TextView) findViewById(R.id.textView2);
         t3 = (TextView) findViewById(R.id.textView3);
-
+        getEventsListButton = (Button) findViewById(R.id.button);
         getEventsListButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, UpcomingEventsActivity.class);
                 startActivity(intent);
+            }
+        });
+
+        getTransportRequestListButton = (Button) findViewById(R.id.getTransportRequestListButton);
+        getTransportRequestListButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                TransportRequestDAO trDAO = new TransportRequestDAO(getApplicationContext());
+                trDAO.open();
+                List<TransportRequest> ltr = trDAO.selectAll();
+                trDAO.close();
+                String s = "";
+                for(TransportRequest tr : ltr)
+                {
+                    s+=tr.getEventSummary()+"\n"+(new Date(tr.getEventBeginTime())).toString()+"\n"
+                            +tr.getEventAddress()+"("+tr.getEventLat()+","+tr.getEventLng()+")\n"
+                            +tr.getStartAddress()+"("+tr.getStartLat()+","+tr.getStartLng()+")";
+                    s+="\n";
+                }
+                t1.setText(s);
             }
         });
 

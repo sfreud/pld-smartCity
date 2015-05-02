@@ -11,4 +11,6 @@
     <string name="retrieving_events">Retrieving events...</string>
     <string name="title_activity_selected_event">SelectedEventActivity</string>
     <string name="verifyLocations">Vérifier les localisations</string>
+    <string name="create_transport_request">Créer une requête de transport</string>
+    <string name="getTransportRequestList">Récupérer la liste des demandes de transport</string>
 </resources>

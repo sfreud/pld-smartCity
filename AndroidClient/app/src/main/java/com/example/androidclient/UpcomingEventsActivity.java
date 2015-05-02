@@ -276,15 +276,15 @@ public class UpcomingEventsActivity extends Activity {
                         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                             Event selectedEvent = events.get(position);
                             Intent intent = new Intent(UpcomingEventsActivity.this, SelectedEventActivity.class);
-                            ArrayList<CharSequence> eventToList = new ArrayList<CharSequence>();
-                            eventToList.add(selectedEvent.getSummary());
-                            eventToList.add(selectedEvent.getStart().getDateTime().toString());
+                            Bundle bundle = new Bundle();
+                            bundle.putString("summary", selectedEvent.getSummary());
+                            bundle.putLong("startTime",selectedEvent.getStart().getDateTime().getValue());
                             String location = selectedEvent.getLocation();
                             if (location == null) {
                                 location = "No location found";
                             }
-                            eventToList.add(location);
-                            intent.putCharSequenceArrayListExtra(SELECTED_EVENT, eventToList);
+                            bundle.putString("location",location);
+                            intent.putExtra(SELECTED_EVENT, bundle);
                             startActivity(intent);
                         }
                     });

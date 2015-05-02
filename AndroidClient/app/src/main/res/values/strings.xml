@@ -1,6 +1,14 @@
 <resources>
     <string name="app_name">AndroidClient</string>
-
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+    <string name="title_activity_my_map">MyMapActivity</string>
+    <string name="title_activity_upcoming_events">UpcomingEvents</string>
+    <string name="getEventsListButton">Récupérer la liste des évènements</string>
+    <string name="getMapButton">Afficher la map</string>
+    <string name="API_KEY">AIzaSyA2h0_JGUTq9Ix1nqSHgXmAdRBUQfkSfqA</string>
+    <string name="Geocoding_API_KEY">AIzaSyDoUEQPVEHEV0RIGqu838upq1gmoIMlS6Q</string>
+    <string name="retrieving_events">Retrieving events...</string>
+    <string name="title_activity_selected_event">SelectedEventActivity</string>
+    <string name="verifyLocations">Vérifier les localisations</string>
 </resources>

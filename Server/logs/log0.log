@@ -1,0 +1,84 @@
+avr. 29, 2015 2:14:16 PM org.restlet.engine.connector.NetServerHelper start
+INFOS: Starting the internal [HTTP/1.1] server on port 8183
+avr. 29, 2015 2:14:36 PM org.restlet.engine.connector.NetServerHelper stop
+INFOS: Stopping the internal server
+avr. 29, 2015 5:23:13 PM org.restlet.engine.connector.NetServerHelper start
+INFOS: Starting the internal [HTTP/1.1] server on port 8183
+avr. 29, 2015 5:23:33 PM org.restlet.engine.connector.NetServerHelper stop
+INFOS: Stopping the internal server
+avr. 29, 2015 5:23:59 PM org.restlet.engine.connector.NetServerHelper start
+INFOS: Starting the internal [HTTP/1.1] server on port 8183
+avr. 29, 2015 5:24:01 PM org.restlet.engine.log.LogFilter afterHandle
+INFOS: 2015-04-29	17:24:01	0:0:0:0:0:0:0:1	-	-	8183	GET	/	-	404	439	0	76	http://localhost:8183	Mozilla/5.0 (Windows NT 6.3; WOW64; rv:37.0) Gecko/20100101 Firefox/37.0	-
+avr. 29, 2015 5:24:02 PM org.restlet.engine.log.LogFilter afterHandle
+INFOS: 2015-04-29	17:24:02	0:0:0:0:0:0:0:1	-	-	8183	GET	/favicon.ico	-	404	439	0	4	http://localhost:8183	Mozilla/5.0 (Windows NT 6.3; WOW64; rv:37.0) Gecko/20100101 Firefox/37.0	-
+avr. 29, 2015 5:24:02 PM org.restlet.engine.log.LogFilter afterHandle
+INFOS: 2015-04-29	17:24:02	0:0:0:0:0:0:0:1	-	-	8183	GET	/favicon.ico	-	404	439	0	4	http://localhost:8183	Mozilla/5.0 (Windows NT 6.3; WOW64; rv:37.0) Gecko/20100101 Firefox/37.0	-
+avr. 29, 2015 5:24:19 PM org.restlet.engine.connector.NetServerHelper stop
+INFOS: Stopping the internal server
+avr. 29, 2015 5:24:36 PM org.restlet.engine.connector.NetServerHelper start
+INFOS: Starting the internal [HTTP/1.1] server on port 8183
+avr. 29, 2015 5:24:40 PM org.restlet.engine.log.LogFilter afterHandle
+INFOS: 2015-04-29	17:24:40	0:0:0:0:0:0:0:1	-	-	8183	GET	/trace	-	401	424	0	100	http://localhost:8183	Mozilla/5.0 (Windows NT 6.3; WOW64; rv:37.0) Gecko/20100101 Firefox/37.0	-
+avr. 29, 2015 5:24:56 PM org.restlet.engine.connector.NetServerHelper stop
+INFOS: Stopping the internal server
+avr. 29, 2015 5:25:21 PM org.restlet.engine.connector.NetServerHelper start
+INFOS: Starting the internal [HTTP/1.1] server on port 8183
+avr. 29, 2015 5:25:25 PM org.restlet.engine.log.LogFilter afterHandle
+INFOS: 2015-04-29	17:25:25	0:0:0:0:0:0:0:1	loginB	-	8183	GET	/trace	-	200	79	0	91	http://localhost:8183	Mozilla/5.0 (Windows NT 6.3; WOW64; rv:37.0) Gecko/20100101 Firefox/37.0	-
+avr. 29, 2015 5:27:05 PM org.restlet.engine.connector.NetServerHelper start
+INFOS: Starting the internal [HTTP/1.1] server on port 8183
+avr. 29, 2015 5:29:05 PM org.restlet.engine.connector.NetServerHelper stop
+INFOS: Stopping the internal server
+avr. 29, 2015 5:30:05 PM org.restlet.engine.connector.NetServerHelper start
+INFOS: Starting the internal [HTTP/1.1] server on port 8183
+avr. 29, 2015 5:32:05 PM org.restlet.engine.connector.NetServerHelper stop
+INFOS: Stopping the internal server
+avr. 29, 2015 5:32:17 PM org.restlet.engine.connector.NetServerHelper start
+INFOS: Starting the internal [HTTP/1.1] server on port 8183
+avr. 29, 2015 5:33:21 PM org.restlet.engine.adapter.ServerCall parseHost
+INFOS: Couldn't find the mandatory "Host" HTTP header.
+avr. 29, 2015 5:33:21 PM org.restlet.engine.log.LogFilter afterHandle
+INFOS: 2015-04-29	17:33:21	127.0.0.1	loginB	-	8183	POST	/	-	404	439	0	26	http://null	-	-
+avr. 29, 2015 5:34:18 PM org.restlet.engine.connector.NetServerHelper stop
+INFOS: Stopping the internal server
+avr. 29, 2015 5:37:24 PM org.restlet.engine.connector.NetServerHelper start
+INFOS: Starting the internal [HTTP/1.1] server on port 8183
+avr. 29, 2015 5:38:14 PM org.restlet.engine.adapter.ServerCall parseHost
+INFOS: Couldn't find the mandatory "Host" HTTP header.
+avr. 29, 2015 5:38:14 PM org.restlet.engine.log.LogFilter afterHandle
+INFOS: 2015-04-29	17:38:14	127.0.0.1	loginB	-	8183	POST	/	-	404	439	0	30	http://null	-	-
+avr. 29, 2015 5:39:24 PM org.restlet.engine.connector.NetServerHelper stop
+INFOS: Stopping the internal server
+avr. 29, 2015 5:39:31 PM org.restlet.engine.connector.NetServerHelper start
+INFOS: Starting the internal [HTTP/1.1] server on port 8183
+avr. 29, 2015 5:40:51 PM org.restlet.engine.adapter.ServerCall parseHost
+INFOS: Couldn't find the mandatory "Host" HTTP header.
+avr. 29, 2015 5:40:51 PM org.restlet.engine.log.LogFilter afterHandle
+INFOS: 2015-04-29	17:40:51	127.0.0.1	loginB	-	8183	POST	/trace	-	401	424	0	42	http://null	-	-
+avr. 29, 2015 5:41:31 PM org.restlet.engine.connector.NetServerHelper stop
+INFOS: Stopping the internal server
+avr. 29, 2015 5:42:45 PM org.restlet.engine.connector.NetServerHelper start
+INFOS: Starting the internal [HTTP/1.1] server on port 8183
+avr. 29, 2015 5:43:08 PM org.restlet.engine.adapter.ServerCall parseHost
+INFOS: Couldn't find the mandatory "Host" HTTP header.
+avr. 29, 2015 5:43:08 PM org.restlet.engine.log.LogFilter afterHandle
+INFOS: 2015-04-29	17:43:08	127.0.0.1	loginB	-	8183	POST	/trace	-	200	70	0	52	http://null	-	-
+avr. 29, 2015 5:44:11 PM org.restlet.engine.log.LogFilter afterHandle
+INFOS: 2015-04-29	17:44:11	0:0:0:0:0:0:0:1	loginB	-	8183	GET	/trace	-	401	424	0	39	http://localhost:8183	Mozilla/5.0 (Windows NT 6.3; WOW64; rv:37.0) Gecko/20100101 Firefox/37.0	-
+avr. 29, 2015 5:44:20 PM org.restlet.engine.log.LogFilter afterHandle
+INFOS: 2015-04-29	17:44:20	0:0:0:0:0:0:0:1	loginB	-	8183	GET	/trace	-	200	79	0	3	http://localhost:8183	Mozilla/5.0 (Windows NT 6.3; WOW64; rv:37.0) Gecko/20100101 Firefox/37.0	-
+avr. 29, 2015 5:44:45 PM org.restlet.engine.connector.NetServerHelper stop
+INFOS: Stopping the internal server
+avr. 30, 2015 9:04:55 AM org.restlet.engine.connector.NetServerHelper start
+INFOS: Starting the internal [HTTP/1.1] server on port 8183
+avr. 30, 2015 9:05:20 AM org.restlet.engine.log.LogFilter afterHandle
+INFOS: 2015-04-30	09:05:20	0:0:0:0:0:0:0:1	-	-	8183	GET	/trace	-	401	424	0	67	http://localhost:8183	Mozilla/5.0 (Windows NT 6.3; WOW64; rv:37.0) Gecko/20100101 Firefox/37.0	-
+avr. 30, 2015 9:05:30 AM org.restlet.engine.log.LogFilter afterHandle
+INFOS: 2015-04-30	09:05:30	0:0:0:0:0:0:0:1	loginB	-	8183	GET	/trace	-	200	79	0	13	http://localhost:8183	Mozilla/5.0 (Windows NT 6.3; WOW64; rv:37.0) Gecko/20100101 Firefox/37.0	-
+avr. 30, 2015 9:05:30 AM org.restlet.engine.log.LogFilter afterHandle
+INFOS: 2015-04-30	09:05:30	0:0:0:0:0:0:0:1	loginB	-	8183	GET	/favicon.ico	-	404	439	0	3	http://localhost:8183	Mozilla/5.0 (Windows NT 6.3; WOW64; rv:37.0) Gecko/20100101 Firefox/37.0	-
+avr. 30, 2015 9:05:30 AM org.restlet.engine.log.LogFilter afterHandle
+INFOS: 2015-04-30	09:05:30	0:0:0:0:0:0:0:1	loginB	-	8183	GET	/favicon.ico	-	404	439	0	3	http://localhost:8183	Mozilla/5.0 (Windows NT 6.3; WOW64; rv:37.0) Gecko/20100101 Firefox/37.0	-
+avr. 30, 2015 9:06:55 AM org.restlet.engine.connector.NetServerHelper stop
+INFOS: Stopping the internal server

@@ -1,65 +1,110 @@
 package com.example.androidclient;
 
-import com.google.api.client.util.DateTime;
-import com.google.api.services.calendar.model.Event;
+import java.util.Date;
 
 public class TransportRequest {
-
-
-    /**
-     * arrivalAddress: adresse du lieu de l'évènement
-     * startAddress: adresse du lieu de départ
-     * startStop : adresse de l'arrêt de départ
-     * arrivalStop : adresse de l'arrêt d'arrivée
-     * beginEvent : date de début de l'évènement
-     */
-    private String arrivalAddress;
+    private long id;
+    private String eventSummary;
+    private String eventAddress;
+    private double eventLat;
+    private double eventLng;
     private String startAddress;
-    private String startStop;
-    private String arrivalStop;
-    private DateTime beginEvent;
+    private double startLat;
+    private double startLng;
+    private long eventBeginTime;
 
-
-    public TransportRequest(Event event, String startAddress) {
+    public TransportRequest(String eventSummary, String eventAddress, double eventLat, double eventLng, String startAddress, double startLat, double startLng, long eventBeginTime) {
+        this.eventSummary = eventSummary;
+        this.eventAddress = eventAddress;
+        this.eventLat = eventLat;
+        this.eventLng = eventLng;
         this.startAddress = startAddress;
-        this.beginEvent = event.getStart().getDateTime();
-        this.arrivalAddress = event.getLocation();
-        this.startStop = null;
-        this.arrivalStop = null;
-
+        this.startLat = startLat;
+        this.eventBeginTime = eventBeginTime;
+        this.startLng = startLng;
     }
 
-    public String getArrivalStop() {
-        return arrivalStop;
+    public TransportRequest(long id, String eventSummary, String eventAddress, double eventLat, double eventLng, String startAddress, double startLat, double startLng, long eventBeginTime) {
+        this.id = id;
+        this.eventSummary = eventSummary;
+        this.eventAddress = eventAddress;
+        this.eventLat = eventLat;
+        this.startAddress = startAddress;
+        this.eventLng = eventLng;
+        this.startLat = startLat;
+        this.startLng = startLng;
+        this.eventBeginTime = eventBeginTime;
     }
 
-    public void setArrivalStop(String arrivalStop) {
-        this.arrivalStop = arrivalStop;
+    public long getId() {
+        return id;
     }
 
-    public String getStartStop() {
-        return startStop;
+    public void setId(long id) {
+        this.id = id;
     }
 
-    public void setStartStop(String startStop) {
-        this.startStop = startStop;
+    public String getEventSummary() {
+        return eventSummary;
     }
 
-    public String getArrivalAddress() {
-        return arrivalAddress;
+    public void setEventSummary(String eventSummary) {
+        this.eventSummary = eventSummary;
+    }
+
+    public String getEventAddress() {
+        return eventAddress;
+    }
+
+    public void setEventAddress(String eventAddress) {
+        this.eventAddress = eventAddress;
+    }
+
+    public double getEventLat() {
+        return eventLat;
+    }
+
+    public void setEventLat(double eventLat) {
+        this.eventLat = eventLat;
+    }
+
+    public double getEventLng() {
+        return eventLng;
+    }
+
+    public void setEventLng(double eventLng) {
+        this.eventLng = eventLng;
     }
 
     public String getStartAddress() {
         return startAddress;
     }
 
-    public DateTime getBeginEvent() {
-        return beginEvent;
+    public void setStartAddress(String startAddress) {
+        this.startAddress = startAddress;
     }
 
-    public Object calculateTransport() {
-        return null;
+    public double getStartLat() {
+        return startLat;
     }
 
+    public void setStartLat(double startLat) {
+        this.startLat = startLat;
+    }
 
+    public double getStartLng() {
+        return startLng;
+    }
+
+    public void setStartLng(double startLng) {
+        this.startLng = startLng;
+    }
+
+    public long getEventBeginTime() {
+        return eventBeginTime;
+    }
+
+    public void setEventBeginTime(long eventBeginTime) {
+        this.eventBeginTime = eventBeginTime;
+    }
 }

@@ -20,17 +20,18 @@ import org.json.JSONObject;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.util.ArrayList;
+import java.util.Date;
 
 
 public class SelectedEventActivity extends Activity {
     public final static String START_END_LATLNG = "com.example.androidclient.START_END_LATLNG";
-    EditText selectedEventStartLocation = null;
-    EditText selectedEventEndLocation = null;
-    LatLng selectedEventStartLatLng = null;
-    LatLng selectedEventEndLatLng = null;
-    String summary = null;
-    String startTime = null;
-    String endLocation = null;
+    EditText selectedEventStartLocation;
+    EditText selectedEventEndLocation;
+    LatLng selectedEventStartLatLng;
+    LatLng selectedEventEndLatLng;
+    String summary;
+    long startTime;
+    String endLocation;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,15 +39,15 @@ public class SelectedEventActivity extends Activity {
         setContentView(R.layout.activity_selected_event);
 
         Intent intent = getIntent();
-        ArrayList<CharSequence> eventToList = intent.getCharSequenceArrayListExtra(UpcomingEventsActivity.SELECTED_EVENT);
-        summary = (String) eventToList.get(0);
-        startTime = (String) eventToList.get(1);
-        endLocation = (String) eventToList.get(2);
+        Bundle bundle = intent.getBundleExtra(UpcomingEventsActivity.SELECTED_EVENT);
+        summary = bundle.getString("summary");
+        startTime = bundle.getLong("startTime");
+        endLocation = bundle.getString("location");
 
         TextView selectedEventSummary = (TextView) findViewById(R.id.selected_event_summary);
         selectedEventSummary.setText(summary);
         TextView selectedEventStartTime = (TextView) findViewById(R.id.selected_event_startTime);
-        selectedEventStartTime.setText(startTime);
+        selectedEventStartTime.setText((new Date(startTime)).toString());
         selectedEventStartLocation = (EditText) findViewById(R.id.selectedEventStartLocation);
         selectedEventEndLocation = (EditText) findViewById(R.id.selectedEventEndLocation);
         selectedEventEndLocation.setText(endLocation);
@@ -59,6 +60,21 @@ public class SelectedEventActivity extends Activity {
                 vlt.execute();
                 VerifyLocationTask vlt2 = new VerifyLocationTask(selectedEventEndLocation);
                 vlt2.execute();
+            }
+        });
+
+        Button createTransportRequest = (Button) findViewById(R.id.create_transport_request);
+        createTransportRequest.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //(String eventSummary, String eventAddress, double eventLat, double eventLng, String startAddress, double startLat, long eventBeginTime, double startLng)
+                TransportRequest tr = new TransportRequest(summary, selectedEventEndLocation.getText().toString()
+                        ,selectedEventStartLatLng.latitude,selectedEventStartLatLng.longitude
+                        , selectedEventStartLocation.getText().toString(),selectedEventEndLatLng.longitude,selectedEventEndLatLng.latitude, startTime);
+                TransportRequestDAO trDAO = new TransportRequestDAO(getApplicationContext());
+                trDAO.open();
+                trDAO.add(tr);
+                trDAO.close();
             }
         });
 

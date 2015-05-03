@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.gms.maps.model.LatLng;
 
@@ -27,12 +28,16 @@ public class SelectedEventActivity extends Activity {
     public final static String START_END_LATLNG = "com.example.androidclient.START_END_LATLNG";
     EditText selectedEventStartLocation;
     EditText selectedEventEndLocation;
+    Button verifyLocations;
+    Button createTransportRequest;
+    Button selectedEventGetMap;
     LatLng selectedEventStartLatLng;
     LatLng selectedEventEndLatLng;
     String eventID;
     String summary;
     long startTime;
     String endLocation;
+    TransportRequest transportRequest;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,7 +59,7 @@ public class SelectedEventActivity extends Activity {
         selectedEventEndLocation = (EditText) findViewById(R.id.selectedEventEndLocation);
         selectedEventEndLocation.setText(endLocation);
 
-        Button verifyLocations = (Button) findViewById(R.id.verify_locations);
+        verifyLocations = (Button) findViewById(R.id.verify_locations);
         verifyLocations.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -62,36 +67,43 @@ public class SelectedEventActivity extends Activity {
                 vlt.execute();
                 VerifyLocationTask vlt2 = new VerifyLocationTask(selectedEventEndLocation);
                 vlt2.execute();
+                createTransportRequest.setEnabled(true);
             }
         });
 
-        Button createTransportRequest = (Button) findViewById(R.id.create_transport_request);
+        createTransportRequest = (Button) findViewById(R.id.create_transport_request);
+        createTransportRequest.setEnabled(false);
         createTransportRequest.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                TransportRequest tr = new TransportRequest(eventID, summary,
+                transportRequest = new TransportRequest(eventID, summary,
                         selectedEventEndLocation.getText().toString(),selectedEventEndLatLng.latitude,selectedEventEndLatLng.longitude,
                         selectedEventStartLocation.getText().toString(),selectedEventStartLatLng.latitude,selectedEventStartLatLng.longitude,
                         startTime);
                 TransportRequestDAO trDAO = new TransportRequestDAO(getApplicationContext());
                 trDAO.open();
-                trDAO.add(tr);
+                trDAO.add(transportRequest);
                 trDAO.close();
+                selectedEventGetMap.setEnabled(true);
+                Toast.makeText(getApplicationContext(),"La demande de transport a bien été créée",Toast.LENGTH_SHORT).show();
+                createTransportRequest.setEnabled(false);
+                createTransportRequest.setText("Demande de transport créée");
             }
         });
 
-        Button selectedEventGetMap = (Button) findViewById(R.id.selected_event_get_Map);
+        selectedEventGetMap = (Button) findViewById(R.id.selected_event_get_Map);
+        selectedEventGetMap.setEnabled(false);
         selectedEventGetMap.setOnClickListener(new View.OnClickListener() {
                                                    @Override
                                                    public void onClick(View v) {
                                                        Intent intent2 = new Intent(SelectedEventActivity.this, MyMapActivity.class);
                                                        Bundle bundle = new Bundle();
-                                                       bundle.putString("startAdress",selectedEventStartLocation.getText().toString());
-                                                       bundle.putDouble("startLat",selectedEventStartLatLng.latitude);
-                                                       bundle.putDouble("startLng",selectedEventStartLatLng.longitude);
-                                                       bundle.putString("endAdress",selectedEventEndLocation.getText().toString());
-                                                       bundle.putDouble("endLat",selectedEventEndLatLng.latitude);
-                                                       bundle.putDouble("endLng",selectedEventEndLatLng.longitude);
+                                                       bundle.putString("startAdress",transportRequest.getStartAddress());
+                                                       bundle.putDouble("startLat",transportRequest.getStartLat());
+                                                       bundle.putDouble("startLng",transportRequest.getStartLng());
+                                                       bundle.putString("endAdress",transportRequest.getEventAddress());
+                                                       bundle.putDouble("endLat",transportRequest.getEventLat());
+                                                       bundle.putDouble("endLng",transportRequest.getEventLng());
                                                        intent2.putExtra(START_END_LATLNG, bundle);
                                                        startActivity(intent2);
                                                    }

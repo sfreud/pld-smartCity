@@ -12,6 +12,7 @@ public final class DBContract {
     public static abstract class TransportRequestContract implements BaseColumns {
         public static final String TABLE_NAME = "transport_request";
         public static final String KEY = "id";
+        public static final String EVENTID = "event_id";
         public static final String EVENTSUMMARY = "event_summary";
         public static final String EVENTADDRESS = "event_address";
         public static final String EVENTLAT ="event_Lat";
@@ -23,6 +24,7 @@ public final class DBContract {
 
         public static final String TABLE_CREATE = "CREATE TABLE " + TABLE_NAME + " ("
                 + KEY + " INTEGER PRIMARY KEY AUTOINCREMENT, "
+                + EVENTID + TEXT_TYPE + COMMA_SEP
                 + EVENTSUMMARY + TEXT_TYPE + COMMA_SEP
                 + EVENTADDRESS + TEXT_TYPE + COMMA_SEP
                 + EVENTLAT + INT_TYPE + COMMA_SEP

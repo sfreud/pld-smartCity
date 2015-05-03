@@ -61,7 +61,7 @@ public class MainActivity extends ActionBarActivity {
                 String s = "";
                 for(TransportRequest tr : ltr)
                 {
-                    s+=tr.getEventSummary()+"\n"+(new Date(tr.getEventBeginTime())).toString()+"\n"
+                    s+=tr.getEventID()+"\n"+tr.getEventSummary()+"\n"+(new Date(tr.getEventBeginTime())).toString()+"\n"
                             +tr.getEventAddress()+"("+tr.getEventLat()+","+tr.getEventLng()+")\n"
                             +tr.getStartAddress()+"("+tr.getStartLat()+","+tr.getStartLng()+")";
                     s+="\n";

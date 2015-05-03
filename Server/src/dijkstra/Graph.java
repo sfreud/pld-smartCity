@@ -9,12 +9,12 @@ public class Graph {
 
     private GraphNode begin;
     //Map<IdNoeud,Pair<Lat,Long>>
-    public static Graph getGraph(Map<Long, Pair<Float,Float>> coor, List<Pair<Long,Long>> way) throws GraphException{
-        if(coor.isEmpty()||way.isEmpty())
+    public static Graph getGraph(Map<Long, Pair<Float,Float>> coor, List<Pair<Long,Long>> e) throws GraphException{
+        if(coor.isEmpty()||e.isEmpty())
         {
             throw new GraphException();
         }
-        for(Pair<Long,Long> w : way)
+        for(Pair<Long,Long> w : e)
         {
             if(!coor.containsKey(w.first)||!coor.containsKey(w.second))
             {
@@ -25,7 +25,7 @@ public class Graph {
         for(Long nodeDep : coor.keySet())
         {
             edges.put(nodeDep, new HashMap<Long,Float>());
-            for(Pair<Long,Long> w : way)
+            for(Pair<Long,Long> w : e)
             {
                 if(w.first.equals(nodeDep))
                 {

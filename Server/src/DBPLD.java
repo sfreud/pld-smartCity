@@ -1,18 +1,5 @@
-package com.telys.ls_android;
-
-import android.provider.BaseColumns;
-
 public final class DBPLD {	
-	//schéma de la DB
-	//une classe interne représente une table de la DB
-	/*
-	 * La DB locale reprend autant que possible la structure et les noms de la DB sur le serveur 
-	 * pour avoir une interface d'accès
-	 * cohérente, mais on ne garde en local que les données utiles.
-	 *  
-	 * */
-
-	//constructeur privé (classe non instanciable)
+	
     private DBPLD() {}
 
     public static final String TEXT_TYPE = " TEXT";
@@ -24,7 +11,7 @@ public final class DBPLD {
     
 	    /* Inner class that defines the table contents */
     //BaseColumns -> constante héritée _ID servant de clé primaire (nécessaire pour utiliser la classe Cursor)
-    public static abstract class users implements BaseColumns {
+    public static abstract class users {
         public static final String TABLE_NAME = "users";
         public static final String COLUMN_NAME_ID = "id";
         public static final String COLUMN_NAME_TITLE = "name";
@@ -32,14 +19,13 @@ public final class DBPLD {
  
         public static final String CREATE_TABLE = "CREATE TABLE IF NOT EXISTS " +
                 TABLE_NAME + " (" +
-                _ID + " INTEGER AUTO_INCREMENT PRIMARY KEY NOT NULL," +
                 COLUMN_NAME_ID + INT_TYPE + COMMA_SEP +
                 COLUMN_NAME_TITLE + TEXT_TYPE + COMMA_SEP +
                 COLUMN_NAME_PASSWORD + BLOB_TYPE + " )";
         public static final String DELETE_TABLE = "DROP TABLE IF EXISTS " + TABLE_NAME;
         
     }
-    public static abstract class calendarEvents implements BaseColumns {
+    public static abstract class calendarEvents {
     	public static final String TABLE_NAME = "calendarEvents";
         public static final String COLUMN_NAME_ID = "id";
         public static final String COLUMN_NAME_UID = "userid";
@@ -49,19 +35,17 @@ public final class DBPLD {
         
         public static final String CREATE_TABLE = "CREATE TABLE IF NOT EXISTS " +
                 TABLE_NAME + " (" +
-                _ID + " INTEGER PRIMARY KEY NOT NULL," +
                 COLUMN_NAME_ID + INT_TYPE + COMMA_SEP +
                 COLUMN_NAME_UID + INT_TYPE + " NOT NULL" + COMMA_SEP +
                 COLUMN_NAME_TITLE + TEXT_TYPE + COMMA_SEP +
                 COLUMN_NAME_LOCATION + TEXT_TYPE + " DEFAULT \"\"" + COMMA_SEP +
-                COLUMN_NAME_CORRECTION + TEXT_TYPE + COMMA_SEP +
                 COLUMN_NAME_EVENTDATE + " TIMESTAMP" + COMMA_SEP +
                 FOREIGN_KEY + "(" + COLUMN_NAME_UID + ") REFERENCES " 
                 + users.TABLE_NAME +"(" + users.COLUMN_NAME_ID + ")"
                 + ")";
         public static final String DELETE_TABLE = "DROP TABLE IF EXISTS " + TABLE_NAME;
     }
-    public static abstract class itineraries implements BaseColumns {
+    public static abstract class itineraries {
     	public static final String TABLE_NAME = "itineraries";
         public static final String COLUMN_NAME_ID = "id";
         public static final String COLUMN_NAME_UID = "userid";
@@ -73,7 +57,6 @@ public final class DBPLD {
         public static final String COLUMN_NAME_CALCULATED_DURATION = "calculatedduration";
         public static final String CREATE_TABLE = "CREATE TABLE IF NOT EXISTS " +
                 TABLE_NAME + " (" +
-                _ID + " INTEGER PRIMARY KEY NOT NULL," +
                 COLUMN_NAME_ID + INT_TYPE + COMMA_SEP +
                 COLUMN_NAME_UID + INT_TYPE + " NOT NULL" + COMMA_SEP + 
                 COLUMN_NAME_TMODE + TEXT_TYPE + COMMA_SEP +

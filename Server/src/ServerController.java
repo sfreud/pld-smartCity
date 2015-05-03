@@ -1,16 +1,8 @@
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
-
 import org.restlet.Component;
 import org.restlet.data.ChallengeScheme;
 import org.restlet.data.Protocol;
 import org.restlet.ext.crypto.DigestAuthenticator;
-import org.restlet.resource.ServerResource;
 import org.restlet.security.ChallengeAuthenticator;
-import org.restlet.security.LocalVerifier;
 import org.restlet.security.MapVerifier;
 
 
@@ -34,7 +26,7 @@ public class ServerController {
 		
 		Component server = new Component();
 		//the port on which we will deploy the services
-		server.getServers().add(Protocol.HTTP, 8184);
+		server.getServers().add(Protocol.HTTP, 8182);
 		
 		//map services to URI
 		server.getDefaultHost().attach("/trace", TraceServer.class);
@@ -61,6 +53,7 @@ public class ServerController {
 		//We make the server run for only 20s for testing purposes. 
 		//It is enough to test a few requests, and the server will be auto shut down before you try to rebuild
 		//and deploy again on the same port, thus avoiding the dreadful AddressAlreadyInUse exception.
+		//It appears that 20s begins quite short for stupidly long list of parameters. 
 		try {
 			server.start();
 		} catch (Exception e) {
@@ -68,7 +61,7 @@ public class ServerController {
 			e.printStackTrace();
 		}
 		try {
-			Thread.sleep(20000);
+			Thread.sleep(30000);
 		} catch (InterruptedException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();

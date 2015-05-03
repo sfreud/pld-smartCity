@@ -1,5 +1,6 @@
 import org.restlet.resource.Get;
 
+//UNUSED AND DEPRECATED.
 public class TraceServer extends org.restlet.resource.ServerResource {
 	
 	

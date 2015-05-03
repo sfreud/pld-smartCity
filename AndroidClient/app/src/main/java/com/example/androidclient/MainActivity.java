@@ -1,22 +1,26 @@
 package com.example.androidclient;
 
+import android.app.AlarmManager;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
+import android.app.TaskStackBuilder;
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.SystemClock;
+import android.support.v4.app.NotificationCompat;
 import android.support.v7.app.ActionBarActivity;
 import android.util.Base64;
 import android.util.Log;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
-
-import com.google.api.client.util.DateTime;
-import com.google.api.services.calendar.model.Event;
+import android.widget.Toast;
 
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
@@ -29,6 +33,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -72,16 +77,37 @@ public class MainActivity extends ActionBarActivity {
                     element = new HashMap<String, String>();
                     element.put("summary", tr.getEventSummary());
                     element.put("startTime", (new Date(tr.getEventBeginTime())).toString());
-                    element.put("startLocation", tr.getEventBeginTime()+"("+tr.getEventLat()+","+tr.getEventLng()+")");
-                    element.put("eventLocation", tr.getEventAddress()+"("+tr.getStartLat()+","+tr.getStartLng()+")");
+                    element.put("startLocation", tr.getEventBeginTime() + "(" + tr.getEventLat() + "," + tr.getEventLng() + ")");
+                    element.put("eventLocation", tr.getEventAddress() + "(" + tr.getStartLat() + "," + tr.getStartLng() + ")");
                     list.add(element);
                 }
                 ListAdapter adapter = new SimpleAdapter(MainActivity.this,
                         list,
                         R.layout.simple_transport__request_list,
-                        new String[]{"summary", "startTime","startLocation", "eventLocation"},
-                        new int[]{R.id.eventSummary, R.id.eventStartTime,R.id.startLocation, R.id.eventLocation});
+                        new String[]{"summary", "startTime", "startLocation", "eventLocation"},
+                        new int[]{R.id.eventSummary, R.id.eventStartTime, R.id.startLocation, R.id.eventLocation});
                 transportRequestListView.setAdapter(adapter);
+            }
+        });
+
+        Button testNotification = (Button) findViewById(R.id.testNotification);
+        testNotification.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Context ctx = MainActivity.this;
+                Calendar cal = Calendar.getInstance();
+                //cal.setTimeInMillis((long));
+                cal.add(Calendar.SECOND, 10);
+                Intent intent = new Intent(ctx, AlarmReceiver.class);
+                intent.putExtra("alarm_message", "L'alarme fonctionne");
+                //http://justcallmebrian.com/2010/04/27/using-alarmmanager-to-schedule-activities-on-android/
+                // In reality, you would want to have a static variable for the request code instead of 192837
+                PendingIntent sender = PendingIntent.getBroadcast(ctx, 0, intent, 0);
+
+                // Get the AlarmManager service
+                AlarmManager am = (AlarmManager) ctx.getSystemService(Context.ALARM_SERVICE);
+                am.set(AlarmManager.ELAPSED_REALTIME_WAKEUP, SystemClock.elapsedRealtime() + 10 * 1000, sender);
             }
         });
 
@@ -90,28 +116,6 @@ public class MainActivity extends ActionBarActivity {
 
        /* AuthenficationRequestTask art = new AuthenficationRequestTask();
         art.execute();*/
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
     }
 
 

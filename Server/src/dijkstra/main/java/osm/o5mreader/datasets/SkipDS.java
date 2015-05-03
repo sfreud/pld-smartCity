@@ -1,7 +1,7 @@
 package dijkstra.main.java.osm.o5mreader.datasets;
 
 import dijkstra.main.java.osm.o5mreader.datasets.NWRDataSet.BaseObjectTypes;
-import main.java.osm.o5mreader.datasets.DataSet;
+import dijkstra.main.java.osm.o5mreader.datasets.DataSet;
 
 public class SkipDS extends DataSet {
 	

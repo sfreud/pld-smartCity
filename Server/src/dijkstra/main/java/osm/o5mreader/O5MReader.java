@@ -12,20 +12,20 @@ import java.util.List;
 import java.util.Map;
 import dijkstra.main.java.osm.o5mreader.Pair;
 
-import main.java.osm.o5mreader.datasets.BBOXds;
-import main.java.osm.o5mreader.datasets.DataSet;
+import dijkstra.main.java.osm.o5mreader.datasets.BBOXds;
+import dijkstra.main.java.osm.o5mreader.datasets.DataSet;
 import dijkstra.main.java.osm.o5mreader.datasets.END;
-import main.java.osm.o5mreader.datasets.FileTimestamp;
-import main.java.osm.o5mreader.datasets.Header;
-import main.java.osm.o5mreader.datasets.Jump;
+import dijkstra.main.java.osm.o5mreader.datasets.FileTimestamp;
+import dijkstra.main.java.osm.o5mreader.datasets.Header;
+import dijkstra.main.java.osm.o5mreader.datasets.Jump;
 import dijkstra.main.java.osm.o5mreader.datasets.NWRDataSet;
 import dijkstra.main.java.osm.o5mreader.datasets.SkipDS;
 import dijkstra.main.java.osm.o5mreader.datasets.NWRDataSet.BaseObjectTypes;
 import dijkstra.main.java.osm.o5mreader.datasets.Node;
 import dijkstra.main.java.osm.o5mreader.datasets.Relation;
 import dijkstra.main.java.osm.o5mreader.datasets.Relation.RelationReference;
-import main.java.osm.o5mreader.datasets.Reset;
-import main.java.osm.o5mreader.datasets.SyncDS;
+import dijkstra.main.java.osm.o5mreader.datasets.Reset;
+import dijkstra.main.java.osm.o5mreader.datasets.SyncDS;
 import dijkstra.main.java.osm.o5mreader.datasets.Way;
 
 public class O5MReader {
@@ -125,20 +125,25 @@ public class O5MReader {
 	public void read(O5MHandler handler) throws IOException {
 		DataSet ds = null;
 		do {
+                    
 			 ds = read();
 			 if(ds != null) {
 				 if(ds instanceof Node) {
 					 handler.handleNode((Node)ds);
+                                         System.out.println("node");
 				 }
 				 if(ds instanceof Way) {
 					 handler.handleWay((Way)ds);
+                                         System.out.println("way");
 				 }
 				 if(ds instanceof Relation) {
 					 handler.handleRelation((Relation)ds);
+                                         System.out.println("relation");
 				 }
 			 }
 		}
 		while (!(ds instanceof END));
+                System.out.println("fin read");
 	}
 	
 	public final DataSet read() throws IOException {
@@ -158,7 +163,16 @@ public class O5MReader {
 		if(read < 0) {
 			throw new UnexpectedEndOfFileException();
 		}
-		
+		System.out.println(O5MREADER_DS_RESET);
+                System.out.println(O5MREADER_DS_END);
+                System.out.println(O5MREADER_DS_HEADER);
+                System.out.println(O5MREADER_DS_JUMP);
+                System.out.println(O5MREADER_DS_TSTAMP);
+                System.out.println(O5MREADER_DS_BBOX);
+                System.out.println(O5MREADER_DS_NODE);
+                System.out.println(O5MREADER_DS_WAY);
+                System.out.println(O5MREADER_DS_REL);
+                System.out.println(O5MREADER_DS_SYNC);
 		switch((byte)read){
 		
 		//reset of undefined

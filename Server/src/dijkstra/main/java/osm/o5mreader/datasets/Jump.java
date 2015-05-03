@@ -1,4 +1,4 @@
-package main.java.osm.o5mreader.datasets;
+package dijkstra.main.java.osm.o5mreader.datasets;
 
 public class Jump extends DataSet {
 

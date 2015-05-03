@@ -3,7 +3,7 @@ package dijkstra.main.java.osm.o5mreader.datasets;
 import java.util.Map;
 
 import dijkstra.main.java.osm.o5mreader.Pair;
-import main.java.osm.o5mreader.datasets.DataSet;
+import dijkstra.main.java.osm.o5mreader.datasets.DataSet;
 
 public class NWRDataSet extends DataSet {
 	

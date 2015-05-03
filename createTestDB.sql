@@ -1,18 +1,95 @@
-create database if not exists testPLD;
-use testPLD;
-create table if not exists users(id integer auto_increment primary key not null,name varchar(50), password blob);
-ALTER TABLE users AUTO_INCREMENT=0;
-insert into users (name, password) values ("test","test");
-insert into users (name, password) values ("sylvain","pass");
+package com.telys.ls_android;
 
--- format utilisé pour le lieu ? coord gps, adresse ?
-create table if not exists calendarEvents(id integer primary key not null,userid int not null,title varchar(50), location varchar(50), eventdate timestamp, foreign key (userid) references users(id));
-insert into calendarevents(id,userid,title,location,eventdate) values (0,1,"acheter des crêpes","42 rue osef",'2015-05-01 00:00:01');
-alter table calendarevents add unique (userid, title);
+import android.provider.BaseColumns;
 
-create table if not exists itineraries(id int primary key not null, userid int not null, tranportmodes char(3), departure time, arrival time, calculatedduration time, departurelocation varchar(50), arrivallocation varchar(50),foreign key (userid) references users(id));
-insert into itineraries(id,userid,tranportmodes,departure,arrival,calculatedduration,departurelocation,arrivallocation) values (0,1,011,'08:30:00','09:00:00','00:00:20',"maison","boulot");
+public final class DBPLD {	
+	//schéma de la DB
+	//une classe interne représente une table de la DB
+	/*
+	 * La DB locale reprend autant que possible la structure et les noms de la DB sur le serveur 
+	 * pour avoir une interface d'accès
+	 * cohérente, mais on ne garde en local que les données utiles.
+	 *  
+	 * */
 
--- drop database testpld;
-select * from calendarevents;
+	//constructeur privé (classe non instanciable)
+    private DBPLD() {}
+
+    public static final String TEXT_TYPE = " TEXT";
+    public static final String COMMA_SEP = ", ";
+    public static final String INT_TYPE = " INTEGER";
+    public static final String FOREIGN_KEY = " FOREIGN KEY";
+    public static final String BLOB_TYPE = " BLOB";
+    
+    
+	    /* Inner class that defines the table contents */
+    //BaseColumns -> constante héritée _ID servant de clé primaire (nécessaire pour utiliser la classe Cursor)
+    public static abstract class users implements BaseColumns {
+        public static final String TABLE_NAME = "users";
+        public static final String COLUMN_NAME_ID = "id";
+        public static final String COLUMN_NAME_TITLE = "name";
+        public static final String COLUMN_NAME_PASSWORD = "password";
+ 
+        public static final String CREATE_TABLE = "CREATE TABLE IF NOT EXISTS " +
+                TABLE_NAME + " (" +
+                _ID + " INTEGER AUTO_INCREMENT PRIMARY KEY NOT NULL," +
+                COLUMN_NAME_ID + INT_TYPE + COMMA_SEP +
+                COLUMN_NAME_TITLE + TEXT_TYPE + COMMA_SEP +
+                COLUMN_NAME_PASSWORD + BLOB_TYPE + " )";
+        public static final String DELETE_TABLE = "DROP TABLE IF EXISTS " + TABLE_NAME;
+        
+    }
+    public static abstract class calendarEvents implements BaseColumns {
+    	public static final String TABLE_NAME = "calendarEvents";
+        public static final String COLUMN_NAME_ID = "id";
+        public static final String COLUMN_NAME_UID = "userid";
+        public static final String COLUMN_NAME_TITLE = "title";
+        public static final String COLUMN_NAME_LOCATION = "location";
+        public static final String COLUMN_NAME_EVENTDATE = "eventdate";
+        
+        public static final String CREATE_TABLE = "CREATE TABLE IF NOT EXISTS " +
+                TABLE_NAME + " (" +
+                _ID + " INTEGER PRIMARY KEY NOT NULL," +
+                COLUMN_NAME_ID + INT_TYPE + COMMA_SEP +
+                COLUMN_NAME_UID + INT_TYPE + " NOT NULL" + COMMA_SEP +
+                COLUMN_NAME_TITLE + TEXT_TYPE + COMMA_SEP +
+                COLUMN_NAME_LOCATION + TEXT_TYPE + " DEFAULT \"\"" + COMMA_SEP +
+                COLUMN_NAME_CORRECTION + TEXT_TYPE + COMMA_SEP +
+                COLUMN_NAME_EVENTDATE + " TIMESTAMP" + COMMA_SEP +
+                FOREIGN_KEY + "(" + COLUMN_NAME_UID + ") REFERENCES " 
+                + users.TABLE_NAME +"(" + users.COLUMN_NAME_ID + ")"
+                + ")";
+        public static final String DELETE_TABLE = "DROP TABLE IF EXISTS " + TABLE_NAME;
+    }
+    public static abstract class itineraries implements BaseColumns {
+    	public static final String TABLE_NAME = "itineraries";
+        public static final String COLUMN_NAME_ID = "id";
+        public static final String COLUMN_NAME_UID = "userid";
+        public static final String COLUMN_NAME_DLOCATION = "departurelocation";
+        public static final String COLUMN_NAME_ALOCATION = "arrivallocation";
+        public static final String COLUMN_NAME_TMODE = "tranportmodes";
+        public static final String COLUMN_NAME_DEPARTURE = "departure";
+        public static final String COLUMN_NAME_ARRIVAL = "arrival";
+        public static final String COLUMN_NAME_CALCULATED_DURATION = "calculatedduration";
+        public static final String CREATE_TABLE = "CREATE TABLE IF NOT EXISTS " +
+                TABLE_NAME + " (" +
+                _ID + " INTEGER PRIMARY KEY NOT NULL," +
+                COLUMN_NAME_ID + INT_TYPE + COMMA_SEP +
+                COLUMN_NAME_UID + INT_TYPE + " NOT NULL" + COMMA_SEP + 
+                COLUMN_NAME_TMODE + TEXT_TYPE + COMMA_SEP +
+                COLUMN_NAME_DEPARTURE + " TIME" + COMMA_SEP +
+                COLUMN_NAME_ARRIVAL + " TIME" + COMMA_SEP +
+                COLUMN_NAME_CALCULATED_DURATION + " TIME" + COMMA_SEP +
+                COLUMN_NAME_DLOCATION + TEXT_TYPE + COMMA_SEP +
+                COLUMN_NAME_DLOCATION + TEXT_TYPE + COMMA_SEP +
+                FOREIGN_KEY + "(" + COLUMN_NAME_UID + ") REFERENCES " 
+                + users.TABLE_NAME +"(" + users.COLUMN_NAME_ID + ")"
+                		+ ")";
+        public static final String DELETE_TABLE = "DROP TABLE IF EXISTS " + TABLE_NAME;
+    }    
+}
+	
+	
+	
+
 

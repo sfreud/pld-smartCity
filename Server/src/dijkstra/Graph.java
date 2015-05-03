@@ -260,4 +260,39 @@ public class Graph {
         
     }
     
+    public final GraphNode getNode(double lo, double la)
+    {
+        GraphNode ret = null;
+        List<GraphNode> greyNodes = new ArrayList<>();
+        List<GraphNode> blackNodes = new ArrayList<>();
+        greyNodes.add(begin);
+        if(begin.getLongitude()==lo&&begin.getLatitude()==la)
+        {
+            ret=begin;
+        }
+        else
+        {
+            while(!greyNodes.isEmpty()){
+                GraphNode cur = greyNodes.get(0);
+                List<GraphNode> sons = cur.getSons();
+                for(GraphNode n : sons){
+                    if(!(greyNodes.contains(n))&&!(blackNodes.contains(n)))
+                    {
+                        greyNodes.add(n);
+                        if(n.getLongitude()==lo&&n.getLatitude()==la)
+                        {
+                            ret=n;
+                        }
+                        
+
+                    }
+                }
+                greyNodes.remove(cur);
+                blackNodes.add(cur);
+            }
+        }
+        return ret;
+        
+        
+    }
 }

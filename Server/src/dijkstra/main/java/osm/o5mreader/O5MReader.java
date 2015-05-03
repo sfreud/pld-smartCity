@@ -14,7 +14,7 @@ import dijkstra.main.java.osm.o5mreader.Pair;
 
 import main.java.osm.o5mreader.datasets.BBOXds;
 import main.java.osm.o5mreader.datasets.DataSet;
-import main.java.osm.o5mreader.datasets.END;
+import dijkstra.main.java.osm.o5mreader.datasets.END;
 import main.java.osm.o5mreader.datasets.FileTimestamp;
 import main.java.osm.o5mreader.datasets.Header;
 import main.java.osm.o5mreader.datasets.Jump;

@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
+import dijkstra.main.java.osm.o5mreader.Pair;
 public class Graph {
 
     private GraphNode begin;
@@ -16,7 +16,7 @@ public class Graph {
         }
         for(Pair<Long,Long> w : e)
         {
-            if(!coor.containsKey(w.first)||!coor.containsKey(w.second))
+            if(!coor.containsKey(w.getKey())||!coor.containsKey(w.getValue()))
             {
                 throw new GraphException();
             }
@@ -27,14 +27,14 @@ public class Graph {
             edges.put(nodeDep, new HashMap<Long,Float>());
             for(Pair<Long,Long> w : e)
             {
-                if(w.first.equals(nodeDep))
+                if(w.getKey().equals(nodeDep))
                 {
-                    double phiA = coor.get(w.first).first;
-                    double phiB = coor.get(w.second).first;
-                    double lambdaA = coor.get(w.first).second;
-                    double lambdaB = coor.get(w.second).second;
+                    double phiA = coor.get(w.getKey()).getKey();
+                    double phiB = coor.get(w.getValue()).getKey();
+                    double lambdaA = coor.get(w.getKey()).getValue();
+                    double lambdaB = coor.get(w.getValue()).getValue();
                     double dist = Math.acos(Math.sin(phiA)*Math.sin(phiB)+Math.cos(phiA)*Math.cos(phiB)*Math.cos(lambdaA-lambdaB));
-                    edges.get(w.first).put(w.second,(float)dist);
+                    edges.get(w.getKey()).put(w.getValue(),(float)dist);
                 }
             }
         }
@@ -75,7 +75,7 @@ public class Graph {
             }
         }
         
-        begin = new GraphNode((Long)edges.keySet().toArray()[0],coor.get((Long)edges.keySet().toArray()[0]).first,coor.get(((Long)edges.keySet().toArray()[0])).second);
+        begin = new GraphNode((Long)edges.keySet().toArray()[0],coor.get((Long)edges.keySet().toArray()[0]).getKey(),coor.get(((Long)edges.keySet().toArray()[0])).getValue());
         List<Long> nodesBlack = new ArrayList<>();
         List<Long> nodesGrey = new ArrayList<>();
         nodesGrey.add((Long)edges.keySet().toArray()[0]);
@@ -197,7 +197,7 @@ public class Graph {
             {
                 return false;
             }
-            nodeEnd = new GraphNode(nbEnd, coor.get(nbEnd).first, coor.get(nbEnd).second);
+            nodeEnd = new GraphNode(nbEnd, coor.get(nbEnd).getKey(), coor.get(nbEnd).getValue());
         }
         new GraphEdge(nodeBegin,nodeEnd,length);
         return true;

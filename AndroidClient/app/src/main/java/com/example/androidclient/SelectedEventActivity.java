@@ -98,6 +98,7 @@ public class SelectedEventActivity extends Activity {
                                                    public void onClick(View v) {
                                                        Intent intent2 = new Intent(SelectedEventActivity.this, MyMapActivity.class);
                                                        Bundle bundle = new Bundle();
+                                                       bundle.putString("eventSummary",transportRequest.getEventSummary());
                                                        bundle.putString("startAdress",transportRequest.getStartAddress());
                                                        bundle.putDouble("startLat",transportRequest.getStartLat());
                                                        bundle.putDouble("startLng",transportRequest.getStartLng());

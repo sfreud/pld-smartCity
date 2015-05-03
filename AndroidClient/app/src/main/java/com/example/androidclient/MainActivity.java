@@ -11,6 +11,7 @@ import android.support.v7.app.ActionBarActivity;
 import android.util.Base64;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListAdapter;
 import android.widget.ListView;
@@ -32,6 +33,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
+import java.util.concurrent.ThreadLocalRandom;
 
 
 public class MainActivity extends ActionBarActivity {
@@ -74,7 +76,7 @@ public class MainActivity extends ActionBarActivity {
             public void onClick(View v) {
                 TransportRequestDAO trDAO = new TransportRequestDAO(getApplicationContext());
                 trDAO.open();
-                List<TransportRequest> ltr = trDAO.selectAll();
+                final List<TransportRequest> ltr = trDAO.selectAll();
                 trDAO.close();
                 List<HashMap<String, String>> list = new ArrayList<HashMap<String, String>>();
                 HashMap<String, String> element;
@@ -82,8 +84,8 @@ public class MainActivity extends ActionBarActivity {
                     element = new HashMap<String, String>();
                     element.put("summary", tr.getEventSummary());
                     element.put("startTime", (new Date(tr.getEventBeginTime())).toString());
-                    element.put("startLocation", tr.getStartAddress() + "(" + tr.getStartLat() + "," + tr.getStartLng() + ")");
-                    element.put("eventLocation", tr.getEventAddress() + "(" + tr.getEventLat() + "," + tr.getEventLng() + ")");
+                    element.put("startLocation", tr.getStartAddress() + " (" + tr.getStartLat() + "," + tr.getStartLng() + ")");
+                    element.put("eventLocation", tr.getEventAddress() + " (" + tr.getEventLat() + "," + tr.getEventLng() + ")");
                     list.add(element);
                 }
                 ListAdapter adapter = new SimpleAdapter(MainActivity.this,
@@ -92,36 +94,31 @@ public class MainActivity extends ActionBarActivity {
                         new String[]{"summary", "startTime", "startLocation", "eventLocation"},
                         new int[]{R.id.eventSummary, R.id.eventStartTime, R.id.startLocation, R.id.eventLocation});
                 transportRequestListView.setAdapter(adapter);
-            }
-        });
+                transportRequestListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                        TransportRequest tr = ltr.get(position);
+                        Context ctx = MainActivity.this;
+                        Calendar cal = Calendar.getInstance();
+                        //cal.setTimeInMillis((long));
+                        cal.add(Calendar.SECOND, 10);
+                        Intent intent = new Intent(ctx, AlarmReceiver.class);
+                        Bundle bundle = new Bundle();
+                        bundle.putString("eventSummary",tr.getEventSummary());
+                        bundle.putString("startAdress",tr.getStartAddress());
+                        bundle.putDouble("startLat",tr.getStartLat());
+                        bundle.putDouble("startLng",tr.getStartLng());
+                        bundle.putString("endAdress",tr.getEventAddress());
+                        bundle.putDouble("endLat",tr.getEventLat());
+                        bundle.putDouble("endLng",tr.getEventLng());
+                        intent.putExtra(SelectedEventActivity.START_END_LATLNG, bundle);
+                        PendingIntent sender = PendingIntent.getBroadcast(ctx, 0, intent, 0);
 
-        Button testNotification = (Button) findViewById(R.id.testNotification);
-        testNotification.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Context ctx = MainActivity.this;
-                Calendar cal = Calendar.getInstance();
-                //cal.setTimeInMillis((long));
-                cal.add(Calendar.SECOND, 10);
-                Intent intent = new Intent(ctx, AlarmReceiver.class);
-                TransportRequestDAO trDAO = new TransportRequestDAO(getApplicationContext());
-                trDAO.open();
-                List<TransportRequest> ltr = trDAO.selectAll();
-                trDAO.close();
-                TransportRequest tr = ltr.get(0);
-                Bundle bundle = new Bundle();
-                bundle.putString("startAdress",tr.getStartAddress());
-                bundle.putDouble("startLat",tr.getStartLat());
-                bundle.putDouble("startLng",tr.getStartLng());
-                bundle.putString("endAdress",tr.getEventAddress());
-                bundle.putDouble("endLat",tr.getEventLat());
-                bundle.putDouble("endLng",tr.getEventLng());
-                intent.putExtra(SelectedEventActivity.START_END_LATLNG, bundle);
-                PendingIntent sender = PendingIntent.getBroadcast(ctx, 0, intent, 0);
-
-                // Get the AlarmManager service
-                AlarmManager am = (AlarmManager) ctx.getSystemService(Context.ALARM_SERVICE);
-                am.set(AlarmManager.ELAPSED_REALTIME_WAKEUP, SystemClock.elapsedRealtime() + 10 * 1000, sender);
+                        // Get the AlarmManager service
+                        AlarmManager am = (AlarmManager) ctx.getSystemService(Context.ALARM_SERVICE);
+                        am.set(AlarmManager.RTC_WAKEUP, cal.getTimeInMillis(), sender);
+                    }
+                });
             }
         });
 

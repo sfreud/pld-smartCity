@@ -22,6 +22,7 @@ import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GooglePlayServicesUtil;
@@ -43,18 +44,6 @@ import java.util.HashMap;
 import java.util.List;
 
 public class UpcomingEventsActivity extends Activity {
-    /*@Yann : J'ai rajouté un bloc ligne 215 pour envoyer les données de calendar à notre serveur
-    à la première sync avec le serv de google, et une AsyncTask tout en bas pour l'implémenter.
-    Tous les échanges avec notre serveur se feront de cette façon : du REST, i.e. toutes les données
-    envoyées directement dans l'URL.
-    A terme on va probablement faire ça soit avec un canal SSL, soit au moins authentifié en HTTP basic.
-    Faudra modifier le client HTTP en conséquence.
-    Je peux pas tester sur mon émulateur vu que j'ai pas l'API activée, du coup je garde mon code le plus
-    simple possible...
-     */
-
-
-
 
     public final static String SELECTED_EVENT = "com.example.androidclient.SELECTED_EVENT";
     /**
@@ -275,17 +264,26 @@ public class UpcomingEventsActivity extends Activity {
                         @Override
                         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                             Event selectedEvent = events.get(position);
-                            Intent intent = new Intent(UpcomingEventsActivity.this, SelectedEventActivity.class);
-                            Bundle bundle = new Bundle();
-                            bundle.putString("summary", selectedEvent.getSummary());
-                            bundle.putLong("startTime",selectedEvent.getStart().getDateTime().getValue());
-                            String location = selectedEvent.getLocation();
-                            if (location == null) {
-                                location = "No location found";
+                            String selectedEventID = selectedEvent.getId();
+                            TransportRequestDAO trDAO = new TransportRequestDAO(getApplicationContext());
+                            trDAO.open();
+                            boolean eventHasAlreadyATransportRequest = trDAO.eventHasAlreadyATransportRequest(selectedEventID);
+                            if(!eventHasAlreadyATransportRequest) {
+                                Intent intent = new Intent(UpcomingEventsActivity.this, SelectedEventActivity.class);
+                                Bundle bundle = new Bundle();
+                                bundle.putString("eventID", selectedEvent.getId());
+                                bundle.putString("summary", selectedEvent.getSummary());
+                                bundle.putLong("startTime", selectedEvent.getStart().getDateTime().getValue());
+                                String location = selectedEvent.getLocation();
+                                if (location == null) {
+                                    location = "No location found";
+                                }
+                                bundle.putString("location", location);
+                                intent.putExtra(SELECTED_EVENT, bundle);
+                                startActivity(intent);
+                            } else{
+                                Toast.makeText(getApplicationContext(), "Cet évènement a déjà une demande de transport associée", Toast.LENGTH_LONG).show();
                             }
-                            bundle.putString("location",location);
-                            intent.putExtra(SELECTED_EVENT, bundle);
-                            startActivity(intent);
                         }
                     });
                 }

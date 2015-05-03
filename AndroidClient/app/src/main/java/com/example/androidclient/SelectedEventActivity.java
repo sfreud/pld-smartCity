@@ -29,6 +29,7 @@ public class SelectedEventActivity extends Activity {
     EditText selectedEventEndLocation;
     LatLng selectedEventStartLatLng;
     LatLng selectedEventEndLatLng;
+    String eventID;
     String summary;
     long startTime;
     String endLocation;
@@ -40,6 +41,7 @@ public class SelectedEventActivity extends Activity {
 
         Intent intent = getIntent();
         Bundle bundle = intent.getBundleExtra(UpcomingEventsActivity.SELECTED_EVENT);
+        eventID = bundle.getString("eventID");
         summary = bundle.getString("summary");
         startTime = bundle.getLong("startTime");
         endLocation = bundle.getString("location");
@@ -68,7 +70,7 @@ public class SelectedEventActivity extends Activity {
             @Override
             public void onClick(View v) {
                 //(String eventSummary, String eventAddress, double eventLat, double eventLng, String startAddress, double startLat, long eventBeginTime, double startLng)
-                TransportRequest tr = new TransportRequest(summary, selectedEventEndLocation.getText().toString()
+                TransportRequest tr = new TransportRequest(eventID, summary, selectedEventEndLocation.getText().toString()
                         ,selectedEventStartLatLng.latitude,selectedEventStartLatLng.longitude
                         , selectedEventStartLocation.getText().toString(),selectedEventEndLatLng.longitude,selectedEventEndLatLng.latitude, startTime);
                 TransportRequestDAO trDAO = new TransportRequestDAO(getApplicationContext());

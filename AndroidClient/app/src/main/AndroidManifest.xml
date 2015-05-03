@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.androidclient">
+    package="com.example.androidclient" >
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -8,7 +8,7 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
 
     <uses-feature
         android:glEsVersion="0x00020000"
@@ -18,12 +18,13 @@
         android:allowBackup="true"
         android:icon="@drawable/logo"
         android:label="@string/app_name"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme" >
         <activity
             android:name=".MainActivity"
-            android:label="@string/app_name">
+            android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -32,7 +33,7 @@
             android:label="@string/title_activity_upcoming_events" />
         <activity
             android:name=".MyMapActivity"
-            android:label="@string/title_activity_my_map"></activity>
+            android:label="@string/title_activity_my_map" />
 
         <meta-data
             android:name="com.google.android.gms.version"
@@ -43,10 +44,15 @@
 
         <activity
             android:name=".SelectedEventActivity"
-            android:label="@string/title_activity_selected_event"></activity>
+            android:label="@string/title_activity_selected_event" />
 
         <receiver android:name=".AlarmReceiver" >
         </receiver>
+
+        <activity
+            android:name=".CreateEventActivity"
+            android:label="@string/title_activity_create_event" >
+        </activity>
     </application>
 
 </manifest>

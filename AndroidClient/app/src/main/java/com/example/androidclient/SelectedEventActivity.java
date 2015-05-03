@@ -69,10 +69,10 @@ public class SelectedEventActivity extends Activity {
         createTransportRequest.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //(String eventSummary, String eventAddress, double eventLat, double eventLng, String startAddress, double startLat, long eventBeginTime, double startLng)
-                TransportRequest tr = new TransportRequest(eventID, summary, selectedEventEndLocation.getText().toString()
-                        ,selectedEventStartLatLng.latitude,selectedEventStartLatLng.longitude
-                        , selectedEventStartLocation.getText().toString(),selectedEventEndLatLng.longitude,selectedEventEndLatLng.latitude, startTime);
+                TransportRequest tr = new TransportRequest(eventID, summary,
+                        selectedEventEndLocation.getText().toString(),selectedEventEndLatLng.latitude,selectedEventEndLatLng.longitude,
+                        selectedEventStartLocation.getText().toString(),selectedEventStartLatLng.latitude,selectedEventStartLatLng.longitude,
+                        startTime);
                 TransportRequestDAO trDAO = new TransportRequestDAO(getApplicationContext());
                 trDAO.open();
                 trDAO.add(tr);

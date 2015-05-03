@@ -1,16 +1,12 @@
 package com.example.androidclient;
 
 import android.app.AlarmManager;
-import android.app.NotificationManager;
 import android.app.PendingIntent;
-import android.app.TaskStackBuilder;
-import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.SystemClock;
-import android.support.v4.app.NotificationCompat;
 import android.support.v7.app.ActionBarActivity;
 import android.util.Base64;
 import android.util.Log;
@@ -20,7 +16,6 @@ import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
@@ -41,6 +36,7 @@ import java.util.List;
 
 public class MainActivity extends ActionBarActivity {
     Button getEventsListButton = null;
+    Button createAnEventButton = null;
     Button getTransportRequestListButton = null;
     ListView transportRequestListView;
     TextView t1;
@@ -54,11 +50,20 @@ public class MainActivity extends ActionBarActivity {
 
         transportRequestListView = (ListView) findViewById(R.id.transportRequestListView);
 
-        getEventsListButton = (Button) findViewById(R.id.button);
+        getEventsListButton = (Button) findViewById(R.id.getEventsListButton);
         getEventsListButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, UpcomingEventsActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        createAnEventButton = (Button) findViewById(R.id.createAnEventButton);
+        createAnEventButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, CreateEventActivity.class);
                 startActivity(intent);
             }
         });
@@ -77,8 +82,8 @@ public class MainActivity extends ActionBarActivity {
                     element = new HashMap<String, String>();
                     element.put("summary", tr.getEventSummary());
                     element.put("startTime", (new Date(tr.getEventBeginTime())).toString());
-                    element.put("startLocation", tr.getEventBeginTime() + "(" + tr.getEventLat() + "," + tr.getEventLng() + ")");
-                    element.put("eventLocation", tr.getEventAddress() + "(" + tr.getStartLat() + "," + tr.getStartLng() + ")");
+                    element.put("startLocation", tr.getStartAddress() + "(" + tr.getStartLat() + "," + tr.getStartLng() + ")");
+                    element.put("eventLocation", tr.getEventAddress() + "(" + tr.getEventLat() + "," + tr.getEventLng() + ")");
                     list.add(element);
                 }
                 ListAdapter adapter = new SimpleAdapter(MainActivity.this,
@@ -94,15 +99,24 @@ public class MainActivity extends ActionBarActivity {
         testNotification.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 Context ctx = MainActivity.this;
                 Calendar cal = Calendar.getInstance();
                 //cal.setTimeInMillis((long));
                 cal.add(Calendar.SECOND, 10);
                 Intent intent = new Intent(ctx, AlarmReceiver.class);
-                intent.putExtra("alarm_message", "L'alarme fonctionne");
-                //http://justcallmebrian.com/2010/04/27/using-alarmmanager-to-schedule-activities-on-android/
-                // In reality, you would want to have a static variable for the request code instead of 192837
+                TransportRequestDAO trDAO = new TransportRequestDAO(getApplicationContext());
+                trDAO.open();
+                List<TransportRequest> ltr = trDAO.selectAll();
+                trDAO.close();
+                TransportRequest tr = ltr.get(0);
+                Bundle bundle = new Bundle();
+                bundle.putString("startAdress",tr.getStartAddress());
+                bundle.putDouble("startLat",tr.getStartLat());
+                bundle.putDouble("startLng",tr.getStartLng());
+                bundle.putString("endAdress",tr.getEventAddress());
+                bundle.putDouble("endLat",tr.getEventLat());
+                bundle.putDouble("endLng",tr.getEventLng());
+                intent.putExtra(SelectedEventActivity.START_END_LATLNG, bundle);
                 PendingIntent sender = PendingIntent.getBroadcast(ctx, 0, intent, 0);
 
                 // Get the AlarmManager service

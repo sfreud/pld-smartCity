@@ -13,4 +13,5 @@
     <string name="verifyLocations">Vérifier les localisations</string>
     <string name="create_transport_request">Créer une requête de transport</string>
     <string name="getTransportRequestList">Récupérer la liste des demandes de transport</string>
+    <string name="title_activity_create_event">CreateEventActivity</string>
 </resources>

@@ -1,13 +1,46 @@
 package dijkstra;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 public class Graph {
 
     private GraphNode begin;
-    public Graph(Map<Long, Map<Long,Float>> edges) throws GraphException {
+    //Map<IdNoeud,Pair<Lat,Long>>
+    public static Graph getGraph(Map<Long, Pair<Float,Float>> coor, List<Pair<Long,Long>> way) throws GraphException{
+        if(coor.isEmpty()||way.isEmpty())
+        {
+            throw new GraphException();
+        }
+        for(Pair<Long,Long> w : way)
+        {
+            if(!coor.containsKey(w.first)||!coor.containsKey(w.second))
+            {
+                throw new GraphException();
+            }
+        }
+        Map<Long, Map<Long,Float>> edges = new HashMap<>();
+        for(Long nodeDep : coor.keySet())
+        {
+            edges.put(nodeDep, new HashMap<Long,Float>());
+            for(Pair<Long,Long> w : way)
+            {
+                if(w.first.equals(nodeDep))
+                {
+                    double phiA = coor.get(w.first).first;
+                    double phiB = coor.get(w.second).first;
+                    double lambdaA = coor.get(w.first).second;
+                    double lambdaB = coor.get(w.second).second;
+                    double dist = Math.acos(Math.sin(phiA)*Math.sin(phiB)+Math.cos(phiA)*Math.cos(phiB)*Math.cos(lambdaA-lambdaB));
+                    edges.get(w.first).put(w.second,(float)dist);
+                }
+            }
+        }
+        return new Graph(edges, coor);
+    }
+    private Graph(Map<Long, Map<Long,Float>> edges, Map<Long, Pair<Float,Float>> coor) throws GraphException {
         if(edges.isEmpty())
         {
             throw new GraphException();
@@ -42,7 +75,7 @@ public class Graph {
             }
         }
         
-        begin = new GraphNode((Long)edges.keySet().toArray()[0]);
+        begin = new GraphNode((Long)edges.keySet().toArray()[0],coor.get((Long)edges.keySet().toArray()[0]).first,coor.get(((Long)edges.keySet().toArray()[0])).second);
         List<Long> nodesBlack = new ArrayList<>();
         List<Long> nodesGrey = new ArrayList<>();
         nodesGrey.add((Long)edges.keySet().toArray()[0]);
@@ -56,7 +89,7 @@ public class Graph {
            }
            for(Long arr : edgesLeaving.keySet())
            {
-               if(!this.addEdge(cur, arr, edgesLeaving.get(arr)))
+               if(!this.addEdge(cur, arr, edgesLeaving.get(arr), coor))
                {
                    throw new GraphException();
                }
@@ -117,7 +150,7 @@ public class Graph {
         return max;
     }
     
-    public final boolean addEdge(long nbBegin, long nbEnd, float length)
+    public final boolean addEdge(long nbBegin, long nbEnd, float length, Map<Long, Pair<Float,Float>> coor)
     {
         GraphNode nodeBegin = null;
         GraphNode nodeEnd = null;
@@ -160,7 +193,11 @@ public class Graph {
         }
         if(nodeEnd == null)
         {
-            nodeEnd = new GraphNode(nbEnd);
+            if(!coor.containsKey(nbEnd))
+            {
+                return false;
+            }
+            nodeEnd = new GraphNode(nbEnd, coor.get(nbEnd).first, coor.get(nbEnd).second);
         }
         new GraphEdge(nodeBegin,nodeEnd,length);
         return true;

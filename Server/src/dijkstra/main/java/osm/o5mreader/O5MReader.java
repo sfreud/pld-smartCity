@@ -125,25 +125,20 @@ public class O5MReader {
 	public void read(O5MHandler handler) throws IOException {
 		DataSet ds = null;
 		do {
-                    
 			 ds = read();
 			 if(ds != null) {
 				 if(ds instanceof Node) {
 					 handler.handleNode((Node)ds);
-                                         System.out.println("node");
 				 }
 				 if(ds instanceof Way) {
 					 handler.handleWay((Way)ds);
-                                         System.out.println("way");
 				 }
 				 if(ds instanceof Relation) {
 					 handler.handleRelation((Relation)ds);
-                                         System.out.println("relation");
 				 }
 			 }
 		}
 		while (!(ds instanceof END));
-                System.out.println("fin read");
 	}
 	
 	public final DataSet read() throws IOException {
@@ -163,16 +158,7 @@ public class O5MReader {
 		if(read < 0) {
 			throw new UnexpectedEndOfFileException();
 		}
-		System.out.println(O5MREADER_DS_RESET);
-                System.out.println(O5MREADER_DS_END);
-                System.out.println(O5MREADER_DS_HEADER);
-                System.out.println(O5MREADER_DS_JUMP);
-                System.out.println(O5MREADER_DS_TSTAMP);
-                System.out.println(O5MREADER_DS_BBOX);
-                System.out.println(O5MREADER_DS_NODE);
-                System.out.println(O5MREADER_DS_WAY);
-                System.out.println(O5MREADER_DS_REL);
-                System.out.println(O5MREADER_DS_SYNC);
+		
 		switch((byte)read){
 		
 		//reset of undefined

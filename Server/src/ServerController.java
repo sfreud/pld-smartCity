@@ -1,8 +1,16 @@
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+
 import org.restlet.Component;
 import org.restlet.data.ChallengeScheme;
 import org.restlet.data.Protocol;
 import org.restlet.ext.crypto.DigestAuthenticator;
+import org.restlet.resource.ServerResource;
 import org.restlet.security.ChallengeAuthenticator;
+import org.restlet.security.LocalVerifier;
 import org.restlet.security.MapVerifier;
 
 
@@ -26,7 +34,7 @@ public class ServerController {
 		
 		Component server = new Component();
 		//the port on which we will deploy the services
-		server.getServers().add(Protocol.HTTP, 8182);
+		server.getServers().add(Protocol.HTTP, 8184);
 		
 		//map services to URI
 		server.getDefaultHost().attach("/trace", TraceServer.class);
@@ -75,38 +83,15 @@ public class ServerController {
 		
 	}
 	
-	/*
-//from org.restlet.security
-//Implementation of DB-backed authentication : 
-public class TestVerifier extends LocalVerifier {
-
-    @Override
-    public char[] getLocalSecret(String identifier) {
-        // Could have a look into a database, LDAP directory, etc.
-         * 
-         * See EventRetrievingService for SQL DB parsing, to retain pass & username
-         * 
-         * 
-        if ("login".equals(identifier)) {
-            return "secret".toCharArray();
-        }
-
-        return null;
-    }
-
-}
-	 */
-	
 	
 	public static ChallengeAuthenticator createHTTPBasic(){		
 		
-		// Instantiates a Verifier of identifier/secret couples based on a simple Map.
-		MapVerifier mapVerifier = new MapVerifier();
-		mapVerifier.getLocalSecrets().put("paf", "secret".toCharArray());
+		//A verifier that looks for the correct password in the database.
+		AccessVerifier verifier = new AccessVerifier();
 		
 		//Create an authenticator for HTTP BASIC auth
 		ChallengeAuthenticator guard = new ChallengeAuthenticator(null, ChallengeScheme.HTTP_BASIC, "testRealm");
-		guard.setVerifier(mapVerifier);
+		guard.setVerifier(verifier);
 		
 		return guard;
 	}

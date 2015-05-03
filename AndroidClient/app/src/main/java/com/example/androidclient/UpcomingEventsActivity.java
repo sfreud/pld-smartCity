@@ -230,7 +230,7 @@ public class UpcomingEventsActivity extends Activity {
                     mStatusText.setText("Your upcoming events retrieved using" +
                             " the Google Calendar API:");
                     //mEventText.setText(TextUtils.join("\n\n", events));
-                    List<HashMap<String, String>> liste = new ArrayList<HashMap<String, String>>();
+                    List<HashMap<String, String>> list = new ArrayList<HashMap<String, String>>();
                     HashMap<String, String> element;
                     for (int i = 0; i < events.size(); i++) {
                         Event event = events.get(i);
@@ -250,11 +250,11 @@ public class UpcomingEventsActivity extends Activity {
                             location = "No location found";
                         }
                         element.put("location", location);
-                        liste.add(element);
+                        list.add(element);
                     }
 
                     ListAdapter adapter = new SimpleAdapter(UpcomingEventsActivity.this,
-                            liste,
+                            list,
                             R.layout.simple_events_list,
                             new String[]{"summary", "startTime", "location"},
                             new int[]{R.id.eventSummary, R.id.eventStartTime, R.id.eventLocation});

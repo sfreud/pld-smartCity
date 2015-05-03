@@ -10,7 +10,13 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ListAdapter;
+import android.widget.ListView;
+import android.widget.SimpleAdapter;
 import android.widget.TextView;
+
+import com.google.api.client.util.DateTime;
+import com.google.api.services.calendar.model.Event;
 
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
@@ -22,25 +28,27 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 
 
 public class MainActivity extends ActionBarActivity {
-    TextView t1 = null;
-    TextView t2 = null;
-    TextView t3 = null;
     Button getEventsListButton = null;
     Button getTransportRequestListButton = null;
+    ListView transportRequestListView;
+    TextView t1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        t1 = (TextView) findViewById(R.id.textView);
-        t2 = (TextView) findViewById(R.id.textView2);
-        t3 = (TextView) findViewById(R.id.textView3);
+        t1 = (TextView) findViewById(R.id.textView1);
+
+        transportRequestListView = (ListView) findViewById(R.id.transportRequestListView);
+
         getEventsListButton = (Button) findViewById(R.id.button);
         getEventsListButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -58,15 +66,22 @@ public class MainActivity extends ActionBarActivity {
                 trDAO.open();
                 List<TransportRequest> ltr = trDAO.selectAll();
                 trDAO.close();
-                String s = "";
-                for(TransportRequest tr : ltr)
-                {
-                    s+=tr.getEventID()+"\n"+tr.getEventSummary()+"\n"+(new Date(tr.getEventBeginTime())).toString()+"\n"
-                            +tr.getEventAddress()+"("+tr.getEventLat()+","+tr.getEventLng()+")\n"
-                            +tr.getStartAddress()+"("+tr.getStartLat()+","+tr.getStartLng()+")";
-                    s+="\n";
+                List<HashMap<String, String>> list = new ArrayList<HashMap<String, String>>();
+                HashMap<String, String> element;
+                for (TransportRequest tr : ltr) {
+                    element = new HashMap<String, String>();
+                    element.put("summary", tr.getEventSummary());
+                    element.put("startTime", (new Date(tr.getEventBeginTime())).toString());
+                    element.put("startLocation", tr.getEventBeginTime()+"("+tr.getEventLat()+","+tr.getEventLng()+")");
+                    element.put("eventLocation", tr.getEventAddress()+"("+tr.getStartLat()+","+tr.getStartLng()+")");
+                    list.add(element);
                 }
-                t1.setText(s);
+                ListAdapter adapter = new SimpleAdapter(MainActivity.this,
+                        list,
+                        R.layout.simple_transport__request_list,
+                        new String[]{"summary", "startTime","startLocation", "eventLocation"},
+                        new int[]{R.id.eventSummary, R.id.eventStartTime,R.id.startLocation, R.id.eventLocation});
+                transportRequestListView.setAdapter(adapter);
             }
         });
 
@@ -149,7 +164,7 @@ public class MainActivity extends ActionBarActivity {
 
         @Override
         protected void onPostExecute(String result) {
-            t3.setText(contentAsString);
+            t1.setText(contentAsString);
         }
 
         // convert InputStream to String

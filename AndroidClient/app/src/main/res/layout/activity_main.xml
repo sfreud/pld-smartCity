@@ -24,22 +24,13 @@
         android:text="@string/getTransportRequestList" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/textView1"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/hello_world" />
+        android:layout_height="wrap_content" />
 
-    <TextView
-        android:id="@+id/textView2"
+    <ListView
+        android:id="@+id/transportRequestListView"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Small Text" />
-
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Small Text2" />
-
+        android:layout_height="wrap_content" />
 
 </LinearLayout>

@@ -15,6 +15,10 @@ package dijkstra;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -34,8 +38,11 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.NamedNodeMap;
 import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
 import org.w3c.dom.Text;
 import org.xml.sax.SAXException;
+
+import dijkstra.main.java.osm.o5mreader.Pair;
 
 public class XMLDOM {
 	/**
@@ -178,5 +185,38 @@ public class XMLDOM {
 		System.out.println("</" + e.getNodeName() + ">");
 	}
 	
+	public Map<Long, Pair<Float, Float>> recupererNodes(Document doc)
+	{
+		Map<Long, Pair<Float, Float>> ret = new HashMap<>();
+		NodeList listeNoeud = doc.getElementsByTagName("node");
+		for(int i=0; i<listeNoeud.getLength(); i++){
+			Element e = (Element) listeNoeud.item(i);
+			Long id = Long.parseLong(e.getAttribute("id"));
+			Float lat = Float.parseFloat(e.getAttribute("lat"));
+			Float lon = Float.parseFloat(e.getAttribute("lon"));
+			Pair<Float,Float> next = new Pair<>(lat,lon);
+			ret.put(id, next);
+		}
+		return ret;
+	}
 	
+	public List<Pair<Long,Long>> recupererEdge(Document doc) {
+		List<Pair<Long,Long>> ret = new ArrayList<>();
+		NodeList listeWay = doc.getElementsByTagName("way");
+		for(int i=0; i<listeWay.getLength(); i++){
+			Element e = (Element) listeWay.item(i);
+			NodeList listeNoeud = e.getElementsByTagName("nd");
+			for(int j=0; j<listeNoeud.getLength()-1; j++){
+				Element e2 = (Element) listeNoeud.item(j);
+				Long idDep = Long.parseLong(e2.getAttribute("ref"));
+				Element e3 = (Element) listeNoeud.item(j+1);
+				Long idArr = Long.parseLong(e3.getAttribute("ref"));
+				Pair<Long,Long> next = new Pair<>(idDep,idArr);
+				Pair<Long,Long> reverse = new Pair<>(idArr,idDep);
+				ret.add(next);
+				ret.add(reverse);
+			}
+		}
+		return ret;
+	}
 }

@@ -158,6 +158,20 @@ public class MyMapActivity extends Activity implements OnMapReadyCallback {
         return urlString.toString();
     }
 
+    public String makeItineraryURLServer(double sourcelat, double sourcelog, double destlat, double destlog) {
+        StringBuilder urlString = new StringBuilder();
+        urlString.append("http://10.0.2.2/itinerary");
+        urlString.append("?dlat=");// from
+        urlString.append(Double.toString(sourcelat));
+        urlString.append("&dlong");
+        urlString.append(Double.toString(sourcelog));
+        urlString.append("&alat=");// to
+        urlString .append(Double.toString(destlat));
+        urlString.append("&along=");
+        urlString.append(Double.toString(destlog));
+        return urlString.toString();
+    }
+
     protected class ConnectAsyncTask extends AsyncTask<Void, Void, String> {
         private ProgressDialog progressDialog;
         String url;
@@ -195,7 +209,7 @@ public class MyMapActivity extends Activity implements OnMapReadyCallback {
                 myMap.addMarker(startMarker);
                 MarkerOptions endMarker = new MarkerOptions()
                         .title("End")
-                        .snippet(endAdress +"\n"+totalDistance + "km (" + totalDuration + " minutes)")
+                        .snippet(endAdress)
                         .position(end);
                 myMap.addMarker(endMarker);
             }

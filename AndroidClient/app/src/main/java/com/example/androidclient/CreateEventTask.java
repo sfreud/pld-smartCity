@@ -44,7 +44,6 @@ public class CreateEventTask extends AsyncTask<Void, Void, Void> {
     protected Void doInBackground(Void... params) {
         try {
             addEvent(event);
-            Toast.makeText(mActivity,"L'évènement a bien été créé",Toast.LENGTH_SHORT).show();
         } catch (final GooglePlayServicesAvailabilityIOException availabilityException) {
             mActivity.showGooglePlayServicesAvailabilityErrorDialog(
                     availabilityException.getConnectionStatusCode());
@@ -63,6 +62,25 @@ public class CreateEventTask extends AsyncTask<Void, Void, Void> {
     private void addEvent(Event e) throws IOException {
         // Insert the new event
         Event createdEvent =  mActivity.mService.events().insert("primary", e).execute();
+    }
+
+    @Override
+    protected void onPostExecute(Void result)
+    {
+        Toast.makeText(mActivity,"L'évènement a bien été créé",Toast.LENGTH_SHORT).show();
+    }
+
+    private String makeCreatedEventURLServer(Event e)
+    {
+        StringBuilder urlString = new StringBuilder();
+        urlString.append("http://10.0.2.2/event");
+        urlString.append("?summary=");// from
+        urlString.append(event.getSummary());
+        urlString.append("&location=");
+        urlString.append(event.getLocation());
+        urlString.append("&date=");// to
+        urlString .append(event.getStart().getDate().toString());
+        return urlString.toString();
     }
 
 }

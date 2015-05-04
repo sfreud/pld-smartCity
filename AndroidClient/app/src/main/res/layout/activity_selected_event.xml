@@ -12,40 +12,42 @@
     <TextView
         android:id="@+id/selected_event_summary"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/hello_world" />
+        android:layout_height="wrap_content" />
 
     <TextView
         android:id="@+id/selected_event_startTime"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/hello_world" />
+        android:layout_height="wrap_content" />
 
     <EditText
         android:id="@+id/selectedEventStartLocation"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:hint="Adresse de départ"
+        android:minEms="5" />
 
     <EditText
         android:id="@+id/selectedEventEndLocation"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:hint="Adresse de l'évènement"
+        android:minEms="5" />
 
     <Button
         android:id="@+id/verify_locations"
-        android:layout_width="wrap_content"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:text="@string/verifyLocations" />
 
     <Button
         android:id="@+id/create_transport_request"
-        android:layout_width="wrap_content"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:text="@string/create_transport_request" />
 
     <Button
         android:id="@+id/selected_event_get_Map"
-        android:layout_width="wrap_content"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:text="@string/getMapButton" />
 

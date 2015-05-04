@@ -195,7 +195,7 @@ public class MyMapActivity extends Activity implements OnMapReadyCallback {
                 myMap.addMarker(startMarker);
                 MarkerOptions endMarker = new MarkerOptions()
                         .title("End")
-                        .snippet(endAdress +"\n"+totalDistance + "km (" + totalDuration + " minutes)")
+                        .snippet(endAdress)
                         .position(end);
                 myMap.addMarker(endMarker);
             }

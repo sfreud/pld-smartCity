@@ -80,11 +80,13 @@ public class ServerController {
 	public static ChallengeAuthenticator createHTTPBasic(){		
 		
 		//A verifier that looks for the correct password in the database.
-		AccessVerifier verifier = new AccessVerifier();
+		//AccessVerifier verifier = new AccessVerifier();
+		MapVerifier mapVerifier = new MapVerifier();
+		mapVerifier.getLocalSecrets().put("loginB", "secret".toCharArray());
 		
 		//Create an authenticator for HTTP BASIC auth
 		ChallengeAuthenticator guard = new ChallengeAuthenticator(null, ChallengeScheme.HTTP_BASIC, "testRealm");
-		guard.setVerifier(verifier);
+		guard.setVerifier(mapVerifier);
 		
 		return guard;
 	}

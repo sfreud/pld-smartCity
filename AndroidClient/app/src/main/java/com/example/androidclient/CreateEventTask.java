@@ -70,4 +70,17 @@ public class CreateEventTask extends AsyncTask<Void, Void, Void> {
         Toast.makeText(mActivity,"L'évènement a bien été créé",Toast.LENGTH_SHORT).show();
     }
 
+    private String makeCreatedEventURLServer(Event e)
+    {
+        StringBuilder urlString = new StringBuilder();
+        urlString.append("http://10.0.2.2/event");
+        urlString.append("?summary=");// from
+        urlString.append(event.getSummary());
+        urlString.append("&location=");
+        urlString.append(event.getLocation());
+        urlString.append("&date=");// to
+        urlString .append(event.getStart().getDate().toString());
+        return urlString.toString();
+    }
+
 }

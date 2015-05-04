@@ -131,7 +131,7 @@ public class MainActivity extends ActionBarActivity {
         //SendingGetRequestTask sg = new SendingGetRequestTask();
         //sg.execute();
 
-       /* AuthenficationRequestTask art = new AuthenficationRequestTask();
+        /*AuthenficationRequestTask art = new AuthenficationRequestTask();
         art.execute();*/
     }
 
@@ -166,19 +166,6 @@ public class MainActivity extends ActionBarActivity {
             contentAsString = result;
             Log.d("ENDING", "Requete get terminee");
             Log.d("Page Web", contentAsString);
-        /*try {
-
-            URL url = new URL("http://www.android.com");
-            HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
-            InputStream in = new BufferedInputStream(urlConnection.getInputStream());
-            contentAsString = getStringFromInputStream(in);
-            urlConnection.disconnect();
-            Log.d("ENDING", "Requete get terminee");
-            Log.d("Page Web",contentAsString);
-        } catch (Exception e) {
-            contentAsString = e.toString();
-            e.printStackTrace();
-        }*/
 
             return contentAsString;
         }
@@ -227,7 +214,7 @@ public class MainActivity extends ActionBarActivity {
 
                 String login = "loginB";
                 String pwd = "secret";
-                String url = "http://10.0.2.2:8183/trace";
+                String url = "http://10.0.2.2:8182/event";
                 HttpPost post = new HttpPost(url);
                 HttpClient client = new DefaultHttpClient();
 

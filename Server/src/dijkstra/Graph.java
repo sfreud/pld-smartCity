@@ -13,14 +13,10 @@ public class Graph {
     private GraphNode begin;
     //Map<IdNoeud,Pair<Lat,Long>>
     public static Graph getGraph(Map<Long, Pair<Float,Float>> coor, List<Pair<Long,Long>> e) throws GraphException{
-        System.out.println("Début get");
-        System.out.println(coor.size());
-        System.out.println(e.size());
         if(coor.isEmpty()||e.isEmpty())
         {
             throw new GraphException();
         }
-        System.out.println("Avant for");
         for(Pair<Long,Long> w : e)
         {
             System.out.println("Chargement coordonnées...");
@@ -71,6 +67,7 @@ public class Graph {
             }
             if(!weCanGoTo)
             {
+                System.out.println("Noeud "+nodeToVerify+" inatteignable");
                 throw new GraphException();
             }
         }
@@ -82,22 +79,25 @@ public class Graph {
                 System.out.println("Chargement...");
                 if(!edges.keySet().contains(nodeArr))
                 {
+                    System.out.println("Noeud d'arrivée "+nodeArr+" non présent en clé");
                     throw new GraphException();
                 }
             }
         }
-        System.out.println("Les noeuds d'arrivée sont tous des noeuds de départ");
         begin = new GraphNode((Long)edges.keySet().toArray()[0],coor.get((Long)edges.keySet().toArray()[0]).getKey(),coor.get(((Long)edges.keySet().toArray()[0])).getValue());
         List<Long> nodesBlack = new ArrayList<>();
         List<Long> nodesGrey = new ArrayList<>();
         nodesGrey.add((Long)edges.keySet().toArray()[0]);
         while(nodesBlack.size()!=edges.keySet().size())
         {
+           
            System.out.println("Chargement...");
            Long cur = nodesGrey.get(0);
+           System.out.println("On ajoute le noeud " + cur);
            Map<Long,Float> edgesLeaving = edges.get(cur);
            if(edgesLeaving == null)
            {
+               System.out.println("Noeud " + cur + " sans chemins partants");
                throw new GraphException();
            }
            for(Long arr : edgesLeaving.keySet())
@@ -105,9 +105,13 @@ public class Graph {
                System.out.println("Chargement...");
                if(!this.addEdge(cur, arr, edgesLeaving.get(arr), coor))
                {
+                   System.out.println("Impossible d'ajouter un chemin de "+cur+" à "+arr);
                    throw new GraphException();
                }
-               nodesGrey.add(arr);
+               if(!nodesGrey.contains(arr)&&!nodesBlack.contains(arr))
+               {
+                     nodesGrey.add(arr);
+               }
            }
            nodesGrey.remove(cur);
            nodesBlack.add(cur);
@@ -135,7 +139,6 @@ public class Graph {
             greyNodes.remove(cur);
             blackNodes.add(cur);
         }
-        
         return ret;
     }
     
@@ -222,6 +225,7 @@ public class Graph {
     public void displayGraph()
     {
         List<GraphNode> listNodes = this.getGraphNodes();
+        
         for(GraphNode dep : listNodes)
         {
             List<GraphEdge> listEdge = dep.getEdgeLeaving();

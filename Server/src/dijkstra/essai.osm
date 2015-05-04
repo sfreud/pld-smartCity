@@ -1,0 +1,100 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<osm version="0.6" generator="CGImap 0.3.3 (11697 thorn-01.openstreetmap.org)" copyright="OpenStreetMap and contributors" attribution="http://www.openstreetmap.org/copyright" license="http://opendatacommons.org/licenses/odbl/1-0/">
+ <bounds minlat="45.7782400" minlon="4.8647000" maxlat="45.7850600" maxlon="4.8815500"/>
+
+<node id="1" visible="true" version="5" changeset="9192719" timestamp="2011-09-02T13:22:00Z" user="LQui" uid="515998" lat="45.7819639" lon="4.8693651"/>
+ 
+<node id="2" visible="true" version="4" changeset="13594510" timestamp="2012-10-22T15:56:43Z" user="Otourly" uid="333873" lat="45.7851322" lon="4.8832606"/>
+ 
+<node id="3" visible="true" version="2" changeset="2927626" timestamp="2009-10-23T09:20:31Z" user="ryra6453" uid="10209" lat="45.7791145" lon="4.8652406"/>
+ 
+<node id="4" visible="true" version="2" changeset="7756151" timestamp="2011-04-03T16:28:41Z" user="ryra6453" uid="10209" lat="45.7787973" lon="4.8700706"/>
+ 
+<node id="5" visible="true" version="4" changeset="7756151" timestamp="2011-04-03T16:28:42Z" user="ryra6453" uid="10209" lat="45.7790143" lon="4.8725292"/>
+ 
+<node id="6" visible="true" version="3" changeset="7756151" timestamp="2011-04-03T16:28:50Z" user="ryra6453" uid="10209" lat="45.7791029" lon="4.8724875"/>
+ 
+<node id="7" visible="true" version="2" changeset="7756151" timestamp="2011-04-03T16:28:57Z" user="ryra6453" uid="10209" lat="45.7789461" lon="4.8710278"/>
+ 
+<node id="8" visible="true" version="2" changeset="7756151" timestamp="2011-04-03T16:29:24Z" user="ryra6453" uid="10209" lat="45.7788989" lon="4.8700571"/>
+ 
+<node id="9" visible="true" version="2" changeset="7756151" timestamp="2011-04-03T16:30:04Z" user="ryra6453" uid="10209" lat="45.7788499" lon="4.8710290"/>
+ 
+<node id="10" visible="true" version="3" changeset="23115347" timestamp="2014-06-24T06:17:27Z" user="zerpou" uid="1238664" lat="45.7793279" lon="4.8746790"/>
+ 
+<way id="1" visible="true" version="4" changeset="27689945" timestamp="2014-12-25T14:20:19Z" user="gileri" uid="593214">
+  
+	<nd ref="1"/>
+ 
+	<nd ref="10"/>
+
+	<nd ref="9"/>
+ 
+	<nd ref="8"/>
+
+	<nd ref="7"/>
+
+	<nd ref="6"/>
+
+	<nd ref="5"/>
+
+	<tag k="building" v="yes"/>
+  
+	<tag k="source" v="cadastre-dgi-fr source : Direction Générale des Impôts - Cadastre. Mise à jour : 2010"/>
+  
+	<tag k="wall" v="no"/>
+ 
+</way>
+
+<way id="2" visible="true" version="5" changeset="27689945" timestamp="2014-12-25T14:20:19Z" user="gileri" uid="593214">
+
+	<nd ref="1"/>
+
+	<nd ref="2"/>
+
+	<nd ref="3"/>
+
+	<nd ref="4"/>
+
+	<nd ref="5"/>
+
+	<tag k="building" v="yes"/>
+  
+	<tag k="source" v="cadastre-dgi-fr source : Direction Générale des Impôts - Cadastre. Mise à jour : 2010"/>
+
+</way>
+
+<way id="3" visible="true" version="5" changeset="27689945" timestamp="2014-12-25T14:20:19Z" user="gileri" uid="593214">
+
+	<nd ref="3"/>
+
+	<nd ref="9"/>
+
+	<nd ref="8"/>
+
+	<nd ref="7"/>
+
+	<tag k="building" v="yes"/>
+  
+	<tag k="source" v="cadastre-dgi-fr source : Direction Générale des Impôts - Cadastre. Mise à jour : 2010"/>
+
+</way>
+ 
+<way id="4" visible="true" version="5" changeset="27689945" timestamp="2014-12-25T14:20:19Z" user="gileri" uid="593214">
+
+	<nd ref="6"/>
+
+	<nd ref="3"/>
+
+	<nd ref="10"/>
+
+	<nd ref="2"/>
+
+	<tag k="building" v="yes"/>
+  
+	<tag k="source" v="cadastre-dgi-fr source : Direction Générale des Impôts - Cadastre. Mise à jour : 2010"/>
+
+</way>
+
+</osm> 

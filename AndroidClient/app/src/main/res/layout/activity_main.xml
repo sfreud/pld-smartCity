@@ -11,21 +11,21 @@
 
     <Button
         android:id="@+id/getEventsListButton"
-        android:layout_width="wrap_content"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:text="@string/getEventsListButton" />
 
     <Button
         android:id="@+id/createAnEventButton"
-        android:layout_width="wrap_content"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:text="Créer un évènement" />
 
     <Button
         android:id="@+id/getTransportRequestListButton"
-        android:layout_width="wrap_content"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:text="@string/getTransportRequestList" />

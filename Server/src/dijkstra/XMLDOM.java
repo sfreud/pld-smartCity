@@ -11,10 +11,14 @@
  * ############################################################################
  */
 
-package XMLParser;
+package dijkstra;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -34,8 +38,11 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.NamedNodeMap;
 import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
 import org.w3c.dom.Text;
 import org.xml.sax.SAXException;
+
+import dijkstra.main.java.osm.o5mreader.Pair;
 
 public class XMLDOM {
 	/**
@@ -44,7 +51,7 @@ public class XMLDOM {
 	 * @param docBuilder un document builder
 	 * @return un document XML d'exemple, sous forme d'un objet DOM Document
 	 */
-	private static Document creerDocumentExemple(DocumentBuilder docBuilder) {
+	public static Document creerDocumentExemple(DocumentBuilder docBuilder) {
 		Document doc = docBuilder.newDocument();
 		
 		Element racine = doc.createElement("root");
@@ -75,7 +82,7 @@ public class XMLDOM {
 	 * @param doc le document à écrire
 	 * @param nomFichier le nom du fichier de sortie
 	 */
-	private static void ecrireDocument(Document doc, String nomFichier) {
+	public static void ecrireDocument(Document doc, String nomFichier) {
 		// on considère le document "doc" comme étant la source d'une 
 		// transformation XML
 		Source source = new DOMSource(doc);
@@ -123,7 +130,7 @@ public class XMLDOM {
 	 * @param nomFichier le fichier où est stocké le document XML
 	 * @return un objet DOM Document correspondant au document XML 
 	 */
-	private static Document lireDocument(DocumentBuilder docBuilder, 
+	public static Document lireDocument(DocumentBuilder docBuilder, 
 			String nomFichier) {
 		
 		try {
@@ -143,7 +150,7 @@ public class XMLDOM {
 	 * 
 	 * @param doc le document
 	 */
-	private static void afficherDocument(Document doc) {
+	public static void afficherDocument(Document doc) {
 		Element e = doc.getDocumentElement();
 		afficherElement(e);
 	}
@@ -154,7 +161,7 @@ public class XMLDOM {
 	 * 
 	 * @param e l'élément à afficher
 	 */
-	private static void afficherElement(Element e) {
+	public static void afficherElement(Element e) {
 		System.out.print("<" + e.getNodeName() + " ");
 		
 		NamedNodeMap attr = e.getAttributes();
@@ -178,28 +185,38 @@ public class XMLDOM {
 		System.out.println("</" + e.getNodeName() + ">");
 	}
 	
-	public static void main(String[] args) {
-		// obtention d'un Document Builder qui permet de créer de nouveaux
-		// documents ou de parser des documents à partir de fichiers
-		DocumentBuilder docBuilder = null;
-		
-		try {
-			docBuilder = DocumentBuilderFactory.newInstance().newDocumentBuilder();
-		} catch(ParserConfigurationException e) {
-			System.err.println("Impossible de créer un DocumentBuilder.");
-			System.exit(1);
+	public Map<Long, Pair<Float, Float>> recupererNodes(Document doc)
+	{
+		Map<Long, Pair<Float, Float>> ret = new HashMap<>();
+		NodeList listeNoeud = doc.getElementsByTagName("node");
+		for(int i=0; i<listeNoeud.getLength(); i++){
+			Element e = (Element) listeNoeud.item(i);
+			Long id = Long.parseLong(e.getAttribute("id"));
+			Float lat = Float.parseFloat(e.getAttribute("lat"));
+			Float lon = Float.parseFloat(e.getAttribute("lon"));
+			Pair<Float,Float> next = new Pair<>(lat,lon);
+			ret.put(id, next);
 		}
-		/*
-		// crée un petit document d'exemple
-		Document doc = creerDocumentExemple(docBuilder);
-		
-		// l'écrire sur le disque dans un fichier
-		ecrireDocument(doc, "test.xml");
-		*/
-		// re-charger ce document à partir du fichier
-		Document doc2 = lireDocument(docBuilder, "C:\\Users\\tarik_000\\Desktop\\Villeurbanne.osm");
-		if(doc2 == null) System.exit(1);
-
-		afficherDocument(doc2);
+		return ret;
+	}
+	
+	public List<Pair<Long,Long>> recupererEdge(Document doc) {
+		List<Pair<Long,Long>> ret = new ArrayList<>();
+		NodeList listeWay = doc.getElementsByTagName("way");
+		for(int i=0; i<listeWay.getLength(); i++){
+			Element e = (Element) listeWay.item(i);
+			NodeList listeNoeud = e.getElementsByTagName("nd");
+			for(int j=0; j<listeNoeud.getLength()-1; j++){
+				Element e2 = (Element) listeNoeud.item(j);
+				Long idDep = Long.parseLong(e2.getAttribute("ref"));
+				Element e3 = (Element) listeNoeud.item(j+1);
+				Long idArr = Long.parseLong(e3.getAttribute("ref"));
+				Pair<Long,Long> next = new Pair<>(idDep,idArr);
+				Pair<Long,Long> reverse = new Pair<>(idArr,idDep);
+				ret.add(next);
+				ret.add(reverse);
+			}
+		}
+		return ret;
 	}
 }

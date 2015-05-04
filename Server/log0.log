@@ -1,0 +1,12 @@
+mai 04, 2015 10:39:34 AM org.restlet.engine.connector.NetServerHelper start
+INFOS: Starting the internal [HTTP/1.1] server on port 8182
+mai 04, 2015 10:39:45 AM org.restlet.engine.adapter.ServerCall parseHost
+INFOS: Couldn't find the mandatory "Host" HTTP header.
+mai 04, 2015 10:39:45 AM org.restlet.engine.log.LogFilter afterHandle
+INFOS: 2015-05-04	10:39:45	127.0.0.1	loginB	-	8182	POST	/event	-	405	487	0	65	http://null	-	-
+mai 04, 2015 10:39:45 AM org.restlet.engine.adapter.ServerCall parseHost
+INFOS: Couldn't find the mandatory "Host" HTTP header.
+mai 04, 2015 10:39:45 AM org.restlet.engine.log.LogFilter afterHandle
+INFOS: 2015-05-04	10:39:45	127.0.0.1	loginB	-	8182	POST	/event	-	405	487	0	1	http://null	-	-
+mai 04, 2015 10:40:04 AM org.restlet.engine.connector.NetServerHelper stop
+INFOS: Stopping the internal server

@@ -9,36 +9,41 @@
 
     <TextView
         android:id="@+id/mStatusText2"
-        android:text="@string/hello_world"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:text="Connexion établie\n"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        />
 
     <EditText
         android:id="@+id/enteredEventSummary"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:minEms="5"
+        android:hint="Titre"/>
 
     <EditText
         android:id="@+id/enteredEventLocation"
-        android:layout_width="wrap_content"
+        android:layout_width="fill_parent"
+        android:minEms="5"
+        android:hint="Lieu"
         android:layout_height="wrap_content" />
 
     <EditText
         android:id="@+id/enteredEventStartDate"
-        android:layout_width="wrap_content"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:hint="dd/mm/yyyy:hh::mm"/>
 
     <EditText
         android:id="@+id/enteredEventEndDate"
-        android:layout_width="wrap_content"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:hint="dd/mm/yyyy:hh::mm"/>
 
     <Button
         android:id="@+id/createThisEvent"
         android:text="Créer cet évènement"
-        android:layout_width="wrap_content"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="43dp" />
 

@@ -81,4 +81,35 @@ public class TransportRequest {
         return eventBeginTime;
     }
 
+    public void setEventSummary(String eventSummary) {
+        this.eventSummary = eventSummary;
+    }
+
+    public void setEventAddress(String eventAddress) {
+        this.eventAddress = eventAddress;
+    }
+
+    public void setEventLat(double eventLat) {
+        this.eventLat = eventLat;
+    }
+
+    public void setEventLng(double eventLng) {
+        this.eventLng = eventLng;
+    }
+
+    public void setStartAddress(String startAddress) {
+        this.startAddress = startAddress;
+    }
+
+    public void setStartLat(double startLat) {
+        this.startLat = startLat;
+    }
+
+    public void setStartLng(double startLng) {
+        this.startLng = startLng;
+    }
+
+    public void setEventBeginTime(long eventBeginTime) {
+        this.eventBeginTime = eventBeginTime;
+    }
 }

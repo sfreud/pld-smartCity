@@ -27,7 +27,6 @@ public class JSONParser {
     }
 
     public String getJSONFromUrl(String url) {
-
         // Making HTTP request
         try {
             // defaultHttpClient

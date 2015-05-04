@@ -53,6 +53,10 @@
             android:name=".CreateEventActivity"
             android:label="@string/title_activity_create_event" >
         </activity>
+        <activity
+            android:name=".UpdateTransportRequestActivity"
+            android:label="@string/title_activity_update_transport_request" >
+        </activity>
     </application>
 
 </manifest>

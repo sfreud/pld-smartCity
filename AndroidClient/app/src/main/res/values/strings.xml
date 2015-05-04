@@ -29,5 +29,5 @@
     <string name="unknownError">Une erreur inconnue s\'est produite</string>
     <string name="nameAlreadyUsed">Il existe déjà un compte d\'utilisateur avec ce nom</string>
     <string name="connected">Connexion établie.</string>
-
+    <string name="title_activity_update_transport_request">UpdateTransportRequestActivity</string>
 </resources>

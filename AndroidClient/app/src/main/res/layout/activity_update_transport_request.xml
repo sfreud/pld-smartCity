@@ -1,0 +1,52 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    tools:context="com.example.androidclient.UpdateTransportRequestActivity"
+    android:orientation="vertical">
+
+    <EditText
+        android:id="@+id/event_summary_to_update"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Titre de l'évènement"
+        android:minEms="5" />
+
+    <EditText
+        android:id="@+id/event_startTime_to_update"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Date de l'évènement (dd/mm/yyyy:hh::mm)"
+        android:minEms="5" />
+
+    <EditText
+        android:id="@+id/eventStartLocation_to_update"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Adresse de départ"
+        android:minEms="5" />
+
+    <EditText
+        android:id="@+id/eventEndLocation_to_update"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Adresse de l'évènement"
+        android:minEms="5" />
+
+    <Button
+        android:id="@+id/verify_locations2"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/verifyLocations" />
+
+    <Button
+        android:id="@+id/updateTransportRequest"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Modifier cette demande de transport"/>
+
+
+
+</LinearLayout>

@@ -35,7 +35,7 @@ public class test {
 		try {
 			docBuilder = DocumentBuilderFactory.newInstance().newDocumentBuilder();
                         System.out.println("Lecture...");
-                        Document carte=XMLDOM.lireDocument(docBuilder, "Essai.osm");
+                        Document carte=XMLDOM.lireDocument(docBuilder, "Villeurbanne.osm");
                         System.out.println("Doc lu");
                         Graph map = Graph.getGraph(XMLDOM.recupererNodes(carte),XMLDOM.recupererEdge(carte));
                         map.displayGraph();

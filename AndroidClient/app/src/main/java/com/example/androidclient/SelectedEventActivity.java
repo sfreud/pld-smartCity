@@ -121,7 +121,7 @@ public class SelectedEventActivity extends Activity {
         return urlString.toString();
     }
 
-    public Pair<LatLng, String> getLatLng(String result) {
+    public static Pair<LatLng, String> getLatLng(String result) {
         LatLng ll;
         String adress = null;
         try {

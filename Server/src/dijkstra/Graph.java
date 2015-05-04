@@ -90,8 +90,10 @@ public class Graph {
         nodesGrey.add((Long)edges.keySet().toArray()[0]);
         while(nodesBlack.size()!=edges.keySet().size())
         {
+           
            System.out.println("Chargement...");
            Long cur = nodesGrey.get(0);
+           System.out.println("On ajoute le noeud " + cur);
            Map<Long,Float> edgesLeaving = edges.get(cur);
            if(edgesLeaving == null)
            {
@@ -106,7 +108,10 @@ public class Graph {
                    System.out.println("Impossible d'ajouter un chemin de "+cur+" à "+arr);
                    throw new GraphException();
                }
-               nodesGrey.add(arr);
+               if(!nodesGrey.contains(arr)&&!nodesBlack.contains(arr))
+               {
+                     nodesGrey.add(arr);
+               }
            }
            nodesGrey.remove(cur);
            nodesBlack.add(cur);
@@ -134,7 +139,6 @@ public class Graph {
             greyNodes.remove(cur);
             blackNodes.add(cur);
         }
-        
         return ret;
     }
     
@@ -221,6 +225,7 @@ public class Graph {
     public void displayGraph()
     {
         List<GraphNode> listNodes = this.getGraphNodes();
+        
         for(GraphNode dep : listNodes)
         {
             List<GraphEdge> listEdge = dep.getEdgeLeaving();

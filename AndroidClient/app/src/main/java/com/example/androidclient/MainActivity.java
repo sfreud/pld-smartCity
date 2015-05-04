@@ -48,6 +48,8 @@ public class MainActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        setTitle(R.string.application_title);
+
         t1 = (TextView) findViewById(R.id.textView1);
 
         transportRequestListView = (ListView) findViewById(R.id.transportRequestListView);
@@ -84,8 +86,8 @@ public class MainActivity extends ActionBarActivity {
                     element = new HashMap<String, String>();
                     element.put("summary", tr.getEventSummary());
                     element.put("startTime", (new Date(tr.getEventBeginTime())).toString());
-                    element.put("startLocation", tr.getStartAddress() + " (" + tr.getStartLat() + "," + tr.getStartLng() + ")");
-                    element.put("eventLocation", tr.getEventAddress() + " (" + tr.getEventLat() + "," + tr.getEventLng() + ")");
+                    element.put("startLocation", tr.getStartAddress());
+                    element.put("eventLocation", tr.getEventAddress());
                     list.add(element);
                 }
                 ListAdapter adapter = new SimpleAdapter(MainActivity.this,
@@ -103,6 +105,7 @@ public class MainActivity extends ActionBarActivity {
                         //cal.setTimeInMillis((long));
                         cal.add(Calendar.SECOND, 10);
                         Intent intent = new Intent(ctx, AlarmReceiver.class);
+                        Intent mapIntent = new Intent(ctx,MyMapActivity.class);
                         Bundle bundle = new Bundle();
                         bundle.putString("eventSummary",tr.getEventSummary());
                         bundle.putString("startAdress",tr.getStartAddress());
@@ -112,11 +115,14 @@ public class MainActivity extends ActionBarActivity {
                         bundle.putDouble("endLat",tr.getEventLat());
                         bundle.putDouble("endLng",tr.getEventLng());
                         intent.putExtra(SelectedEventActivity.START_END_LATLNG, bundle);
+                        mapIntent.putExtra(SelectedEventActivity.START_END_LATLNG, bundle);
                         PendingIntent sender = PendingIntent.getBroadcast(ctx, 0, intent, 0);
 
                         // Get the AlarmManager service
                         AlarmManager am = (AlarmManager) ctx.getSystemService(Context.ALARM_SERVICE);
                         am.set(AlarmManager.RTC_WAKEUP, cal.getTimeInMillis(), sender);
+
+                        startActivity(mapIntent);
                     }
                 });
             }

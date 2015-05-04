@@ -22,37 +22,37 @@ public class AuthentificationService extends org.restlet.resource.ServerResource
 	@Post
 	public String accept() {
 
-		//Series<Header> headers = ((HttpRequest) getRequest()).getHeaders();
+		Series<Header> headers = ((HttpRequest) getRequest()).getHeaders();
 		//display headers (debugging purpose)
 		 //headers.add("Access-Control-Allow-Methods", "GET, POST, PUT, OPTIONS");
-		/*for(int i = 0;i<headers.size();i++){
+		for(int i = 0;i<headers.size();i++){
 			System.out.println(headers.get(i).toString());
 		}
 		String h = headers.getFirstValue("Authorization");
 		String dh = Base64.base64Decode(h.substring("Basic ".length(), h.length()));
 		String username = dh.substring(0, dh.indexOf(':'));
-		String password = dh.substring(dh.indexOf(':'), dh.indexOf(h.length()));
+		String password = dh.substring(dh.indexOf(':')+1, dh.length());
 		
 		try {
 			Class.forName("com.mysql.jdbc.Driver") ;
 		} catch (ClassNotFoundException e) {
 		}
-		return username + "/" + password;*/
-		return "yop";
+		
 
-		/*Connection conn;
+		Connection conn;
 		try {
 			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/testpld", "root", "password");
 			Statement stmt = conn.createStatement() ;
-			String query = "select " + DBPLD.users.COLUMN_NAME_PASSWORD +
-					" from " + DBPLD.users.TABLE_NAME + 
-					" where " + DBPLD.users.COLUMN_NAME_TITLE + "=\""+username+"\"";
+			String query = "insert into " + DBPLD.users.TABLE_NAME + "(" + DBPLD.users.COLUMN_NAME_TITLE + "," + 
+			DBPLD.users.COLUMN_NAME_PASSWORD +")" +
+					" values (\"" + username + "\",\"" + password + "\");";
 			System.out.println(query);
-			ResultSet rs = stmt.executeQuery(query);
-			return rs.toString();
+			int rs = stmt.executeUpdate(query);
+			return String.valueOf(rs);
 		} catch (SQLException e) {
 			return e.toString();
-		}*/
+		}
+		//return username + "/" + password;
 	}
 
 }

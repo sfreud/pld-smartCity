@@ -1,7 +1,6 @@
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
-import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.sql.Statement;
 
@@ -31,9 +30,9 @@ public class EventRetrievingService extends ServerResource {
 		
 		Series<Header> headers = ((HttpRequest) getRequest()).getHeaders();
 		//display headers (debugging purpose)
-		/*for(int i = 0;i<headers.size();i++){
+		for(int i = 0;i<headers.size();i++){
 			System.out.println(headers.get(i).toString());
-		}*/
+		}
 		String h = headers.getFirstValue("Authorization");
 		String dh = Base64.base64Decode(h.substring("Basic ".length(), h.length()));
 		String username = dh.substring(0, dh.indexOf(':'));

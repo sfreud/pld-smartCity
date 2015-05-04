@@ -39,7 +39,10 @@ public class ServerController {
 		
 		ChallengeAuthenticator auth2 = createHTTPBasic();
 		auth2.setNext(EventRetrievingService.class);
+		//server.getDefaultHost().attach("/event",EventRetrievingService.class);
 		server.getDefaultHost().attach("/event",auth2);
+		
+		server.getDefaultHost().attach("/signup",AuthentificationService.class);
 		
 		
 		/* Build the graph for Dijkstra calculation from xml map. This will be done only once

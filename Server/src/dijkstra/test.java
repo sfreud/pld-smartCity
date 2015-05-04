@@ -34,22 +34,21 @@ public class test {
 		
 		try {
 			docBuilder = DocumentBuilderFactory.newInstance().newDocumentBuilder();
-		} catch(ParserConfigurationException e) {
-			System.err.println("Impossible de créer un DocumentBuilder.");
-			System.exit(1);
+                        System.out.println("Lecture...");
+                        Document carte=XMLDOM.lireDocument(docBuilder, "Campus.osm");
+                        System.out.println("Doc lu");
+                        Graph map = Graph.getGraph(XMLDOM.recupererNodes(carte),XMLDOM.recupererEdge(carte));
 		}
-		/*
-		// crée un petit document d'exemple
-		Document doc = creerDocumentExemple(docBuilder);
+                catch(ParserConfigurationException e) {
+			System.err.println("Impossible de créer un DocumentBuilder.");
+			
+		}
+                catch (GraphException e)
+                {
+                    System.out.println(e.getMessage());
+                }
+                
 		
-		// l'écrire sur le disque dans un fichier
-		ecrireDocument(doc, "test.xml");
-		*/
-		// re-charger ce document à partir du fichier
-		Document doc2 = XMLDOM.lireDocument(docBuilder, "C:\\Users\\tarik_000\\Desktop\\Villeurbanne.osm");
-		if(doc2 == null) System.exit(1);
-
-		XMLDOM.afficherDocument(doc2);
     }
 }
 

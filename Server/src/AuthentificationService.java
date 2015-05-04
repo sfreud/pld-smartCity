@@ -33,6 +33,11 @@ public class AuthentificationService extends org.restlet.resource.ServerResource
 		String username = dh.substring(0, dh.indexOf(':'));
 		String password = dh.substring(dh.indexOf(':')+1, dh.length());
 		
+		if(username.equals("") || username.length()>50)
+			return "1";//Code 1 : empty or too long
+		if(username.contains(":"))
+			return "2";//code 2 : semicolon character in the username
+		
 		try {
 			Class.forName("com.mysql.jdbc.Driver") ;
 		} catch (ClassNotFoundException e) {
@@ -48,11 +53,12 @@ public class AuthentificationService extends org.restlet.resource.ServerResource
 					" values (\"" + username + "\",\"" + password + "\");";
 			System.out.println(query);
 			int rs = stmt.executeUpdate(query);
-			return String.valueOf(rs);
+			if(rs==1)
+				return "0";
 		} catch (SQLException e) {
 			return e.toString();
 		}
-		//return username + "/" + password;
+		return "3"; //Default error code
 	}
 
 }

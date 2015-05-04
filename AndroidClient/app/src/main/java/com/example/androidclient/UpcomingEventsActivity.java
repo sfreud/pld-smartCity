@@ -213,20 +213,6 @@ public class UpcomingEventsActivity extends Activity {
                 } else if (events.size() == 0) {
                     mStatusText.setText("No upcoming events found.");
                 } else {
-
-                    //Check whether it's the app first launch or not. If it is, we send the retrieved
-                    //events from google calendar to our own server.
-                    SharedPreferences settings =
-                            getPreferences(Context.MODE_PRIVATE);
-                    SharedPreferences.Editor editor = settings.edit();
-                    if(settings.getString("FirstLaunch", null)==null){
-
-                        new EventSendTask().execute(events);
-                        editor.putString("FirstLaunch", "No");
-                        editor.commit();
-                    }
-
-
                     mStatusText.setText("Your upcoming events retrieved using" +
                             " the Google Calendar API:");
                     //mEventText.setText(TextUtils.join("\n\n", events));

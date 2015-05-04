@@ -33,16 +33,16 @@ public class ServerController {
 		server.getDefaultHost().attach("/register", RegisterService.class);
 		
 		//add http basic auth to a particular URI
-		ChallengeAuthenticator auth1 = createHTTPBasic();
-		auth1.setNext(ItineraryComputingService.class);
-		server.getDefaultHost().attach("/itinerary",auth1);
+		//ChallengeAuthenticator auth1 = createHTTPBasic();
+		//auth1.setNext(ItineraryComputingService.class);
+		server.getDefaultHost().attach("/itinerary",ItineraryComputingService.class);
 		
-		ChallengeAuthenticator auth2 = createHTTPBasic();
-		auth2.setNext(EventRetrievingService.class);
-		//server.getDefaultHost().attach("/event",EventRetrievingService.class);
-		server.getDefaultHost().attach("/event",auth2);
+		//ChallengeAuthenticator auth2 = createHTTPBasic();
+		//auth2.setNext(EventRetrievingService.class);
+		server.getDefaultHost().attach("/event",EventRetrievingService.class);
+		//server.getDefaultHost().attach("/event",auth2);
 		
-		server.getDefaultHost().attach("/signup",AuthentificationService.class);
+		server.getDefaultHost().attach("/login",AuthentificationService.class);
 		
 		
 		/* Build the graph for Dijkstra calculation from xml map. This will be done only once

@@ -43,7 +43,7 @@ import org.w3c.dom.Text;
 import org.xml.sax.SAXException;
 
 import dijkstra.main.java.osm.o5mreader.Pair;
-
+//Attention : certains noeuds d'arrivée ne sont pas dans les noeuds de départ
 public class XMLDOM {
 	/**
 	 * Crée un petit document XML d'exemple, à l'aide d'un Document Builder.
@@ -134,6 +134,7 @@ public class XMLDOM {
 			String nomFichier) {
 		
 		try {
+                    System.out.println("Avant parse...");
 			return docBuilder.parse(new File(nomFichier));
 		} catch(SAXException e) {
 			System.err.println("Erreur de parsing de " + nomFichier);
@@ -185,13 +186,15 @@ public class XMLDOM {
 		System.out.println("</" + e.getNodeName() + ">");
 	}
 	
-	public Map<Long, Pair<Float, Float>> recupererNodes(Document doc)
+	public static Map<Long, Pair<Float, Float>> recupererNodes(Document doc)
 	{
+            System.out.println("récup nodes");
 		Map<Long, Pair<Float, Float>> ret = new HashMap<>();
 		NodeList listeNoeud = doc.getElementsByTagName("node");
 		for(int i=0; i<listeNoeud.getLength(); i++){
 			Element e = (Element) listeNoeud.item(i);
 			Long id = Long.parseLong(e.getAttribute("id"));
+                        System.out.println("récup node" + id);
 			Float lat = Float.parseFloat(e.getAttribute("lat"));
 			Float lon = Float.parseFloat(e.getAttribute("lon"));
 			Pair<Float,Float> next = new Pair<>(lat,lon);
@@ -200,10 +203,12 @@ public class XMLDOM {
 		return ret;
 	}
 	
-	public List<Pair<Long,Long>> recupererEdge(Document doc) {
+	public static List<Pair<Long,Long>> recupererEdge(Document doc) {
+            System.out.println("récup edges");
 		List<Pair<Long,Long>> ret = new ArrayList<>();
 		NodeList listeWay = doc.getElementsByTagName("way");
 		for(int i=0; i<listeWay.getLength(); i++){
+                        System.out.println("récup edge " + i);
 			Element e = (Element) listeWay.item(i);
 			NodeList listeNoeud = e.getElementsByTagName("nd");
 			for(int j=0; j<listeNoeud.getLength()-1; j++){

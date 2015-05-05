@@ -39,48 +39,49 @@ public class ItineraryComputingService extends Restlet {
 	public Graph prepareGraph(String inputFile){
 		DocumentBuilder docBuilder = null;
 		
-		//System.out.println("Building graph.");
 		try {
 			docBuilder = DocumentBuilderFactory.newInstance().newDocumentBuilder();
-        	Document carte=XMLDOM.lireDocument(docBuilder, inputFile);
+                        System.out.println("Lecture...");
+                        Document carte=XMLDOM.lireDocument(docBuilder, "essai.osm");
+                        System.out.println("Doc lu");
 
-            Map<Long, Pair<Float, Float>> nodes = XMLDOM.recupererNodes(carte);
-            List<Pair<Long,Long>> edges = XMLDOM.recupererEdge(carte,nodes);
 
-            //Checks for ways with one end outside of the map and for unreachable nodes, and delete them to preserve graph coherence.            
-            List<Pair<Long,Long>> edgesToDelete = new ArrayList<>();
-            List<Long> nodesToDelete = new ArrayList<>();
-            for(Pair<Long,Long> p : edges)
-            {
-                if(!nodes.containsKey(p.getKey())||!nodes.containsKey(p.getValue()))
-                {
-                    edgesToDelete.add(p);
-                }
-            }
-            for(Pair<Long,Long> p : edgesToDelete)
-            {
-                edges.remove(p);
-            }
-            for(Long n : nodes.keySet())
-            {
-                boolean toDelete = true;
-                for(Pair<Long,Long> p : edges)
-                {
-                    if(p.getKey().equals(n)||p.getValue().equals(n))
-                    {
-                        toDelete = false;
-                    }
-                }
-                if(toDelete)
-                {
-                    nodesToDelete.add(n);
-                }
-            }
-            for(Long n : nodesToDelete)
-            {
-                nodes.remove(n);
-            }
-            
+                        Map<Long, Pair<Float, Float>> nodes = XMLDOM.recupererNodes(carte);
+                        List<Pair<Pair<Long,Long>,String>> edges = XMLDOM.recupererEdge(carte,nodes);
+
+                        
+                        List<Pair<Pair<Long,Long>,String>> edgesToDelete = new ArrayList<>();
+                        List<Long> nodesToDelete = new ArrayList<>();
+                        for(Pair<Pair<Long,Long>,String> p : edges)
+                        {
+                            if(!nodes.containsKey(p.getKey().getKey())||!nodes.containsKey(p.getKey().getValue()))
+                            {
+                                edgesToDelete.add(p);
+                            }
+                        }
+                        for(Pair<Pair<Long,Long>,String> p : edgesToDelete)
+                        {
+                            edges.remove(p);
+                        }
+                        for(Long n : nodes.keySet())
+                        {
+                            boolean toDelete = true;
+                            for(Pair<Pair<Long,Long>,String> p : edges)
+                            {
+                                if(p.getKey().getKey().equals(n)||p.getKey().getValue().equals(n))
+                                {
+                                    toDelete = false;
+                                }
+                            }
+                            if(toDelete)
+                            {
+                                nodesToDelete.add(n);
+                            }
+                        }
+                        for(Long n : nodesToDelete)
+                        {
+                            nodes.remove(n);
+                        }
             
             return Graph.getGraph(nodes,edges);
 		}

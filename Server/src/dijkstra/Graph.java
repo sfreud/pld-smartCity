@@ -9,7 +9,7 @@ import dijkstra.main.java.osm.o5mreader.Pair;
 
 
 public class Graph {
-
+    private static final float rayon = 6371000;
     private GraphNode begin;
     //Map<IdNoeud,Pair<Lat,Long>>
     public static Graph getGraph(Map<Long, Pair<Float,Float>> coor, List<Pair<Long,Long>> e) throws GraphException, IndexOutOfBoundsException{
@@ -34,11 +34,15 @@ public class Graph {
             {
                 if(w.getKey().equals(nodeDep))
                 {
-                    double phiA = coor.get(w.getKey()).getKey();
-                    double phiB = coor.get(w.getValue()).getKey();
-                    double lambdaA = coor.get(w.getKey()).getValue();
-                    double lambdaB = coor.get(w.getValue()).getValue();
-                    double dist = Math.acos(Math.sin(phiA)*Math.sin(phiB)+Math.cos(phiA)*Math.cos(phiB)*Math.cos(lambdaA-lambdaB));
+                    double latA = coor.get(w.getKey()).getKey();
+                    double latB = coor.get(w.getValue()).getKey();
+                    double longA = coor.get(w.getKey()).getValue();
+                    double longB = coor.get(w.getValue()).getValue();
+                    double dlat = Math.abs(latA-latB);
+                    double dlong = Math.abs(longA-longB);
+                    double dy = rayon*dlat;
+                    double dx = rayon*Math.cos(latA)*dlong;
+                    double dist = Math.sqrt(dx*dx+dy*dy);
                     edges.get(w.getKey()).put(w.getValue(),(float)dist);
                 }
             }

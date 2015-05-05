@@ -84,6 +84,7 @@ public class test {
                         Graph map = Graph.getGraph(nodes,edges);
  
                         map.displayGraph();
+                        System.out.println(map.getShorterWay(map.getNode(206997177), map.getNode(207724089)).getKey().size());
 		}
                 catch(ParserConfigurationException e) {
 			System.err.println("Impossible de créer un DocumentBuilder.");

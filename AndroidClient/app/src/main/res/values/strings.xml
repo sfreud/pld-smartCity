@@ -30,4 +30,5 @@
     <string name="nameAlreadyUsed">Il existe déjà un compte d\'utilisateur avec ce nom</string>
     <string name="connected">Connexion établie.</string>
     <string name="title_activity_update_transport_request">UpdateTransportRequestActivity</string>
+    <string name="connectToExistingAccount">Se connecter à un compte existant</string>
 </resources>

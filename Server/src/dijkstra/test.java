@@ -18,6 +18,7 @@ import org.xml.sax.*;
 import org.w3c.dom.*;
 
 import java.io.*;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -40,10 +41,42 @@ public class test {
 		try {
 			docBuilder = DocumentBuilderFactory.newInstance().newDocumentBuilder();
                         System.out.println("Lecture...");
-                        Document carte=XMLDOM.lireDocument(docBuilder, "Villeurbanne.osm");
+                        Document carte=XMLDOM.lireDocument(docBuilder, "map.osm");
                         System.out.println("Doc lu");
-                        Map<Long, Pair<Float, Float>> noeuds = XMLDOM.recupererNodes(carte);
-                        Graph map = Graph.getGraph(noeuds,XMLDOM.recupererEdge(carte, noeuds));
+                        List<Pair<Long,Long>> edgesToDelete = new ArrayList<>();
+                        List<Long> nodesToDelete = new ArrayList<>();
+                        for(Pair<Long,Long> p : edges)
+                        {
+                            if(!nodes.containsKey(p.getKey())||!nodes.containsKey(p.getValue()))
+                            {
+                                edgesToDelete.add(p);
+                            }
+                        }
+                        for(Pair<Long,Long> p : edgesToDelete)
+                        {
+                            edges.remove(p);
+                        }
+                        for(Long n : nodes.keySet())
+                        {
+                            boolean toDelete = true;
+                            for(Pair<Long,Long> p : edges)
+                            {
+                                if(p.getKey().equals(n)||p.getValue().equals(n))
+                                {
+                                    toDelete = false;
+                                }
+                            }
+                            if(toDelete)
+                            {
+                                nodesToDelete.add(n);
+                            }
+                        }
+                        for(Long n : nodesToDelete)
+                        {
+                            nodes.remove(n);
+                        }
+                        Graph map = Graph.getGraph(nodes,edges);
+
                         map.displayGraph();
 		}
                 catch(ParserConfigurationException e) {

@@ -88,7 +88,7 @@ public class Graph {
         List<Long> nodesBlack = new ArrayList<>();
         List<Long> nodesGrey = new ArrayList<>();
         nodesGrey.add((Long)edges.keySet().toArray()[0]);
-        while(nodesBlack.size()!=edges.keySet().size())
+        while(!nodesGrey.isEmpty())
         {
            
            System.out.println("Chargement...");

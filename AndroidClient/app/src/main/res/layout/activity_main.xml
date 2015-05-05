@@ -39,7 +39,13 @@
             android:layout_height="wrap_content"
             android:text="@string/createAccount"
             android:onClick="register"/>
+        <Button
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/connectToExistingAccount"
+            android:onClick="connectToExistingAccount"/>
         </LinearLayout>
+
     <LinearLayout
         android:id="@+id/layoutEvents"
         android:layout_width="fill_parent"

@@ -44,8 +44,11 @@ public class test {
                         Document carte=XMLDOM.lireDocument(docBuilder, "map.osm");
                         System.out.println("Doc lu");
 
+
                         Map<Long, Pair<Float, Float>> nodes = XMLDOM.recupererNodes(carte);
                         List<Pair<Long,Long>> edges = XMLDOM.recupererEdge(carte,nodes);
+
+                        
                         List<Pair<Long,Long>> edgesToDelete = new ArrayList<>();
                         List<Long> nodesToDelete = new ArrayList<>();
                         for(Pair<Long,Long> p : edges)
@@ -79,7 +82,7 @@ public class test {
                             nodes.remove(n);
                         }
                         Graph map = Graph.getGraph(nodes,edges);
-
+ 
                         map.displayGraph();
 		}
                 catch(ParserConfigurationException e) {
@@ -91,7 +94,6 @@ public class test {
                     System.out.println(e.getMessage());
                 }
                 
-		
     }
 }
 

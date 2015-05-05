@@ -288,4 +288,19 @@ public class CreateEventActivity extends Activity {
         });
     }
 
+    @Override
+    protected void onPause(Bundle savedInstanceState) {
+        // TODO
+    }
+
+    @Override
+    protected void onStop(Bundle savedInstanceState) {
+        // TODO
+    }
+
+    @Override
+    protected void onDestroy(Bundle savedInstanceState) {
+        // TODO
+    }
+
 }

@@ -2,10 +2,14 @@ package com.example.androidclient;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Base64;
+import android.util.Log;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -16,10 +20,21 @@ import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.maps.model.Polyline;
 import com.google.android.gms.maps.model.PolylineOptions;
 
+import org.apache.http.HttpEntity;
+import org.apache.http.HttpResponse;
+import org.apache.http.client.ClientProtocolException;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.impl.client.DefaultHttpClient;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -67,14 +82,14 @@ public class MyMapActivity extends Activity implements OnMapReadyCallback {
         Intent intent = getIntent();
         Bundle bundle = intent.getBundleExtra(SelectedEventActivity.START_END_LATLNG);
 
-        //start = new LatLng(45.782640, 4.878073);
-        start = new LatLng(bundle.getDouble("startLat"), bundle.getDouble("startLng"));
+        //start = new LatLng(bundle.getDouble("startLat"), bundle.getDouble("startLng"));
+        start = new LatLng(45.7819639, 4.8693651);
         double sourcelat = start.latitude;
         double sourcelog = start.longitude;
         startAdress = bundle.getString("startAdress");
 
-        //end = new LatLng(45.757198, 4.831219);
-        end = new LatLng(bundle.getDouble("endLat"), bundle.getDouble("endLng"));
+       // end = new LatLng(bundle.getDouble("endLat"), bundle.getDouble("endLng"));
+        end = new LatLng(45.7787973, 4.8700706);
         double destlat = end.latitude;
         double destlog = end.longitude;
         endAdress = bundle.getString("endAdress");
@@ -83,14 +98,14 @@ public class MyMapActivity extends Activity implements OnMapReadyCallback {
         myMap.moveCamera(CameraUpdateFactory.newLatLngZoom(start, 13));
 
         //String url = makeURL(sourcelat, sourcelog, destlat, destlog);
-        //String url = makeItineraryURLServer(sourcelat, sourcelog, destlat, destlog);
-        String url ="http://10.0.2.2:8182/itinerary?dlat=45.7819639&dlong=4.8693651&alat=45.7787973&along=4.8700706";
+        String url = makeItineraryURLServer(sourcelat, sourcelog, destlat, destlog);
+        //String url ="http://10.0.2.2:8182/itinerary?dlat=45.7819639&dlong=4.8693651&alat=45.7787973&along=4.8700706";
         ConnectAsyncTask cat = new ConnectAsyncTask(url);
         cat.execute();
     }
 
     public void drawPath(String result) {
-
+        Log.d("JSON recu",result);
         try {
             List<LatLng> list = new ArrayList<LatLng>();
 
@@ -131,6 +146,7 @@ public class MyMapActivity extends Activity implements OnMapReadyCallback {
 
         } catch (JSONException e) {
             e.printStackTrace();
+            Log.d("JSONException",e.getMessage());
         }
     }
 
@@ -187,10 +203,10 @@ public class MyMapActivity extends Activity implements OnMapReadyCallback {
 
     public String makeItineraryURLServer(double sourcelat, double sourcelog, double destlat, double destlog) {
         StringBuilder urlString = new StringBuilder();
-        urlString.append("http://10.0.2.2/itinerary");
+        urlString.append("http://10.0.2.2:8182/itinerary");
         urlString.append("?dlat=");// from
         urlString.append(Double.toString(sourcelat));
-        urlString.append("&dlong");
+        urlString.append("&dlong=");
         urlString.append(Double.toString(sourcelog));
         urlString.append("&alat=");// to
         urlString .append(Double.toString(destlat));
@@ -243,5 +259,60 @@ public class MyMapActivity extends Activity implements OnMapReadyCallback {
             }
         }
     } ;
+
+    public class JSONParser {
+
+        InputStream is = null;
+        JSONObject jObj = null;
+        String json = "";
+
+        // constructor
+        public JSONParser() {
+        }
+
+        public String getJSONFromUrl(String url) {
+            // Making HTTP request
+            try {
+                // defaultHttpClient
+                HttpClient httpClient = new DefaultHttpClient();
+                HttpPost post = new HttpPost(url);
+                SharedPreferences settings = getSharedPreferences("preferences",MODE_PRIVATE);
+                String login = settings.getString("login", null);
+                String pass = settings.getString("pass", null);
+                Log.d("LOGIN_PASS",login+" "+pass);
+                String s = Base64.encodeToString((login + ":" + pass).getBytes(), Base64.DEFAULT);
+                post.setHeader("Accept", "text/html");
+                post.setHeader("Host", "10.0.2.2:8182");
+                post.setHeader("Authorization", "Basic " + s);
+
+                HttpResponse httpResponse = httpClient.execute(post);
+                HttpEntity httpEntity = httpResponse.getEntity();
+                is = httpEntity.getContent();
+
+            } catch (UnsupportedEncodingException e) {
+                e.printStackTrace();
+            } catch (ClientProtocolException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            try {
+                BufferedReader reader = new BufferedReader(new InputStreamReader(
+                        is, "iso-8859-1"), 8);
+                StringBuilder sb = new StringBuilder();
+                String line = null;
+                while ((line = reader.readLine()) != null) {
+                    sb.append(line + "\n");
+                }
+
+                json = sb.toString();
+                is.close();
+            } catch (Exception e) {
+                Log.e("Buffer Error", "Error converting result " + e.toString());
+            }
+            return json;
+
+        }
+    };
 
 }

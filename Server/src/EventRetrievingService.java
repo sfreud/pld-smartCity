@@ -7,6 +7,7 @@ import java.sql.Statement;
 import org.restlet.data.Header;
 import org.restlet.engine.adapter.HttpRequest;
 import org.restlet.resource.Get;
+import org.restlet.resource.Post;
 import org.restlet.resource.ServerResource;
 import org.restlet.util.Series;
 
@@ -19,8 +20,8 @@ public class EventRetrievingService extends ServerResource {
 	
 	
 	
-	@Get
-	public String represent(){
+	@Post
+	public String accept(){
 		String summary = getQuery().getValues("summary");
 		String date = getQuery().getValues("date");
 		//date will have to be reformatted to the mysql timestamp format
@@ -70,9 +71,9 @@ public class EventRetrievingService extends ServerResource {
 					DBPLD.calendarEvents.TABLE_NAME + "("+
 					DBPLD.calendarEvents.COLUMN_NAME_UID+","+DBPLD.calendarEvents.COLUMN_NAME_TITLE+","+
 					DBPLD.calendarEvents.COLUMN_NAME_LOCATION+","+DBPLD.calendarEvents.COLUMN_NAME_EVENTDATE+")"+
-					" values(\""+id+"\",\""+summary+"\",\""+location+"\",'"+formattedDate+"\');" ;
+					" values(\""+id+"\",\""+summary+"\",\""+location+"\",'"+date+"\');" ;
 			System.out.println(query2);
-			//Lire les résultats d'une requête (requête qui renvoie un résultat, par ex. select).
+			//Lire les rï¿½sultats d'une requï¿½te (requï¿½te qui renvoie un rï¿½sultat, par ex. select).
 			int r = stmt.executeUpdate(query2) ;
 			
 			/*

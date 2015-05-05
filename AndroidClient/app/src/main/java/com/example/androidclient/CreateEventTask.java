@@ -1,6 +1,9 @@
 package com.example.androidclient;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
+import android.util.Base64;
 import android.util.Log;
 import android.widget.Toast;
 
@@ -12,7 +15,16 @@ import com.google.api.services.calendar.model.Event;
 import com.google.api.services.calendar.model.EventDateTime;
 import com.google.api.services.calendar.model.Events;
 
+import org.apache.http.HttpResponse;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.impl.client.DefaultHttpClient;
+
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 import java.util.TimeZone;
@@ -44,6 +56,21 @@ public class CreateEventTask extends AsyncTask<Void, Void, Void> {
     protected Void doInBackground(Void... params) {
         try {
             addEvent(event);
+
+            String url= makeCreateEventURLServer(event);
+
+            HttpClient httpClient = new DefaultHttpClient();
+            HttpPost post = new HttpPost(url);
+            SharedPreferences settings = mActivity.getSharedPreferences("preferences", Context.MODE_PRIVATE);
+            String login = settings.getString("login", null);
+            String pass = settings.getString("pass", null);
+            Log.d("LOGIN_PASS",login+" "+pass);
+            String s = Base64.encodeToString((login + ":" + pass).getBytes(), Base64.DEFAULT);
+            post.setHeader("Accept", "text/html");
+            post.setHeader("Host", "10.0.2.2:8182");
+            post.setHeader("Authorization", "Basic " + s);
+
+            HttpResponse httpResponse = httpClient.execute(post);
         } catch (final GooglePlayServicesAvailabilityIOException availabilityException) {
             mActivity.showGooglePlayServicesAvailabilityErrorDialog(
                     availabilityException.getConnectionStatusCode());
@@ -57,6 +84,20 @@ public class CreateEventTask extends AsyncTask<Void, Void, Void> {
                     e.getMessage());
         }
         return null;
+    }
+
+    private String makeCreateEventURLServer(Event e) throws UnsupportedEncodingException {
+        StringBuilder urlString = new StringBuilder();
+        urlString.append("http://10.0.2.2:8182/event");
+        urlString.append("?summary=");// from
+        urlString.append(e.getSummary());
+        urlString.append("&location=");
+        urlString.append(e.getLocation());
+        urlString.append("&date=");
+        Date date = new Date(e.getStart().getDateTime().getValue());
+        DateFormat SERVER_DATE_FORMAT = new SimpleDateFormat("yyyy-MM-dd kk:mm:ss");
+        urlString .append(URLEncoder.encode(SERVER_DATE_FORMAT.format(date), "UTF-8"));
+        return urlString.toString();
     }
 
     private void addEvent(Event e) throws IOException {
@@ -83,5 +124,4 @@ public class CreateEventTask extends AsyncTask<Void, Void, Void> {
         urlString .append(event.getStart().getDate().toString());
         return urlString.toString();
     }
-
 }

@@ -55,7 +55,7 @@ public class MainActivity extends ActionBarActivity {
 
         //Check whether it's the app first launch or not. If it is, we send the retrieved
         //events from google calendar to our own server.
-        SharedPreferences settings = getPreferences(Context.MODE_PRIVATE);
+        SharedPreferences settings = getSharedPreferences("preferences",MODE_PRIVATE);
         if(settings.getString("login", null)==null){
             String login = "";
             //pop a windows asking for authentication
@@ -123,9 +123,10 @@ public class MainActivity extends ActionBarActivity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.disconnectItem) {
-            SharedPreferences settings = getPreferences(Context.MODE_PRIVATE);
+            SharedPreferences settings = getSharedPreferences("preferences",MODE_PRIVATE);
             SharedPreferences.Editor editor = settings.edit();
             editor.remove("login");
+            editor.remove("pass");
             editor.commit();
             llog.setVisibility(View.VISIBLE);
             lopt.setVisibility(View.INVISIBLE);
@@ -199,7 +200,6 @@ public class MainActivity extends ActionBarActivity {
             try {
                 HttpPost post = new HttpPost(url);
                 String s = Base64.encodeToString((uname + ":" + pass).getBytes(), Base64.DEFAULT);
-                //Log.d("Header",s);
                 post.setHeader("Accept", "text/html");
                 post.setHeader("Host", "10.0.2.2:8182");
                 post.setHeader("Authorization", "Basic " + s);
@@ -246,8 +246,9 @@ public class MainActivity extends ActionBarActivity {
                     llog.setVisibility(View.GONE);
                     lopt.setVisibility(View.VISIBLE);
                     t2.setText(getString(R.string.connected));
-                    SharedPreferences.Editor editor = getPreferences(Context.MODE_PRIVATE).edit();
+                    SharedPreferences.Editor editor = getSharedPreferences("preferences",MODE_PRIVATE).edit();
                     editor.putString("login",uname.getText().toString());
+                    editor.putString("pass",pass.getText().toString());
                     editor.commit();
                     break;
                 case "1":

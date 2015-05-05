@@ -99,7 +99,7 @@ public class CreateEventActivity extends Activity {
 
                 Date endDate = null;
                 try {
-                    endDate = USER_DATE_FORMAT.parse(enteredEventStartDate.getText().toString());
+                    endDate = USER_DATE_FORMAT.parse(enteredEventEndDate.getText().toString());
                 } catch (ParseException e1) {
                     errorsInDates = true;
                     Toast.makeText(getApplicationContext(),"Il y a une erreur dans la date de fin",Toast.LENGTH_LONG);

@@ -109,6 +109,21 @@ public class UpdateTransportRequestActivity extends Activity {
         }
     }
 
+    @Override
+    protected void onPause() {
+        super.onPause();
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+    }
+
     public String makeGeocodingRequestURL(String adress) throws UnsupportedEncodingException {
         StringBuilder urlString = new StringBuilder();
         urlString.append("https://maps.googleapis.com/maps/api/geocode/json?address=");
@@ -170,20 +185,4 @@ public class UpdateTransportRequestActivity extends Activity {
             }
         }
     };
-
-    @Override
-    protected void onPause(Bundle savedInstanceState) {
-        // TODO
-    }
-
-    @Override
-    protected void onStop(Bundle savedInstanceState) {
-        // TODO
-    }
-
-    @Override
-    protected void onDestroy(Bundle savedInstanceState) {
-        // TODO
-    }
-
 }

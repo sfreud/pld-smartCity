@@ -21,7 +21,9 @@
         android:theme="@style/AppTheme" >
         <activity
             android:name=".MainActivity"
-            android:label="@string/app_name" >
+            android:label="@string/app_name"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:launchMode="singleTask">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -30,10 +32,12 @@
         </activity>
         <activity
             android:name=".UpcomingEventsActivity"
-            android:label="@string/title_activity_upcoming_events" />
+            android:label="@string/title_activity_upcoming_events"
+            android:configChanges="orientation|keyboardHidden|screenSize" />
         <activity
             android:name=".MyMapActivity"
-            android:label="@string/title_activity_my_map" />
+            android:label="@string/title_activity_my_map"
+            android:configChanges="orientation|keyboardHidden|screenSize" />
 
         <meta-data
             android:name="com.google.android.gms.version"
@@ -44,18 +48,21 @@
 
         <activity
             android:name=".SelectedEventActivity"
-            android:label="@string/title_activity_selected_event" />
+            android:label="@string/title_activity_selected_event"
+            android:configChanges="orientation|keyboardHidden|screenSize" />
 
         <receiver android:name=".AlarmReceiver" >
         </receiver>
 
         <activity
             android:name=".CreateEventActivity"
-            android:label="@string/title_activity_create_event" >
+            android:label="@string/title_activity_create_event"
+            android:configChanges="orientation|keyboardHidden|screenSize" >
         </activity>
         <activity
             android:name=".UpdateTransportRequestActivity"
-            android:label="@string/title_activity_update_transport_request" >
+            android:label="@string/title_activity_update_transport_request"
+            android:configChanges="orientation|keyboardHidden|screenSize" >
         </activity>
     </application>
 

@@ -289,18 +289,18 @@ public class CreateEventActivity extends Activity {
     }
 
     @Override
-    protected void onPause(Bundle savedInstanceState) {
-        // TODO
+    protected void onPause() {
+        super.onPause();
     }
 
     @Override
-    protected void onStop(Bundle savedInstanceState) {
-        // TODO
+    protected void onStop() {
+        super.onStop();
     }
 
     @Override
-    protected void onDestroy(Bundle savedInstanceState) {
-        // TODO
+    protected void onDestroy() {
+        super.onDestroy();
     }
 
 }

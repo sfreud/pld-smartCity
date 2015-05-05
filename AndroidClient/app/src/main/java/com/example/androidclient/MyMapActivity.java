@@ -46,6 +46,21 @@ public class MyMapActivity extends Activity implements OnMapReadyCallback {
         mapFragment.getMapAsync(this);
     }
 
+    @Override
+    protected void onPause() {
+        super.onPause();
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+    }
+
 
     @Override
     public void onMapReady(GoogleMap map) {
@@ -200,6 +215,7 @@ public class MyMapActivity extends Activity implements OnMapReadyCallback {
         protected void onPostExecute(String result) {
             super.onPostExecute(result);
             progressDialog.hide();
+            progressDialog.dismiss();
             if (result != null) {
                 drawPath(result);
                 MarkerOptions startMarker = new MarkerOptions()
@@ -214,23 +230,6 @@ public class MyMapActivity extends Activity implements OnMapReadyCallback {
                 myMap.addMarker(endMarker);
             }
         }
-
-        @Override
-        protected void onPause(Bundle savedInstanceState) {
-            // TODO
-        }
-
-        @Override
-        protected void onStop(Bundle savedInstanceState) {
-            // TODO
-        }
-
-        @Override
-        protected void onDestroy(Bundle savedInstanceState) {
-            // TODO
-        }
-    }
-
-    ;
+    } ;
 
 }

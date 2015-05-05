@@ -68,6 +68,7 @@ public class CreateEventTask extends AsyncTask<Void, Void, Void> {
     protected void onPostExecute(Void result)
     {
         Toast.makeText(mActivity,"L'évènement a bien été créé",Toast.LENGTH_SHORT).show();
+        mActivity.createThisEvent.setEnabled(false);
     }
 
     private String makeCreatedEventURLServer(Event e)

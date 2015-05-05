@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">AndroidClient</string>
+    <string name="app_name">Smart City</string>
     <string name="application_title">Smart City</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
@@ -31,4 +31,6 @@
     <string name="connected">Connexion établie.</string>
     <string name="title_activity_update_transport_request">UpdateTransportRequestActivity</string>
     <string name="connectToExistingAccount">Se connecter à un compte existant</string>
+    <string name="wrongCredentials">Mauvais identifiants</string>
+    <string name="disconnect">Déconnexion</string>
 </resources>

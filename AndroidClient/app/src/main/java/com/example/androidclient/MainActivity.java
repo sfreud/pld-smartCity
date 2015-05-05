@@ -13,6 +13,8 @@ import android.os.SystemClock;
 import android.support.v7.app.ActionBarActivity;
 import android.util.Base64;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
@@ -67,6 +69,9 @@ public class MainActivity extends ActionBarActivity {
         t2 = (TextView) findViewById(R.id.textView2);
         pass = (EditText)findViewById(R.id.editTextPassword);
 
+        lopt = (LinearLayout) findViewById(R.id.layoutEvents);
+        llog = (LinearLayout) findViewById(R.id.layoutLogin);
+
 
         //Check whether it's the app first launch or not. If it is, we send the retrieved
         //events from google calendar to our own server.
@@ -81,9 +86,6 @@ public class MainActivity extends ActionBarActivity {
                 login = list[0].name;
            // Log.d("account",login);
 
-
-            lopt = (LinearLayout) findViewById(R.id.layoutEvents);
-            llog = (LinearLayout) findViewById(R.id.layoutLogin);
             llog.setVisibility(View.VISIBLE);
             lopt.setVisibility(View.INVISIBLE);
 
@@ -178,18 +180,47 @@ public class MainActivity extends ActionBarActivity {
     }
 
     @Override
-    protected void onPause(Bundle savedInstanceState) {
-        // TODO
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return true;
     }
 
     @Override
-    protected void onStop(Bundle savedInstanceState) {
-        // TODO
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
+
+        //noinspection SimplifiableIfStatement
+        if (id == R.id.disconnectItem) {
+            SharedPreferences settings = getPreferences(Context.MODE_PRIVATE);
+            SharedPreferences.Editor editor = settings.edit();
+            editor.remove("login");
+            editor.commit();
+            llog.setVisibility(View.VISIBLE);
+            lopt.setVisibility(View.INVISIBLE);
+            t2.setText(getString(R.string.firstLaunch));
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 
     @Override
-    protected void onDestroy(Bundle savedInstanceState) {
-        // TODO
+    protected void onPause() {
+        super.onPause();
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
     }
 
 
@@ -216,7 +247,7 @@ public class MainActivity extends ActionBarActivity {
         }
         else{
             t2.setText(getString(R.string.connecting));
-            new RegisterTask().execute(uname.getText().toString(),pass.getText().toString(),"register");
+            new RegisterTask().execute(uname.getText().toString(), pass.getText().toString(), "register");
         }
     }
 
@@ -224,13 +255,13 @@ public class MainActivity extends ActionBarActivity {
         //Asynchronous call to the server. Sends events retrieved on google calendar. Should be used
         //once at app first launch, to sync' our server with gcalendar, and each time the user creates
         //another event from the app thereafter.
-
+        String requestType;
         @Override
         protected String doInBackground(String... params) {
             InputStream inputStream = null;
             int count = params.length;
             String uname = params[0], pass = params[1];
-
+            requestType = params[2];
             HttpClient httpclient = new DefaultHttpClient();
             String url = urlBegin+params[2];
             String result = "";
@@ -278,9 +309,12 @@ public class MainActivity extends ActionBarActivity {
         }
         @Override
         protected void onPostExecute(String s){
+            Log.d("Result",s);
             switch(s){
                 case "0":
-                    Toast.makeText(getBaseContext(), getString(R.string.success), Toast.LENGTH_SHORT).show();
+                    if(requestType.equals("register")) {
+                        Toast.makeText(getBaseContext(), getString(R.string.success), Toast.LENGTH_SHORT).show();
+                    }
                     llog.setVisibility(View.GONE);
                     lopt.setVisibility(View.VISIBLE);
                     t2.setText(getString(R.string.connected));
@@ -303,6 +337,10 @@ public class MainActivity extends ActionBarActivity {
                     break;
                 case "4":
                     Toast.makeText(getBaseContext(), getString(R.string.nameAlreadyUsed), Toast.LENGTH_SHORT).show();
+                    t2.setText(R.string.firstLaunch);
+                    break;
+                default : //HTTP403. Tried to connect to an existing accout with bad credentials.
+                    Toast.makeText(getBaseContext(), getString(R.string.wrongCredentials), Toast.LENGTH_SHORT).show();
                     t2.setText(R.string.firstLaunch);
                     break;
             }

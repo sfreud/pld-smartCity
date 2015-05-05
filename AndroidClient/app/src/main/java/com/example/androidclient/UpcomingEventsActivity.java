@@ -98,6 +98,21 @@ public class UpcomingEventsActivity extends Activity {
                 .build();
     }
 
+    @Override
+    protected void onPause() {
+        super.onPause();
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+    }
+
     /**
      * Called whenever this activity is pushed to the foreground, such as after
      * a call to onCreate().
@@ -427,19 +442,4 @@ public class UpcomingEventsActivity extends Activity {
             return null;
         }
     }
-    @Override
-    protected void onPause(Bundle savedInstanceState) {
-        // TODO
-    }
-
-    @Override
-    protected void onStop(Bundle savedInstanceState) {
-        // TODO
-    }
-
-    @Override
-    protected void onDestroy(Bundle savedInstanceState) {
-        // TODO
-    }
-
 }

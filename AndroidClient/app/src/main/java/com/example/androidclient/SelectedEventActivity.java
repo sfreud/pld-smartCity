@@ -86,6 +86,7 @@ public class SelectedEventActivity extends Activity {
                 trDAO.close();
                 selectedEventGetMap.setEnabled(true);
                 Toast.makeText(getApplicationContext(),"La demande de transport a bien été créée",Toast.LENGTH_SHORT).show();
+                verifyLocations.setEnabled(false);
                 createTransportRequest.setEnabled(false);
                 createTransportRequest.setText("Demande de transport créée");
             }
@@ -110,6 +111,21 @@ public class SelectedEventActivity extends Activity {
                                                    }
                                                }
         );
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
     }
 
     public String makeGeocodingRequestURL(String adress) throws UnsupportedEncodingException {
@@ -182,7 +198,7 @@ public class SelectedEventActivity extends Activity {
         protected void onPostExecute(Pair<LatLng, String> result) {
             super.onPostExecute(result);
             progressDialog.hide();
-
+            progressDialog.dismiss();
             if (result != null) {
                 adressView.setText(result.second);
                 if (adressView.equals(selectedEventStartLocation)) {
@@ -194,22 +210,6 @@ public class SelectedEventActivity extends Activity {
                 adressView.setText("L'adresse n'existe pas");
             }
         }
-    }
+    };
 
-    @Override
-    protected void onPause(Bundle savedInstanceState) {
-        // TODO
-    }
-
-    @Override
-    protected void onStop(Bundle savedInstanceState) {
-        // TODO
-    }
-
-    @Override
-    protected void onDestroy(Bundle savedInstanceState) {
-        // TODO
-    }
-
-    ;
 }

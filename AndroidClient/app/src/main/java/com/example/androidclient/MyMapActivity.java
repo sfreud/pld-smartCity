@@ -214,6 +214,21 @@ public class MyMapActivity extends Activity implements OnMapReadyCallback {
                 myMap.addMarker(endMarker);
             }
         }
+
+        @Override
+        protected void onPause(Bundle savedInstanceState) {
+            // TODO
+        }
+
+        @Override
+        protected void onStop(Bundle savedInstanceState) {
+            // TODO
+        }
+
+        @Override
+        protected void onDestroy(Bundle savedInstanceState) {
+            // TODO
+        }
     }
 
     ;

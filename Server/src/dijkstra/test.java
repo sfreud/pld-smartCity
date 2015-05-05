@@ -43,6 +43,9 @@ public class test {
                         System.out.println("Lecture...");
                         Document carte=XMLDOM.lireDocument(docBuilder, "map.osm");
                         System.out.println("Doc lu");
+
+                        Map<Long, Pair<Float, Float>> nodes = XMLDOM.recupererNodes(carte);
+                        List<Pair<Long,Long>> edges = XMLDOM.recupererEdge(carte,nodes);
                         List<Pair<Long,Long>> edgesToDelete = new ArrayList<>();
                         List<Long> nodesToDelete = new ArrayList<>();
                         for(Pair<Long,Long> p : edges)

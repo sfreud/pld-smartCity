@@ -284,7 +284,7 @@ public class Graph {
         List<GraphNode> greyNodes = new ArrayList<>();
         List<GraphNode> blackNodes = new ArrayList<>();
         greyNodes.add(begin);
-        if(begin.getLongitude()==lo&&begin.getLatitude()==la)
+        if(Math.abs(begin.getLongitude()-lo)<Math.pow(10, -6) &&Math.abs(begin.getLatitude()-la)<Math.pow(10, -6))
         {
             ret=begin;
         }
@@ -297,7 +297,7 @@ public class Graph {
                     if(!(greyNodes.contains(n))&&!(blackNodes.contains(n)))
                     {
                         greyNodes.add(n);
-                        if(n.getLongitude()==lo&&n.getLatitude()==la)
+                        if(Math.abs(n.getLongitude()-lo)<Math.pow(10, -6) &&Math.abs(n.getLatitude()-la)<Math.pow(10, -6))
                         {
                             ret=n;
                         }

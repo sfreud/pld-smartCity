@@ -41,7 +41,7 @@ public class Graph {
                     double dlong = Math.abs(longA-longB);
                     double dy = rayon*dlat;
                     double dx = rayon*Math.cos(latA)*dlong;
-                    double dist = Math.sqrt(dx*dx+dy*dy);
+                    int dist = (int) Math.sqrt(dx*dx+dy*dy);
                     System.out.println("dist:"+dist);
                     edges.get(w.getKey()).put(w.getValue(),(float)dist);
                 }

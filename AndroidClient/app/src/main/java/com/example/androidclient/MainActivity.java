@@ -181,6 +181,21 @@ public class MainActivity extends ActionBarActivity {
         art.execute();*/
     }
 
+    @Override
+    protected void onPause(Bundle savedInstanceState) {
+        // TODO
+    }
+
+    @Override
+    protected void onStop(Bundle savedInstanceState) {
+        // TODO
+    }
+
+    @Override
+    protected void onDestroy(Bundle savedInstanceState) {
+        // TODO
+    }
+
     public void register(View view) {
         if(uname.getText().toString().equals("")|| pass.getText().toString().equals("")){
             Toast.makeText(this, getString(R.string.incoherentCredentials), Toast.LENGTH_SHORT).show();

@@ -25,4 +25,19 @@ public class DataBaseHandler extends SQLiteOpenHelper {
     public void onDowngrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         onUpgrade(db, oldVersion, newVersion);
     }
+
+    @Override
+    protected void onPause(Bundle savedInstanceState) {
+        // TODO
+    }
+
+    @Override
+    protected void onStop(Bundle savedInstanceState) {
+        // TODO
+    }
+
+    @Override
+    protected void onDestroy(Bundle savedInstanceState) {
+        // TODO
+    }
 }

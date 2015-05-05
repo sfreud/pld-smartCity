@@ -6,7 +6,7 @@
     <string name="title_activity_my_map">MyMapActivity</string>
     <string name="title_activity_upcoming_events">UpcomingEvents</string>
     <string name="getEventsListButton">Récupérer la liste des évènements</string>
-    <string name="getMapButton">Afficher la map</string>
+    <string name="getMapButton">Afficher l\'itinéraire</string>
     <string name="API_KEY">AIzaSyA2h0_JGUTq9Ix1nqSHgXmAdRBUQfkSfqA</string>
     <string name="Geocoding_API_KEY">AIzaSyDoUEQPVEHEV0RIGqu838upq1gmoIMlS6Q</string>
     <string name="retrieving_events">Retrieving events...</string>
@@ -35,4 +35,5 @@
     <string name="disconnect">Déconnexion</string>
     <string name="title_activity_transport_request_list">TransportRequestListActivity</string>
     <string name="transportRequestListIntroduction">Voici vos différentes demandes de transports</string>
+    <string name="updateTransportRequest">Modifier cette demande de transport</string>
 </resources>

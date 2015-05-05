@@ -73,7 +73,7 @@ public class UpdateTransportRequestActivity extends Activity {
                         eventStartDate = USER_DATE_FORMAT.parse(eventStartTimeToUpdate.getText().toString());
                     } catch (ParseException e) {
                         errorsInDate = true;
-                        Toast.makeText(getApplicationContext(), "Il y a dans la date entrée", Toast.LENGTH_LONG);
+                        Toast.makeText(getApplicationContext(), "Il y a une erreur dans la date entrée", Toast.LENGTH_LONG).show();
                     }
                     if(!errorsInDate){
                         transportRequestToUpdate.setEventSummary(eventSummaryToUpdate.getText().toString());
@@ -84,10 +84,10 @@ public class UpdateTransportRequestActivity extends Activity {
                         transportRequestToUpdate.setStartAddress(eventStartLocationToUpdate.getText().toString()) ;
                         transportRequestToUpdate.setStartLat(eventStartLatLngToUpdate.latitude);
                         transportRequestToUpdate.setStartLng(eventStartLatLngToUpdate.longitude);
-                        transportRequestToUpdate.setEventBeginTime(0);
                         trDAO.open();
                         trDAO.update(transportRequestToUpdate);
                         trDAO.close();
+                        Toast.makeText(getApplicationContext(), "Demande de transport modifiée", Toast.LENGTH_LONG).show();
                     }
                 }
             });

@@ -11,11 +11,28 @@
         android:id="@+id/transportRequestListIntroduction"
         android:text="@string/transportRequestListIntroduction"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_weight="10" />
 
     <ListView
         android:id="@+id/transportRequestListView"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:choiceMode="singleChoice"
+        android:layout_weight="50" />
+
+    <Button
+        android:id="@+id/selectedTRToUpdate"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="10"
+        android:text="@string/updateTransportRequest"/>
+
+    <Button
+        android:id="@+id/getSelectedTRMap"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="10"
+        android:text="@string/getMapButton"/>
 
 </LinearLayout>

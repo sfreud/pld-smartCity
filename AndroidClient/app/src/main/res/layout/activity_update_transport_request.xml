@@ -45,8 +45,6 @@
         android:id="@+id/updateTransportRequest"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="Modifier cette demande de transport"/>
-
-
+        android:text="@string/updateTransportRequest"/>
 
 </LinearLayout>

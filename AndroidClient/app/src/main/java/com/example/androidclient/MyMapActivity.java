@@ -82,7 +82,9 @@ public class MyMapActivity extends Activity implements OnMapReadyCallback {
         myMap.setMyLocationEnabled(true);
         myMap.moveCamera(CameraUpdateFactory.newLatLngZoom(start, 13));
 
-        String url = makeURL(sourcelat, sourcelog, destlat, destlog);
+        //String url = makeURL(sourcelat, sourcelog, destlat, destlog);
+        //String url = makeItineraryURLServer(sourcelat, sourcelog, destlat, destlog);
+        String url ="http://10.0.2.2:8182/itinerary?dlat=45.7819639&dlong=4.8693651&alat=45.7787973&along=4.8700706";
         ConnectAsyncTask cat = new ConnectAsyncTask(url);
         cat.execute();
     }
@@ -90,8 +92,19 @@ public class MyMapActivity extends Activity implements OnMapReadyCallback {
     public void drawPath(String result) {
 
         try {
+            List<LatLng> list = new ArrayList<LatLng>();
+
             //Tranform the string into a json object
             final JSONObject json = new JSONObject(result);
+            totalDistance = json.getDouble("distance")/1000;
+            totalDuration = totalDistance*1;
+            JSONArray points = json.getJSONArray("points");
+            int pointsLength = points.length();
+            for(int i=0;i<pointsLength;++i){
+                JSONObject point = points.getJSONObject(i);
+                list.add(new LatLng(point.getDouble("latitude"),point.getDouble("longitude")));
+            }
+            /*
             JSONArray routeArray = json.getJSONArray("routes");
             JSONObject routes = routeArray.getJSONObject(0);
             JSONArray legsArray = routes.getJSONArray("legs");
@@ -103,9 +116,9 @@ public class MyMapActivity extends Activity implements OnMapReadyCallback {
             String durationValue = durationObject.getString("value");
             totalDuration = Double.parseDouble(durationValue) / 60;
 
-            JSONObject overviewPolylines = routes.getJSONObject("overview_polyline");
+            SONObject overviewPolylines = routes.getJSONObject("overview_polyline");
             String encodedString = overviewPolylines.getString("points");
-            List<LatLng> list = decodePoly(encodedString);
+            list = decodePoly(encodedString);*/
 
             for (int z = 0; z < list.size() - 1; z++) {
                 LatLng src = list.get(z);

@@ -94,7 +94,7 @@ public class CreateEventActivity extends Activity {
                     startDate = USER_DATE_FORMAT.parse(enteredEventStartDate.getText().toString());
                 } catch (ParseException e) {
                     errorsInDates = true;
-                    Toast.makeText(getApplicationContext(),"Il y a dans la date de début",Toast.LENGTH_LONG);
+                    Toast.makeText(getApplicationContext(),"Il y a une erreur dans la date de début",Toast.LENGTH_LONG);
                 }
 
                 Date endDate = null;
@@ -102,7 +102,7 @@ public class CreateEventActivity extends Activity {
                     endDate = USER_DATE_FORMAT.parse(enteredEventStartDate.getText().toString());
                 } catch (ParseException e1) {
                     errorsInDates = true;
-                    Toast.makeText(getApplicationContext(),"Il y a dans la date de fin",Toast.LENGTH_LONG);
+                    Toast.makeText(getApplicationContext(),"Il y a une erreur dans la date de fin",Toast.LENGTH_LONG);
                 }
                 if(!errorsInDates) {
                     DateTime start = new DateTime(startDate, TimeZone.getTimeZone("UTC"));

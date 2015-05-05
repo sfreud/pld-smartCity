@@ -1,8 +1,15 @@
+import org.restlet.resource.Get;
 import org.restlet.resource.Post;
 
 public class AuthenticationService extends org.restlet.resource.ServerResource{
 	//Classe gerant l'authentification des utilisateurs. Mappee sur l'uri /authentification (cf main).
 
+	//test on browser with GET
+	/*@Get
+	public String represent(){
+		return "0";
+	}*/
+	
 	@Post
 	public String accept() {
 		/*

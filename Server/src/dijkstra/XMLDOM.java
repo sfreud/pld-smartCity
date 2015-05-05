@@ -203,7 +203,7 @@ public class XMLDOM {
 		return ret;
 	}
 	
-	public static List<Pair<Long,Long>> recupererEdge(Document doc) {
+	public static List<Pair<Long,Long>> recupererEdge(Document doc, Map<Long, Pair<Float, Float>> noeuds) {
             System.out.println("r√©cup edges");
 		List<Pair<Long,Long>> ret = new ArrayList<>();
 		NodeList listeWay = doc.getElementsByTagName("way");
@@ -216,10 +216,14 @@ public class XMLDOM {
 				Long idDep = Long.parseLong(e2.getAttribute("ref"));
 				Element e3 = (Element) listeNoeud.item(j+1);
 				Long idArr = Long.parseLong(e3.getAttribute("ref"));
-				Pair<Long,Long> next = new Pair<>(idDep,idArr);
-				Pair<Long,Long> reverse = new Pair<>(idArr,idDep);
-				ret.add(next);
-				ret.add(reverse);
+				// VÈrification si les id des deux noeuds font partie de la carte
+				if(noeuds.containsKey(idDep) && noeuds.containsKey(idArr)) {
+					Pair<Long,Long> next = new Pair<>(idDep,idArr);
+					Pair<Long,Long> reverse = new Pair<>(idArr,idDep);
+					ret.add(next);
+					ret.add(reverse);
+				}
+				
 			}
 		}
 		return ret;

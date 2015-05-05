@@ -1,19 +1,15 @@
 package com.example.androidclient;
 
 import android.os.AsyncTask;
-import android.util.Log;
 
 import com.google.api.client.googleapis.extensions.android.gms.auth.GooglePlayServicesAvailabilityIOException;
 import com.google.api.client.googleapis.extensions.android.gms.auth.UserRecoverableAuthIOException;
 import com.google.api.client.util.DateTime;
 import com.google.api.services.calendar.model.Event;
-import com.google.api.services.calendar.model.EventDateTime;
 import com.google.api.services.calendar.model.Events;
 
 import java.io.IOException;
-import java.util.Date;
 import java.util.List;
-import java.util.TimeZone;
 
 /**
  * An asynchronous task that handles the Calendar API event list retrieval.

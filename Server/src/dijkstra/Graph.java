@@ -12,7 +12,7 @@ public class Graph {
 
     private GraphNode begin;
     //Map<IdNoeud,Pair<Lat,Long>>
-    public static Graph getGraph(Map<Long, Pair<Float,Float>> coor, List<Pair<Long,Long>> e) throws GraphException{
+    public static Graph getGraph(Map<Long, Pair<Float,Float>> coor, List<Pair<Long,Long>> e) throws GraphException, IndexOutOfBoundsException{
         if(coor.isEmpty()||e.isEmpty())
         {
             throw new GraphException();
@@ -88,9 +88,8 @@ public class Graph {
         List<Long> nodesBlack = new ArrayList<>();
         List<Long> nodesGrey = new ArrayList<>();
         nodesGrey.add((Long)edges.keySet().toArray()[0]);
-        while(nodesBlack.size()!=edges.keySet().size())
+        while(!nodesGrey.isEmpty())
         {
-           
            System.out.println("Chargement...");
            Long cur = nodesGrey.get(0);
            System.out.println("On ajoute le noeud " + cur);

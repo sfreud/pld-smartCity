@@ -21,7 +21,7 @@ public class AuthentificationService extends org.restlet.resource.ServerResource
 	}
 	@Post
 	public String accept() {
-
+		/*
 		Series<Header> headers = ((HttpRequest) getRequest()).getHeaders();
 		//display headers (debugging purpose)
 		 //headers.add("Access-Control-Allow-Methods", "GET, POST, PUT, OPTIONS");
@@ -59,6 +59,8 @@ public class AuthentificationService extends org.restlet.resource.ServerResource
 			return e.toString();
 		}
 		return "3"; //Default error code
+		*/
+		return "0";
 	}
-
+	
 }

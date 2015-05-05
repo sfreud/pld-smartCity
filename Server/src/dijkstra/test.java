@@ -30,15 +30,15 @@ public class test {
         
         // obtention d'un Document Builder qui permet de créer de nouveaux
 		// documents ou de parser des documents à partir de fichiers
-		DocumentBuilder docBuilder = null;
+		/*DocumentBuilder docBuilder = null;
 		
 		try {
 			docBuilder = DocumentBuilderFactory.newInstance().newDocumentBuilder();
                         System.out.println("Lecture...");
                         Document carte=XMLDOM.lireDocument(docBuilder, "Villeurbanne.osm");
                         System.out.println("Doc lu");
-                        Graph map = Graph.getGraph(XMLDOM.recupererNodes(carte),XMLDOM.recupererEdge(carte));
-                        map.displayGraph();
+                        //Graph map = Graph.getGraph(XMLDOM.recupererNodes(carte),XMLDOM.recupererEdge(carte));
+                        //map.displayGraph();
 		}
                 catch(ParserConfigurationException e) {
 			System.err.println("Impossible de créer un DocumentBuilder.");
@@ -49,7 +49,7 @@ public class test {
                     System.out.println(e.getMessage());
                 }
                 
-		
+	*/	
     }
 }
 

@@ -37,11 +37,13 @@ public class ServerController {
 		//auth1.setNext(ItineraryComputingService.class);
 		server.getDefaultHost().attach("/itinerary",ItineraryComputingService.class);
 		
-		//ChallengeAuthenticator auth2 = createHTTPBasic();
-		//auth2.setNext(EventRetrievingService.class);
-		server.getDefaultHost().attach("/event",EventRetrievingService.class);
-		//server.getDefaultHost().attach("/event",auth2);
+		ChallengeAuthenticator auth2 = createHTTPBasic();
+		auth2.setNext(EventRetrievingService.class);
+		//server.getDefaultHost().attach("/event",EventRetrievingService.class);
+		server.getDefaultHost().attach("/event",auth2);
 		
+		ChallengeAuthenticator auth1 = createHTTPBasic();
+		auth1.setNext(AuthentificationService.class);
 		server.getDefaultHost().attach("/login",AuthentificationService.class);
 		
 		
@@ -83,13 +85,13 @@ public class ServerController {
 	public static ChallengeAuthenticator createHTTPBasic(){		
 		
 		//A verifier that looks for the correct password in the database.
-		//AccessVerifier verifier = new AccessVerifier();
-		MapVerifier mapVerifier = new MapVerifier();
-		mapVerifier.getLocalSecrets().put("loginB", "secret".toCharArray());
+		AccessVerifier verifier = new AccessVerifier();
+		//MapVerifier mapVerifier = new MapVerifier();
+		//mapVerifier.getLocalSecrets().put("loginB", "secret".toCharArray());
 		
 		//Create an authenticator for HTTP BASIC auth
 		ChallengeAuthenticator guard = new ChallengeAuthenticator(null, ChallengeScheme.HTTP_BASIC, "testRealm");
-		guard.setVerifier(mapVerifier);
+		guard.setVerifier(verifier);
 		
 		return guard;
 	}

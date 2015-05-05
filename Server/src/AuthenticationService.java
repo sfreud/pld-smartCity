@@ -1,24 +1,8 @@
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
-
-import org.restlet.data.Header;
-import org.restlet.engine.adapter.HttpRequest;
-import org.restlet.resource.Get;
 import org.restlet.resource.Post;
-import org.restlet.util.Series;
 
-import com.sun.xml.internal.messaging.saaj.util.Base64;
-
-public class AuthentificationService extends org.restlet.resource.ServerResource{
+public class AuthenticationService extends org.restlet.resource.ServerResource{
 	//Classe gerant l'authentification des utilisateurs. Mappee sur l'uri /authentification (cf main).
-	
-	@Get
-	public String represent(){
-		return "bouh";
-	}
+
 	@Post
 	public String accept() {
 		/*

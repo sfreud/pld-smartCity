@@ -5,17 +5,23 @@
 package dijkstra;
 
 import dijkstra.main.java.osm.o5mreader.*;
+
 import java.io.File;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
+
 import org.xml.sax.*;
 import org.w3c.dom.*;
+
 import java.io.*;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
 import javax.xml.parsers.ParserConfigurationException;
 /**
  *
@@ -35,10 +41,48 @@ public class test {
 		try {
 			docBuilder = DocumentBuilderFactory.newInstance().newDocumentBuilder();
                         System.out.println("Lecture...");
-                        Document carte=XMLDOM.lireDocument(docBuilder, "Villeurbanne.osm");
+                        Document carte=XMLDOM.lireDocument(docBuilder, "map.osm");
                         System.out.println("Doc lu");
+<<<<<<< HEAD
                         //Graph map = Graph.getGraph(XMLDOM.recupererNodes(carte),XMLDOM.recupererEdge(carte));
                         //map.displayGraph();
+=======
+                        List<Pair<Long,Long>> edgesToDelete = new ArrayList<>();
+                        List<Long> nodesToDelete = new ArrayList<>();
+                        for(Pair<Long,Long> p : edges)
+                        {
+                            if(!nodes.containsKey(p.getKey())||!nodes.containsKey(p.getValue()))
+                            {
+                                edgesToDelete.add(p);
+                            }
+                        }
+                        for(Pair<Long,Long> p : edgesToDelete)
+                        {
+                            edges.remove(p);
+                        }
+                        for(Long n : nodes.keySet())
+                        {
+                            boolean toDelete = true;
+                            for(Pair<Long,Long> p : edges)
+                            {
+                                if(p.getKey().equals(n)||p.getValue().equals(n))
+                                {
+                                    toDelete = false;
+                                }
+                            }
+                            if(toDelete)
+                            {
+                                nodesToDelete.add(n);
+                            }
+                        }
+                        for(Long n : nodesToDelete)
+                        {
+                            nodes.remove(n);
+                        }
+                        Graph map = Graph.getGraph(nodes,edges);
+
+                        map.displayGraph();
+>>>>>>> 3bc800c6d3380c7dc80018bbf39425036075cd77
 		}
                 catch(ParserConfigurationException e) {
 			System.err.println("Impossible de créer un DocumentBuilder.");

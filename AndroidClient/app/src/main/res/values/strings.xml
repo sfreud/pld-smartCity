@@ -34,4 +34,5 @@
     <string name="wrongCredentials">Mauvais identifiants</string>
     <string name="disconnect">Déconnexion</string>
     <string name="title_activity_transport_request_list">TransportRequestListActivity</string>
+    <string name="transportRequestListIntroduction">Voici vos différentes demandes de transports</string>
 </resources>

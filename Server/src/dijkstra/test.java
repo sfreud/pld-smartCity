@@ -5,17 +5,22 @@
 package dijkstra;
 
 import dijkstra.main.java.osm.o5mreader.*;
+
 import java.io.File;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
+
 import org.xml.sax.*;
 import org.w3c.dom.*;
+
 import java.io.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
 import javax.xml.parsers.ParserConfigurationException;
 /**
  *
@@ -37,7 +42,8 @@ public class test {
                         System.out.println("Lecture...");
                         Document carte=XMLDOM.lireDocument(docBuilder, "Villeurbanne.osm");
                         System.out.println("Doc lu");
-                        Graph map = Graph.getGraph(XMLDOM.recupererNodes(carte),XMLDOM.recupererEdge(carte));
+                        Map<Long, Pair<Float, Float>> noeuds = XMLDOM.recupererNodes(carte);
+                        Graph map = Graph.getGraph(noeuds,XMLDOM.recupererEdge(carte, noeuds));
                         map.displayGraph();
 		}
                 catch(ParserConfigurationException e) {

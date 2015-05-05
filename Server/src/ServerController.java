@@ -1,9 +1,23 @@
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
+
 import org.restlet.Component;
 import org.restlet.data.ChallengeScheme;
 import org.restlet.data.Protocol;
 import org.restlet.ext.crypto.DigestAuthenticator;
 import org.restlet.security.ChallengeAuthenticator;
 import org.restlet.security.MapVerifier;
+import org.w3c.dom.Document;
+
+import dijkstra.Graph;
+import dijkstra.GraphException;
+import dijkstra.XMLDOM;
+import dijkstra.main.java.osm.o5mreader.Pair;
 
 
 /* Main class.
@@ -14,8 +28,15 @@ import org.restlet.security.MapVerifier;
 
 
 public class ServerController {
+	
+	private Graph map;
+	public ServerController(String inputFile){
+		map = prepareGraph(inputFile);
+	}
+
+	
 	public static void main(String[] args){
-		
+				
 		//set the logging config file
 		System.setProperty("java.util.logging.config.file",
 		        "./libs/logging.properties");
@@ -23,6 +44,8 @@ public class ServerController {
 		//Note : it requires to import java.io.File
 		//System.out.println(new File("./libs/logging.properties").getAbsolutePath());
 		
+		ItineraryComputingService itineraryService = new ItineraryComputingService("essai.osm");
+		//ServerController sc = new ServerController("essai.osm");
 		
 		Component server = new Component();
 		//the port on which we will deploy the services
@@ -33,9 +56,9 @@ public class ServerController {
 		server.getDefaultHost().attach("/register", RegisterService.class);
 		
 		//add http basic auth to a particular URI
-		//ChallengeAuthenticator auth1 = createHTTPBasic();
-		//auth1.setNext(ItineraryComputingService.class);
-		server.getDefaultHost().attach("/itinerary",ItineraryComputingService.class);
+		ChallengeAuthenticator auth3 = createHTTPBasic();
+		auth3.setNext(itineraryService);
+		server.getDefaultHost().attach("/itinerary",auth3);
 		
 		ChallengeAuthenticator auth2 = createHTTPBasic();
 		auth2.setNext(EventRetrievingService.class);
@@ -66,7 +89,7 @@ public class ServerController {
 			e.printStackTrace();
 		}
 		try {
-			Thread.sleep(30000);
+			Thread.sleep(20000);
 		} catch (InterruptedException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
@@ -77,9 +100,63 @@ public class ServerController {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
-		
 	}
+	
+	public Graph prepareGraph(String inputFile){
+		DocumentBuilder docBuilder = null;
+		
+		System.out.println("Building graph.");
+		try {
+			docBuilder = DocumentBuilderFactory.newInstance().newDocumentBuilder();
+        	Document carte=XMLDOM.lireDocument(docBuilder, inputFile);
+
+            Map<Long, Pair<Float, Float>> nodes = XMLDOM.recupererNodes(carte);
+            List<Pair<Long,Long>> edges = XMLDOM.recupererEdge(carte,nodes);
+
+            //Checks for ways with one end outside of the map and for unreachable nodes, and delete them to preserve graph coherence.            
+            List<Pair<Long,Long>> edgesToDelete = new ArrayList<>();
+            List<Long> nodesToDelete = new ArrayList<>();
+            for(Pair<Long,Long> p : edges)
+            {
+                if(!nodes.containsKey(p.getKey())||!nodes.containsKey(p.getValue()))
+                {
+                    edgesToDelete.add(p);
+                }
+            }
+            for(Pair<Long,Long> p : edgesToDelete)
+            {
+                edges.remove(p);
+            }
+            for(Long n : nodes.keySet())
+            {
+                boolean toDelete = true;
+                for(Pair<Long,Long> p : edges)
+                {
+                    if(p.getKey().equals(n)||p.getValue().equals(n))
+                    {
+                        toDelete = false;
+                    }
+                }
+                if(toDelete)
+                {
+                    nodesToDelete.add(n);
+                }
+            }
+            for(Long n : nodesToDelete)
+            {
+                nodes.remove(n);
+            }
+            
+            
+            return Graph.getGraph(nodes,edges);
+		}
+            catch(ParserConfigurationException e) {
+			System.out.println("Impossible de créer un DocumentBuilder.");
+		} catch (GraphException e) {
+            System.out.println(e.getMessage());
+        }
+        return null;  
+    }
 	
 	
 	public static ChallengeAuthenticator createHTTPBasic(){		

@@ -99,9 +99,11 @@ public class EventRetrievingService extends ServerResource {
 				return "2";
 			else if(e.toString().contains("Field 'eventdate' doesn't have a default value"))
 				return "3";
+			else if(e.toString().contains("Duplicate entry"))
+				return "4";
 			
 			
-			return "unknown error";
+			return e.toString();
 		}
 	}
 	

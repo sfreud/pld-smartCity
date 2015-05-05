@@ -216,7 +216,7 @@ public class XMLDOM {
 				Long idDep = Long.parseLong(e2.getAttribute("ref"));
 				Element e3 = (Element) listeNoeud.item(j+1);
 				Long idArr = Long.parseLong(e3.getAttribute("ref"));
-				// Vérification si les id des deux noeuds font partie de la carte
+				// Verification si les id des deux noeuds font partie de la carte
 				if(noeuds.containsKey(idDep) && noeuds.containsKey(idArr)) {
 					Pair<Long,Long> next = new Pair<>(idDep,idArr);
 					Pair<Long,Long> reverse = new Pair<>(idArr,idDep);

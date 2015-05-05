@@ -29,7 +29,7 @@ public class ServerController {
 		server.getServers().add(Protocol.HTTP, 8182);
 		
 		//map services to URI
-		server.getDefaultHost().attach("/trace", TraceServer.class);
+		//server.getDefaultHost().attach("/trace", TraceServer.class);
 		server.getDefaultHost().attach("/register", RegisterService.class);
 		
 		//add http basic auth to a particular URI

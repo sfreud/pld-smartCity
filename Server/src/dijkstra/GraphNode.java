@@ -21,7 +21,7 @@ public class GraphNode {
         return latitude;
     }
     
-    public GraphNode(long i, double longi, double lat){
+    public GraphNode(long i, double lat,double longi){
         ID=i;
         longitude = longi;
         latitude= lat;

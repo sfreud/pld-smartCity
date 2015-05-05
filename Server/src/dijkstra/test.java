@@ -30,7 +30,7 @@ public class test {
 		try {
 			docBuilder = DocumentBuilderFactory.newInstance().newDocumentBuilder();
                         System.out.println("Lecture...");
-                        Document carte=XMLDOM.lireDocument(docBuilder, "map.osm");
+                        Document carte=XMLDOM.lireDocument(docBuilder, "essai.osm");
                         System.out.println("Doc lu");
 
 
@@ -73,7 +73,9 @@ public class test {
                         Graph map = Graph.getGraph(nodes,edges);
  
                         map.displayGraph();
-                        System.out.println(map.getShorterWay(map.getNode(206997177), map.getNode(207724089)).getKey().size());
+                        GraphNode n1 = map.getNode(1);
+                        GraphNode n2 = map.getNode(10);
+                        System.out.println(map.getShorterWay(n1, n2).getKey().size());
 		}
                 catch(ParserConfigurationException e) {
 			System.err.println("Impossible de créer un DocumentBuilder.");

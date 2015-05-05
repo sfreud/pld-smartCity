@@ -42,7 +42,7 @@ public class ItineraryComputingService extends Restlet {
 		try {
 			docBuilder = DocumentBuilderFactory.newInstance().newDocumentBuilder();
                         System.out.println("Lecture...");
-                        Document carte=XMLDOM.lireDocument(docBuilder, "essai.osm");
+                        Document carte=XMLDOM.lireDocument(docBuilder, inputFile);
                         System.out.println("Doc lu");
 
 

@@ -199,13 +199,21 @@ public class XMLDOM {
 		return ret;
 	}
 	
-	public static List<Pair<Long,Long>> recupererEdge(Document doc, Map<Long, Pair<Float, Float>> noeuds) {
+	public static List<Pair<Pair<Long,Long>,String>> recupererEdge(Document doc, Map<Long, Pair<Float, Float>> noeuds) {
             //System.out.println("récup edges");
-		List<Pair<Long,Long>> ret = new ArrayList<>();
+		List<Pair<Pair<Long,Long>,String>> ret = new ArrayList<>();
 		NodeList listeWay = doc.getElementsByTagName("way");
 		for(int i=0; i<listeWay.getLength(); i++){
                         //System.out.println("récup edge " + i);
+                        String name = "";
 			Element e = (Element) listeWay.item(i);
+                        NodeList toFindName = e.getElementsByTagName("tag");
+                        for(int j=0; j<toFindName.getLength(); j++){
+                            if(((Element)toFindName.item(j)).getAttribute("k").equals("name"))
+                            {
+                                name = ((Element)toFindName.item(j)).getAttribute("v");
+                            }
+                        }
 			NodeList listeNoeud = e.getElementsByTagName("nd");
 			for(int j=0; j<listeNoeud.getLength()-1; j++){
 				Element e2 = (Element) listeNoeud.item(j);
@@ -216,8 +224,8 @@ public class XMLDOM {
 				if(noeuds.containsKey(idDep) && noeuds.containsKey(idArr)) {
 					Pair<Long,Long> next = new Pair<>(idDep,idArr);
 					Pair<Long,Long> reverse = new Pair<>(idArr,idDep);
-					ret.add(next);
-					ret.add(reverse);
+					ret.add(new Pair<>(next,name));
+					ret.add(new Pair<>(reverse,name));
 				}
 				
 			}

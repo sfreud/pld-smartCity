@@ -11,45 +11,46 @@ public class Graph {
     private static final float rayon = 6371000;
     private GraphNode begin;
     //Map<IdNoeud,Pair<Lat,Long>>
-    public static Graph getGraph(Map<Long, Pair<Float,Float>> coor, List<Pair<Long,Long>> e) throws GraphException, IndexOutOfBoundsException{
+    public static Graph getGraph(Map<Long, Pair<Float,Float>> coor, List<Pair<Pair<Long,Long>,String>> e) throws GraphException, IndexOutOfBoundsException{
         if(coor.isEmpty()||e.isEmpty())
         {
             throw new GraphException();
         }
-        for(Pair<Long,Long> w : e)
+        for(Pair<Pair<Long,Long>,String> w : e)
         {
             System.out.println("Chargement coordonnées...");
-            if(!coor.containsKey(w.getKey())||!coor.containsKey(w.getValue()))
+            if(!coor.containsKey(w.getKey().getKey())||!coor.containsKey(w.getKey().getValue()))
             {
                 throw new GraphException();
             }
         }
-        Map<Long, Map<Long,Float>> edges = new HashMap<>();
+        Map<Long, Map<Long,Pair<Float,String>>> edges = new HashMap<>();
         for(Long nodeDep : coor.keySet())
         {
             System.out.println("Chargement chemins...");
-            edges.put(nodeDep, new HashMap<Long,Float>());
-            for(Pair<Long,Long> w : e)
+            edges.put(nodeDep, new HashMap<Long,Pair<Float,String>>());
+            for(Pair<Pair<Long,Long>,String> w : e)
             {
-                if(w.getKey().equals(nodeDep))
+                if(w.getKey().getKey().equals(nodeDep))
                 {
-                    double latA = coor.get(w.getKey()).getKey()*Math.PI/360;
-                    double latB = coor.get(w.getValue()).getKey()*Math.PI/360;
-                    double longA = coor.get(w.getKey()).getValue()*Math.PI/360;
-                    double longB = coor.get(w.getValue()).getValue()*Math.PI/360;
+                    double latA = coor.get(w.getKey().getKey()).getKey()*Math.PI/360;
+                    double latB = coor.get(w.getKey().getValue()).getKey()*Math.PI/360;
+                    double longA = coor.get(w.getKey().getKey()).getValue()*Math.PI/360;
+                    double longB = coor.get(w.getKey().getValue()).getValue()*Math.PI/360;
                     double dlat = Math.abs(latA-latB);
                     double dlong = Math.abs(longA-longB);
                     double dy = rayon*dlat;
                     double dx = rayon*Math.cos(latA)*dlong;
                     int dist = (int) Math.sqrt(dx*dx+dy*dy);
                     System.out.println("dist:"+dist);
-                    edges.get(w.getKey()).put(w.getValue(),(float)dist);
+                    Pair<Float,String> carac = new Pair<>(new Float(dist),w.getValue());
+                    edges.get(w.getKey().getKey()).put(w.getKey().getValue(),carac);
                 }
             }
         }
         return new Graph(edges, coor);
     }
-    private Graph(Map<Long, Map<Long,Float>> edges, Map<Long, Pair<Float,Float>> coor) throws GraphException {
+    private Graph(Map<Long, Map<Long,Pair<Float,String>>> edges, Map<Long, Pair<Float,Float>> coor) throws GraphException {
         if(edges.isEmpty())
         {
             throw new GraphException();
@@ -97,7 +98,7 @@ public class Graph {
            System.out.println("Chargement...");
            Long cur = nodesGrey.get(0);
            System.out.println("On ajoute le noeud " + cur);
-           Map<Long,Float> edgesLeaving = edges.get(cur);
+           Map<Long,Pair<Float,String>> edgesLeaving = edges.get(cur);
            if(edgesLeaving == null)
            {
                System.out.println("Noeud " + cur + " sans chemins partants");
@@ -106,7 +107,7 @@ public class Graph {
            for(Long arr : edgesLeaving.keySet())
            {
                System.out.println("Chargement...");
-               if(!this.addEdge(cur, arr, edgesLeaving.get(arr), coor))
+               if(!this.addEdge(cur, arr, edgesLeaving.get(arr).getKey(),edgesLeaving.get(arr).getValue(), coor))
                {
                    System.out.println("Impossible d'ajouter un chemin de "+cur+" à "+arr);
                    throw new GraphException();
@@ -170,7 +171,7 @@ public class Graph {
         return max;
     }
     
-    public final boolean addEdge(long nbBegin, long nbEnd, float length, Map<Long, Pair<Float,Float>> coor)
+    public final boolean addEdge(long nbBegin, long nbEnd, float length, String name, Map<Long, Pair<Float,Float>> coor)
     {
         GraphNode nodeBegin = null;
         GraphNode nodeEnd = null;
@@ -219,7 +220,7 @@ public class Graph {
             }
             nodeEnd = new GraphNode(nbEnd, coor.get(nbEnd).getKey(), coor.get(nbEnd).getValue());
         }
-        new GraphEdge(nodeBegin,nodeEnd,length);
+        new GraphEdge(nodeBegin,nodeEnd,length, name);
         return true;
         
         
@@ -234,7 +235,7 @@ public class Graph {
             List<GraphEdge> listEdge = dep.getEdgeLeaving();
             for(GraphEdge leav : listEdge)
             {
-                System.out.println(dep.getID().toString()+" ->("+leav.getWeight().toString()+") "+leav.getEnd().getID().toString());
+                System.out.println(dep.getID().toString()+" ->("+leav.getWeight().toString()+","+leav.getName()+") "+leav.getEnd().getID().toString());
 
             }
         }

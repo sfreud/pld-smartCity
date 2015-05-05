@@ -35,28 +35,28 @@ public class test {
 
 
                         Map<Long, Pair<Float, Float>> nodes = XMLDOM.recupererNodes(carte);
-                        List<Pair<Long,Long>> edges = XMLDOM.recupererEdge(carte,nodes);
+                        List<Pair<Pair<Long,Long>,String>> edges = XMLDOM.recupererEdge(carte,nodes);
 
                         
-                        List<Pair<Long,Long>> edgesToDelete = new ArrayList<>();
+                        List<Pair<Pair<Long,Long>,String>> edgesToDelete = new ArrayList<>();
                         List<Long> nodesToDelete = new ArrayList<>();
-                        for(Pair<Long,Long> p : edges)
+                        for(Pair<Pair<Long,Long>,String> p : edges)
                         {
-                            if(!nodes.containsKey(p.getKey())||!nodes.containsKey(p.getValue()))
+                            if(!nodes.containsKey(p.getKey().getKey())||!nodes.containsKey(p.getKey().getValue()))
                             {
                                 edgesToDelete.add(p);
                             }
                         }
-                        for(Pair<Long,Long> p : edgesToDelete)
+                        for(Pair<Pair<Long,Long>,String> p : edgesToDelete)
                         {
                             edges.remove(p);
                         }
                         for(Long n : nodes.keySet())
                         {
                             boolean toDelete = true;
-                            for(Pair<Long,Long> p : edges)
+                            for(Pair<Pair<Long,Long>,String> p : edges)
                             {
-                                if(p.getKey().equals(n)||p.getValue().equals(n))
+                                if(p.getKey().getKey().equals(n)||p.getKey().getValue().equals(n))
                                 {
                                     toDelete = false;
                                 }

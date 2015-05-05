@@ -8,7 +8,7 @@ import java.util.Map;
 public class DijkstraUnit {
 
 	public static Pair<List<GraphNode>,Float> dijkstraAlgorithm(GraphNode start, GraphNode end, Graph graph) {
-        List<GraphNode> nodes = graph.getGraphNodes();
+            List<GraphNode> nodes = graph.getGraphNodes();
 		Map<GraphNode, Float> seen = new HashMap<GraphNode, Float>();
 		Map<GraphNode, GraphNode> previous = new HashMap<GraphNode, GraphNode>();
 
@@ -45,7 +45,6 @@ public class DijkstraUnit {
 			n = previous.get(n);
 		}
 		path.add(0, start);
-
 		return new Pair<>(path,seen.get(end));
 	}
 

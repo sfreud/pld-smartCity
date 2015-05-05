@@ -22,7 +22,7 @@ public class AccessVerifier extends LocalVerifier {
 			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/testpld", "root", "password");
 			Statement stmt = conn.createStatement() ;
 			String query = "select password from users where name=\""+username+"\"";
-			System.out.println(query);
+			//System.out.println(query);
 			ResultSet rs = stmt.executeQuery(query);
 			if(rs.next()){
 				String password = rs.getString(1);

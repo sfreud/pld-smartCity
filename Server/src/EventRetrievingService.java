@@ -30,14 +30,13 @@ public class EventRetrievingService extends ServerResource {
 		
 		Series<Header> headers = ((HttpRequest) getRequest()).getHeaders();
 		//display headers (debugging purpose)
-		for(int i = 0;i<headers.size();i++){
+		/*for(int i = 0;i<headers.size();i++){
 			System.out.println(headers.get(i).toString());
-		}
+		}*/
 		
 		String h = headers.getFirstValue("Authorization");
 		String dh = Base64.base64Decode(h.substring("Basic ".length(), h.length()));
 		String username = dh.substring(0, dh.indexOf(':'));
-		//String password = dh.substring(dh.indexOf(':')+1, dh.length());
 
 		//write directly the results in the database
 		try {
@@ -47,6 +46,7 @@ public class EventRetrievingService extends ServerResource {
 
 		Connection conn;
 		try {
+			//Looks for the user id in the DB, given its username (see auth headers).
 			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/testpld", "root", "password");
 			Statement stmt = conn.createStatement() ;
 			String query = "select " + DBPLD.users.COLUMN_NAME_ID +
@@ -86,7 +86,13 @@ public class EventRetrievingService extends ServerResource {
 			s = sb.toString();*/
 			
 			
-			//codes de retour. Prévoir un code de retour sur un http unauthorized.
+			//Return codes.
+			//0 : operation terminated correctly.
+			//1 : no title sent
+			//2 : no location sent
+			//3 : no date sent
+			//4 : an event with the same (userid, title) key already exists in the DB
+			//other : unknown error
 			if(r==1)
 				return "0";
 			else

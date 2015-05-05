@@ -12,16 +12,14 @@ import org.json.JSONObject;
 import org.restlet.Request;
 import org.restlet.Response;
 import org.restlet.Restlet;
-import org.restlet.data.MediaType;
 import org.restlet.representation.StringRepresentation;
-import org.restlet.resource.Get;
 import org.w3c.dom.Document;
 
 import dijkstra.Graph;
 import dijkstra.GraphException;
 import dijkstra.GraphNode;
+import dijkstra.Pair;
 import dijkstra.XMLDOM;
-import dijkstra.main.java.osm.o5mreader.Pair;
 
 
 public class ItineraryComputingService extends Restlet {
@@ -29,10 +27,8 @@ public class ItineraryComputingService extends Restlet {
 	/*This class will be dedicated to shortest path computing.
 	 * The implementation uses Dijkstra algorithm.
 	 * 
-	 * The exposed interface will be mapped to /itinerary, will take two parameters (departure point, arrival point)
+	 * The exposed interface will be mapped to /itinerary, will take four parameters (departure and arrival points coordinates)
 	 * and will return a complete itinerary composed of an array of points and a duration.
-	 * 
-	 * 
 	 */
 	private Graph map;
 	
@@ -43,7 +39,7 @@ public class ItineraryComputingService extends Restlet {
 	public Graph prepareGraph(String inputFile){
 		DocumentBuilder docBuilder = null;
 		
-		System.out.println("Building graph.");
+		//System.out.println("Building graph.");
 		try {
 			docBuilder = DocumentBuilderFactory.newInstance().newDocumentBuilder();
         	Document carte=XMLDOM.lireDocument(docBuilder, inputFile);
@@ -98,28 +94,26 @@ public class ItineraryComputingService extends Restlet {
 	
 	public void handle(Request request, Response response){
 		
-		
+		//get parameters from the request
 		String departureLatitude = getParamValue("dlat",request);
 		String departureLongitude = getParamValue("dlong",request);
 		String arrivalLatitude = getParamValue("alat",request);
 		String arrivalLongitude = getParamValue("along",request);
 		
-		//convert the given String parameters to ...? (object representating gps coordinates)
+		//convert the given String parameters
 		double dlatitude = Double.valueOf(departureLatitude);
 		double dlongitude = Double.valueOf(departureLongitude);
 		double alatitude = Double.valueOf(arrivalLatitude);
 		double alongitude = Double.valueOf(arrivalLongitude);
 		
+		//retrieve the nodes in the graph associated with the given coordinates
 		GraphNode departureNode = map.getNode(dlongitude, dlatitude);
 		GraphNode arrivalNode = map.getNode(alongitude,alatitude);
 		
+		//do the actual path computing
 		Pair<List<GraphNode>,Float> m = map.getShorterWay(departureNode, arrivalNode);
-		StringBuilder sb = new StringBuilder();
-        for(GraphNode g : m.getKey()){
-        	sb.append(g.getID());
-        	sb.append("->");
-        }
-        
+		
+		//map the result to a JSON object
         JSONObject obj=new JSONObject();
         JSONArray points = new JSONArray();
         try {
@@ -134,7 +128,7 @@ public class ItineraryComputingService extends Restlet {
 
 		} catch (JSONException e) {
 		}
-	
+        //return the JSON object
 		response.setEntity(new StringRepresentation(obj.toString()));;
 	}
 	
@@ -145,13 +139,11 @@ public class ItineraryComputingService extends Restlet {
 		int j = tmp.indexOf("&");
 		int k = i+param.length()+1;
 		if(j==-1){
-			//Dernier paramètre
+			//last parameter (no & after)
 			j = rs.substring(k,rs.length()).indexOf(" ");
-			//System.out.println(rs.substring(k, k+j));
 			return rs.substring(k, k+j);
 		}
 		else
-			//System.out.println(rs.substring(k, k+j));
 			return rs.substring(k, k+j);
 	}
 

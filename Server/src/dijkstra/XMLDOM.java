@@ -21,8 +21,6 @@ import java.util.List;
 import java.util.Map;
 
 import javax.xml.parsers.DocumentBuilder;
-import javax.xml.parsers.DocumentBuilderFactory;
-import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.transform.OutputKeys;
 import javax.xml.transform.Result;
 import javax.xml.transform.Source;
@@ -41,8 +39,6 @@ import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.w3c.dom.Text;
 import org.xml.sax.SAXException;
-
-import dijkstra.main.java.osm.o5mreader.Pair;
 //Attention : certains noeuds d'arrivée ne sont pas dans les noeuds de départ
 public class XMLDOM {
 	/**
@@ -188,13 +184,13 @@ public class XMLDOM {
 	
 	public static Map<Long, Pair<Float, Float>> recupererNodes(Document doc)
 	{
-            System.out.println("récup nodes");
+            //System.out.println("récup nodes");
 		Map<Long, Pair<Float, Float>> ret = new HashMap<>();
 		NodeList listeNoeud = doc.getElementsByTagName("node");
 		for(int i=0; i<listeNoeud.getLength(); i++){
 			Element e = (Element) listeNoeud.item(i);
 			Long id = Long.parseLong(e.getAttribute("id"));
-                        System.out.println("récup node" + id);
+                        //System.out.println("récup node" + id);
 			Float lat = Float.parseFloat(e.getAttribute("lat"));
 			Float lon = Float.parseFloat(e.getAttribute("lon"));
 			Pair<Float,Float> next = new Pair<>(lat,lon);
@@ -204,11 +200,11 @@ public class XMLDOM {
 	}
 	
 	public static List<Pair<Long,Long>> recupererEdge(Document doc, Map<Long, Pair<Float, Float>> noeuds) {
-            System.out.println("récup edges");
+            //System.out.println("récup edges");
 		List<Pair<Long,Long>> ret = new ArrayList<>();
 		NodeList listeWay = doc.getElementsByTagName("way");
 		for(int i=0; i<listeWay.getLength(); i++){
-                        System.out.println("récup edge " + i);
+                        //System.out.println("récup edge " + i);
 			Element e = (Element) listeWay.item(i);
 			NodeList listeNoeud = e.getElementsByTagName("nd");
 			for(int j=0; j<listeNoeud.getLength()-1; j++){

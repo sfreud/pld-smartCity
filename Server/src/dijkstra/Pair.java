@@ -1,4 +1,4 @@
-package dijkstra.main.java.osm.o5mreader;
+package dijkstra;
 
 public class Pair<K, V> {
     

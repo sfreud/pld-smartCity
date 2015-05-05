@@ -12,9 +12,7 @@ import com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationExceptio
 import com.sun.xml.internal.messaging.saaj.util.Base64;
 
 public class RegisterService extends org.restlet.resource.ServerResource{
-	//Classe gérant l'enregistrement des utilisateurs. Mappée sur l'uri /register (cf main).
-	
-	
+	//Class dedicated for users registration. Mapped on /register URI.
 	
 	@Post
 	public String accept() {
@@ -22,10 +20,9 @@ public class RegisterService extends org.restlet.resource.ServerResource{
 
 		Series<Header> headers = ((HttpRequest) getRequest()).getHeaders();
 		//display headers (debugging purpose)
-		 //headers.add("Access-Control-Allow-Methods", "GET, POST, PUT, OPTIONS");
-		for(int i = 0;i<headers.size();i++){
+		/*for(int i = 0;i<headers.size();i++){
 			System.out.println(headers.get(i).toString());
-		}
+		}*/
 		String h = headers.getFirstValue("Authorization");
 		String dh = Base64.base64Decode(h.substring("Basic ".length(), h.length()));
 		String username = dh.substring(0, dh.indexOf(':'));
@@ -37,8 +34,6 @@ public class RegisterService extends org.restlet.resource.ServerResource{
 		//the http auth sends the user ids in the format :
 		// username:password encoded in base64
 		//preventing the use of ':' allows for easier demarshalling
-
-		String s = null;
 		
 		try {
 			Class.forName("com.mysql.jdbc.Driver") ;
@@ -53,23 +48,13 @@ public class RegisterService extends org.restlet.resource.ServerResource{
 			//et �a c'est le bon vieux localhost bien fiable pour les tests
 			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/testpld", "root", "password");
 			Statement stmt = conn.createStatement() ;
-			//faudra une connexion ssl que les utilisateurs puissent s'inscrire sans risque que le hash du mdp soit intercepté
 			String query = "insert into "
 					+ DBPLD.users.TABLE_NAME+"("+DBPLD.users.COLUMN_NAME_TITLE+","
 					+DBPLD.users.COLUMN_NAME_PASSWORD+") values(\""+username+"\",\""+password+"\");" ;
-			System.out.println(query);
+			//System.out.println(query);
 			//result code : number of rows modified by the query.
 			int r = stmt.executeUpdate(query) ;
-			
-			/*
-			ResultSetMetaData rsmd = rs.getMetaData();
-			int columnsNumber = rsmd.getColumnCount();
-			
-			while(rs.next()){//numÃ©ros de colonnes sont 1-based
-				for(int i = 1; i<columnsNumber+1; i++)
-					sb.append(rs.getString(i));
-			}
-			s = sb.toString();*/
+
 			if(r==1)
 				return "0";//success : code 0
 		} catch (MySQLIntegrityConstraintViolationException e) {

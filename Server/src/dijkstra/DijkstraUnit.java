@@ -1,6 +1,5 @@
 package dijkstra;
 
-import dijkstra.main.java.osm.o5mreader.Pair;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;

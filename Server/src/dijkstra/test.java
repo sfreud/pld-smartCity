@@ -3,26 +3,15 @@
  * and open the template in the editor.
  */
 package dijkstra;
-
-import dijkstra.main.java.osm.o5mreader.*;
-
-import java.io.File;
-import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
-
-import org.xml.sax.*;
-import org.w3c.dom.*;
-
-import java.io.*;
-import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
 import javax.xml.parsers.ParserConfigurationException;
+
+import org.w3c.dom.Document;
 /**
  *
  * @author Stéphane ROUX

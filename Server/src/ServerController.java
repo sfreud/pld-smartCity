@@ -1,23 +1,9 @@
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-
-import javax.xml.parsers.DocumentBuilder;
-import javax.xml.parsers.DocumentBuilderFactory;
-import javax.xml.parsers.ParserConfigurationException;
-
 import org.restlet.Component;
 import org.restlet.data.ChallengeScheme;
 import org.restlet.data.Protocol;
 import org.restlet.ext.crypto.DigestAuthenticator;
 import org.restlet.security.ChallengeAuthenticator;
 import org.restlet.security.MapVerifier;
-import org.w3c.dom.Document;
-
-import dijkstra.Graph;
-import dijkstra.GraphException;
-import dijkstra.XMLDOM;
-import dijkstra.main.java.osm.o5mreader.Pair;
 
 
 /* Main class.
@@ -28,12 +14,6 @@ import dijkstra.main.java.osm.o5mreader.Pair;
 
 
 public class ServerController {
-	
-	private Graph map;
-	public ServerController(String inputFile){
-		map = prepareGraph(inputFile);
-	}
-
 	
 	public static void main(String[] args){
 				
@@ -52,7 +32,6 @@ public class ServerController {
 		server.getServers().add(Protocol.HTTP, 8182);
 		
 		//map services to URI
-		//server.getDefaultHost().attach("/trace", TraceServer.class);
 		server.getDefaultHost().attach("/register", RegisterService.class);
 		
 		//add http basic auth to a particular URI
@@ -69,14 +48,6 @@ public class ServerController {
 		auth1.setNext(AuthenticationService.class);
 		server.getDefaultHost().attach("/login",auth1);
 		
-		
-		/* Build the graph for Dijkstra calculation from xml map. This will be done only once
-		 * at server startup.
-		 * 
-		 * 
-		 * 
-		 */
-
 
 		//We make the server run for only 20s for testing purposes. 
 		//It is enough to test a few requests, and the server will be auto shut down before you try to rebuild
@@ -101,68 +72,15 @@ public class ServerController {
 			e.printStackTrace();
 		}
 	}
-	
-	public Graph prepareGraph(String inputFile){
-		DocumentBuilder docBuilder = null;
-		
-		System.out.println("Building graph.");
-		try {
-			docBuilder = DocumentBuilderFactory.newInstance().newDocumentBuilder();
-        	Document carte=XMLDOM.lireDocument(docBuilder, inputFile);
 
-            Map<Long, Pair<Float, Float>> nodes = XMLDOM.recupererNodes(carte);
-            List<Pair<Long,Long>> edges = XMLDOM.recupererEdge(carte,nodes);
-
-            //Checks for ways with one end outside of the map and for unreachable nodes, and delete them to preserve graph coherence.            
-            List<Pair<Long,Long>> edgesToDelete = new ArrayList<>();
-            List<Long> nodesToDelete = new ArrayList<>();
-            for(Pair<Long,Long> p : edges)
-            {
-                if(!nodes.containsKey(p.getKey())||!nodes.containsKey(p.getValue()))
-                {
-                    edgesToDelete.add(p);
-                }
-            }
-            for(Pair<Long,Long> p : edgesToDelete)
-            {
-                edges.remove(p);
-            }
-            for(Long n : nodes.keySet())
-            {
-                boolean toDelete = true;
-                for(Pair<Long,Long> p : edges)
-                {
-                    if(p.getKey().equals(n)||p.getValue().equals(n))
-                    {
-                        toDelete = false;
-                    }
-                }
-                if(toDelete)
-                {
-                    nodesToDelete.add(n);
-                }
-            }
-            for(Long n : nodesToDelete)
-            {
-                nodes.remove(n);
-            }
-            
-            
-            return Graph.getGraph(nodes,edges);
-		}
-            catch(ParserConfigurationException e) {
-			System.out.println("Impossible de créer un DocumentBuilder.");
-		} catch (GraphException e) {
-            System.out.println(e.getMessage());
-        }
-        return null;  
-    }
 	
 	
 	public static ChallengeAuthenticator createHTTPBasic(){		
 		
 		//A verifier that looks for the correct password in the database.
 		AccessVerifier verifier = new AccessVerifier();
+		
+		//a simple verifier with fixed entries
 		//MapVerifier mapVerifier = new MapVerifier();
 		//mapVerifier.getLocalSecrets().put("loginB", "secret".toCharArray());
 		

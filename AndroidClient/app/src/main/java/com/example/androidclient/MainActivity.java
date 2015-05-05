@@ -54,6 +54,7 @@ public class MainActivity extends ActionBarActivity {
     private static final String[] SCOPES = {CalendarScopes.CALENDAR, CalendarScopes.CALENDAR_READONLY};
     private EditText uname, pass;
     private LinearLayout llog, lopt;
+    private static String urlBegin = "http://10.0.2.2:8182/";
 
 
     private static final String PREF_ACCOUNT_NAME = "accountName";
@@ -174,11 +175,6 @@ public class MainActivity extends ActionBarActivity {
             }
         });
 
-        //SendingGetRequestTask sg = new SendingGetRequestTask();
-        //sg.execute();
-
-        /*AuthenficationRequestTask art = new AuthenficationRequestTask();
-        art.execute();*/
     }
 
     @Override
@@ -196,6 +192,21 @@ public class MainActivity extends ActionBarActivity {
         // TODO
     }
 
+
+    public void connectToExistingAccount(View view)
+    {
+        if(uname.getText().toString().equals("")|| pass.getText().toString().equals("")){
+            Toast.makeText(this, getString(R.string.incoherentCredentials), Toast.LENGTH_SHORT).show();
+        }
+        else if(uname.getText().toString().contains(":")){
+            Toast.makeText(this, getString(R.string.semicolonInUname), Toast.LENGTH_SHORT).show();
+        }
+        else{
+            t2.setText(getString(R.string.connecting));
+            new RegisterTask().execute(uname.getText().toString(),pass.getText().toString(),"login");
+        }
+    }
+
     public void register(View view) {
         if(uname.getText().toString().equals("")|| pass.getText().toString().equals("")){
             Toast.makeText(this, getString(R.string.incoherentCredentials), Toast.LENGTH_SHORT).show();
@@ -205,83 +216,10 @@ public class MainActivity extends ActionBarActivity {
         }
         else{
             t2.setText(getString(R.string.connecting));
-            new RegisterTask().execute(uname.getText().toString(),pass.getText().toString());
-
-
-        }
-
-
-    }
-
-/*
-    protected class SendingGetRequestTask extends AsyncTask<Void, Void, String> {
-        String contentAsString = "";
-
-        @Override
-        protected String doInBackground(Void... params) {
-            InputStream inputStream = null;
-            String result = "";
-            try {
-
-                // create HttpClient
-                HttpClient httpclient = new DefaultHttpClient();
-                String url = "http://10.0.2.2:8182";//"http://www.android.com";
-                // make GET request to the given URL
-                HttpResponse httpResponse = httpclient.execute(new HttpGet(url));
-
-                // receive response as inputStream
-                inputStream = httpResponse.getEntity().getContent();
-
-                // convert inputstream to string
-                if (inputStream != null)
-                    result = getStringFromInputStream(inputStream);
-                else
-                    result = "Did not work!";
-
-            } catch (Exception e) {
-                Log.d("InputStream", e.getLocalizedMessage());
-            }
-            contentAsString = result;
-            Log.d("ENDING", "Requete get terminee");
-            Log.d("Page Web", contentAsString);
-
-            return contentAsString;
-        }
-
-        @Override
-        protected void onPostExecute(String result) {
-            t1.setText(contentAsString);
-        }
-
-        // convert InputStream to String
-        private String getStringFromInputStream(InputStream is) {
-
-            BufferedReader br = null;
-            StringBuilder sb = new StringBuilder();
-
-            String line;
-            try {
-
-                br = new BufferedReader(new InputStreamReader(is));
-                while ((line = br.readLine()) != null) {
-                    sb.append(line);
-                }
-
-            } catch (IOException e) {
-                e.printStackTrace();
-            } finally {
-                if (br != null) {
-                    try {
-                        br.close();
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-                }
-            }
-            return sb.toString();
+            new RegisterTask().execute(uname.getText().toString(),pass.getText().toString(),"register");
         }
     }
-*/
+
     private class RegisterTask extends AsyncTask<String, Void, String> {
         //Asynchronous call to the server. Sends events retrieved on google calendar. Should be used
         //once at app first launch, to sync' our server with gcalendar, and each time the user creates
@@ -294,7 +232,7 @@ public class MainActivity extends ActionBarActivity {
             String uname = params[0], pass = params[1];
 
             HttpClient httpclient = new DefaultHttpClient();
-            String url = "http://10.0.2.2:8182/register";
+            String url = urlBegin+params[2];
             String result = "";
 
             // make GET request to the given URL
@@ -346,6 +284,9 @@ public class MainActivity extends ActionBarActivity {
                     llog.setVisibility(View.GONE);
                     lopt.setVisibility(View.VISIBLE);
                     t2.setText(getString(R.string.connected));
+                    SharedPreferences.Editor editor = getPreferences(Context.MODE_PRIVATE).edit();
+                    editor.putString("login",uname.getText().toString());
+                    editor.commit();
                     break;
                 case "1":
                     Toast.makeText(getBaseContext(), getString(R.string.unameTooLong), Toast.LENGTH_LONG).show();
@@ -369,75 +310,4 @@ public class MainActivity extends ActionBarActivity {
 
         }
     }
-
-    protected class AuthenficationRequestTask extends AsyncTask<Void, Void, Void> {
-        protected Void doInBackground(Void... params) {
-            InputStream inputStream = null;
-            String result = "";
-            try {
-
-                String login = "loginB";
-                String pwd = "secret";
-                String url = "http://10.0.2.2:8182/event";
-                HttpPost post = new HttpPost(url);
-                HttpClient client = new DefaultHttpClient();
-
-                Log.v("AUTHENTICATION URL = ", url);
-                post.addHeader("Authorization", "Basic " + getCredentials(login, pwd));
-                HttpResponse httpResponse = client.execute(post);
-
-                inputStream = httpResponse.getEntity().getContent();
-
-                // convert inputstream to string
-                if (inputStream != null)
-                    result = getStringFromInputStream(inputStream);
-                else
-                    result = "Did not work!";
-
-                Log.v("SERVER RESPONSE DATA = ", result);
-
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            return null;
-        }
-
-        private String getCredentials(String u, String p) {
-            Log.v("USER NAME = ", u);
-            Log.v("PASSWORD = ", p);
-            return (Base64.encodeToString((u + ":" + p).getBytes(), Base64.DEFAULT));
-        }
-
-        // convert InputStream to String
-        private String getStringFromInputStream(InputStream is) {
-
-            BufferedReader br = null;
-            StringBuilder sb = new StringBuilder();
-
-            String line;
-            try {
-
-                br = new BufferedReader(new InputStreamReader(is));
-                while ((line = br.readLine()) != null) {
-                    sb.append(line);
-                }
-
-            } catch (IOException e) {
-                e.printStackTrace();
-            } finally {
-                if (br != null) {
-                    try {
-                        br.close();
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-                }
-            }
-            return sb.toString();
-        }
-    }
-
-    ;
-
-
 }

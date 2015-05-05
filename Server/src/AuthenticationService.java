@@ -14,11 +14,7 @@ import com.sun.xml.internal.messaging.saaj.util.Base64;
 
 public class AuthentificationService extends org.restlet.resource.ServerResource{
 	//Classe gerant l'authentification des utilisateurs. Mappee sur l'uri /authentification (cf main).
-	
-	@Get
-	public String represent(){
-		return "bouh";
-	}
+
 	@Post
 	public String accept() {
 

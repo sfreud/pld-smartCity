@@ -19,7 +19,10 @@ public class ItineraryComputingService extends org.restlet.resource.ServerResour
 		String arrivalLongitude = getQuery().getValues("along");
 		
 		//convert the given String parameters to ...? (object representating gps coordinates)
-		// = Float.valueOf(departureLatitude);
+		double dlatitude = Double.valueOf(departureLatitude);
+		double dlongitude = Double.valueOf(departureLongitude);
+		double alatitude = Double.valueOf(arrivalLatitude);
+		double alongitude = Double.valueOf(arrivalLongitude);
 		
 		
 		//call to the class implementing the calculation, with parameters

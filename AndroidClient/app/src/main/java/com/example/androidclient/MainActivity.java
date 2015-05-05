@@ -177,6 +177,22 @@ public class MainActivity extends ActionBarActivity {
 
     }
 
+    @Override
+    protected void onPause(Bundle savedInstanceState) {
+        // TODO
+    }
+
+    @Override
+    protected void onStop(Bundle savedInstanceState) {
+        // TODO
+    }
+
+    @Override
+    protected void onDestroy(Bundle savedInstanceState) {
+        // TODO
+    }
+
+
     public void connectToExistingAccount(View view)
     {
         if(uname.getText().toString().equals("")|| pass.getText().toString().equals("")){

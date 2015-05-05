@@ -33,9 +33,11 @@ public class EventRetrievingService extends ServerResource {
 		for(int i = 0;i<headers.size();i++){
 			System.out.println(headers.get(i).toString());
 		}
+		
 		String h = headers.getFirstValue("Authorization");
 		String dh = Base64.base64Decode(h.substring("Basic ".length(), h.length()));
 		String username = dh.substring(0, dh.indexOf(':'));
+		//String password = dh.substring(dh.indexOf(':')+1, dh.length());
 
 		//write directly the results in the database
 		try {
@@ -82,12 +84,24 @@ public class EventRetrievingService extends ServerResource {
 					sb.append(rs.getString(i));
 			}
 			s = sb.toString();*/
+			
+			
+			//codes de retour. Prévoir un code de retour sur un http unauthorized.
 			if(r==1)
-				return "Success";
+				return "0";
 			else
 				return "Operation failed.";
 		} catch (SQLException e) {
-			return e.toString();
+			//analyse du log
+			if(e.toString().contains("Field 'title' doesn't have a default value"))
+				return "1";
+			else if(e.toString().contains("Field 'location' doesn't have a default value"))
+				return "2";
+			else if(e.toString().contains("Field 'eventdate' doesn't have a default value"))
+				return "3";
+			
+			
+			return "unknown error";
 		}
 	}
 	

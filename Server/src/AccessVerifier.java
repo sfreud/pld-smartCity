@@ -26,7 +26,6 @@ public class AccessVerifier extends LocalVerifier {
 			ResultSet rs = stmt.executeQuery(query);
 			if(rs.next()){
 				String password = rs.getString(1);
-				System.out.println(password);
 				if(password!=null)
 					return password.toCharArray();
 			}

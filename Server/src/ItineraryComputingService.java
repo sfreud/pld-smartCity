@@ -110,7 +110,8 @@ public class ItineraryComputingService extends Restlet {
 		//retrieve the nodes in the graph associated with the given coordinates
 		GraphNode departureNode = map.getNode(dlongitude, dlatitude);
 		GraphNode arrivalNode = map.getNode(alongitude,alatitude);
-		
+        //GraphNode n1 = map.getNode(4.8785753,45.7738037);
+        //GraphNode n2 = map.getNode(4.8788661,45.7736091);
 		//do the actual path computing
 		Pair<List<GraphNode>,Float> m = map.getShorterWay(departureNode, arrivalNode);
 		

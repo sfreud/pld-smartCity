@@ -24,7 +24,7 @@ public class ServerController {
 		//Note : it requires to import java.io.File
 		//System.out.println(new File("./libs/logging.properties").getAbsolutePath());
 		
-		ItineraryComputingService itineraryService = new ItineraryComputingService("essai.osm");
+		ItineraryComputingService itineraryService = new ItineraryComputingService("map.osm");
 		//ServerController sc = new ServerController("essai.osm");
 		
 		Component server = new Component();
@@ -58,7 +58,7 @@ public class ServerController {
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}
+		}/*
 		try {
 			Thread.sleep(20000);
 		} catch (InterruptedException e1) {
@@ -70,7 +70,7 @@ public class ServerController {
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}
+		}*/
 	}
 
 	

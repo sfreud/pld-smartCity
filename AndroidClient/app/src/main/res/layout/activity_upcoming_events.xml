@@ -10,7 +10,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/retrieving_events"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        style="@style/textViewColor" />
 
     <ListView
         android:id="@+id/eventsListView"

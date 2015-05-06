@@ -5,4 +5,17 @@
         <!-- Customize your theme here. -->
     </style>
 
+    <style name="textViewColor">
+        <item name="android:textColor">#000000</item>
+    </style>
+
+    <style name="editTextBackground">
+        <item name="android:background">#FFFFFF</item>
+    </style>
+
+    <style name="textViewColorEditTextBackground">
+        <item name="android:background">#FFFFFF</item>
+        <item name="android:textColor">#000000</item>
+    </style>
+
 </resources>

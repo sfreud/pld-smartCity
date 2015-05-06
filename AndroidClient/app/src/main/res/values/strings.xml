@@ -54,4 +54,6 @@
     <string name="adressNotFound">L\'adresse n\'existe pas</string>
     <string name="wrongEnteredDate">Il y a une erreur dans la date entrée</string>
     <string name="modifiedTransportRequest">Demande de transport modifiée</string>
+    <string name="startDateEditText">Adresse de départ</string>
+    <string name="eventDateEditText">Adresse de l\'évènement</string>
 </resources>

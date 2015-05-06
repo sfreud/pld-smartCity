@@ -13,7 +13,7 @@
         android:id="@+id/textView2"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        />
+        style="@style/textViewColor" />
     <LinearLayout
         android:id="@+id/layoutLogin"
         android:layout_width="fill_parent"
@@ -27,14 +27,16 @@
             android:hint="@string/username"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:minEms="5"/>
+            android:minEms="5"
+            style="@style/editTextBackground" />
         <EditText
             android:id="@+id/editTextPassword"
             android:hint="@string/password"
             android:inputType="textPassword"
             android:minEms="5"
             android:layout_width="fill_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            style="@style/editTextBackground" />
         <Button
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
@@ -45,7 +47,7 @@
             android:layout_height="wrap_content"
             android:text="@string/connectToExistingAccount"
             android:onClick="connectToExistingAccount"/>
-        </LinearLayout>
+    </LinearLayout>
 
     <LinearLayout
         android:id="@+id/layoutEvents"
@@ -74,7 +76,5 @@
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:text="@string/getTransportRequestList" />
-
     </LinearLayout>
-
 </RelativeLayout>

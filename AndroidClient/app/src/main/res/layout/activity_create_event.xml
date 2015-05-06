@@ -19,33 +19,40 @@
                 android:text="@string/connected"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                />
+                style="@style/textViewColor" />
 
             <EditText
                 android:id="@+id/enteredEventSummary"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:minEms="5"
-                android:hint="Titre"/>
+                android:hint="Titre"
+                android:layout_marginBottom="5dip"
+                style="@style/editTextBackground" />
 
             <EditText
                 android:id="@+id/enteredEventLocation"
                 android:layout_width="fill_parent"
                 android:minEms="5"
                 android:hint="Lieu"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dip"
+                style="@style/editTextBackground"  />
 
             <EditText
                 android:id="@+id/enteredEventStartDate"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:hint="dd/mm/yyyy:hh::mm"/>
+                android:hint="dd/mm/yyyy:hh::mm"
+                android:layout_marginBottom="5dip"
+                style="@style/editTextBackground" />
 
             <EditText
                 android:id="@+id/enteredEventEndDate"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:hint="dd/mm/yyyy:hh::mm"/>
+                android:hint="dd/mm/yyyy:hh::mm"
+                style="@style/editTextBackground" />
 
             <Button
                 android:id="@+id/createThisEvent"

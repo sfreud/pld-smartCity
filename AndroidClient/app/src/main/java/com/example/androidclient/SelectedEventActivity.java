@@ -207,7 +207,6 @@ public class SelectedEventActivity extends Activity {
             Double lng = location.getDouble("lng");
             ll = new LatLng(lat, lng);
         } catch (JSONException e) {
-            e.printStackTrace();
             return null;
         }
         return new Pair(ll, adress);

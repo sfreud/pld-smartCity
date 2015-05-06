@@ -10,31 +10,38 @@
 
     <EditText
         android:id="@+id/event_summary_to_update"
-        android:layout_width="wrap_content"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:hint="Titre de l'évènement"
-        android:minEms="5" />
+        android:minEms="5"
+        android:layout_marginBottom="5dip"
+        style="@style/editTextBackground" />
 
     <EditText
         android:id="@+id/event_startTime_to_update"
-        android:layout_width="wrap_content"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:hint="Date de l'évènement (dd/mm/yyyy:hh::mm)"
-        android:minEms="5" />
+        android:minEms="5"
+        android:layout_marginBottom="5dip"
+        style="@style/editTextBackground" />
 
     <EditText
         android:id="@+id/eventStartLocation_to_update"
-        android:layout_width="wrap_content"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:hint="Adresse de départ"
-        android:minEms="5" />
+        android:minEms="5"
+        android:layout_marginBottom="5dip"
+        style="@style/editTextBackground" />
 
     <EditText
         android:id="@+id/eventEndLocation_to_update"
-        android:layout_width="wrap_content"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:hint="Adresse de l'évènement"
-        android:minEms="5" />
+        android:minEms="5"
+        style="@style/editTextBackground" />
 
     <Button
         android:id="@+id/verify_locations2"

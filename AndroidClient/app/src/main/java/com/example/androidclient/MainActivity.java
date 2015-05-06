@@ -2,7 +2,6 @@ package com.example.androidclient;
 
 import android.accounts.Account;
 import android.accounts.AccountManager;
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
@@ -18,8 +17,6 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import com.google.api.services.calendar.CalendarScopes;
 
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
@@ -39,44 +36,40 @@ public class MainActivity extends ActionBarActivity {
     private LinearLayout llog, lopt;
     private static String urlBegin = "http://10.0.2.2:8182/";
 
-    private static final String PREF_ACCOUNT_NAME = "accountName";
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        //instantiate views
         setContentView(R.layout.activity_main);
         uname = (EditText) findViewById(R.id.editTextUname);
         t2 = (TextView) findViewById(R.id.textView2);
         pass = (EditText)findViewById(R.id.editTextPassword);
-
         lopt = (LinearLayout) findViewById(R.id.layoutEvents);
         llog = (LinearLayout) findViewById(R.id.layoutLogin);
 
 
-        //Check whether it's the app first launch or not. If it is, we send the retrieved
-        //events from google calendar to our own server.
+        //Check whether it's the app first launch or not. If it is, we ask to create an account or connect
+        //to an existing one.
+        //a single pref file for the whole app
         SharedPreferences settings = getSharedPreferences("preferences",MODE_PRIVATE);
         if(settings.getString("login", null)==null){
             String login = "";
             //pop a windows asking for authentication
+            //get google account as default login
             t2.setText(getString(R.string.firstLaunch));
             AccountManager manager = (AccountManager) getSystemService(ACCOUNT_SERVICE);
             Account[] list = manager.getAccounts();
             if(list.length!=0)
                 login = list[0].name;
-           // Log.d("account",login);
-
             llog.setVisibility(View.VISIBLE);
             lopt.setVisibility(View.INVISIBLE);
 
             uname.setText(login);
-            //String login ="";
-
         }
         else{
             t2.setText(getString(R.string.welcomeBack));
         }
-        setTitle(R.string.application_title);
 
         getEventsListButton = (Button) findViewById(R.id.getEventsListButton);
         getEventsListButton.setOnClickListener(new View.OnClickListener() {
@@ -116,18 +109,17 @@ public class MainActivity extends ActionBarActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
+        //manually disconnect user
         if (id == R.id.disconnectItem) {
             SharedPreferences settings = getSharedPreferences("preferences",MODE_PRIVATE);
             SharedPreferences.Editor editor = settings.edit();
+            //delete registered id's
             editor.remove("login");
             editor.remove("pass");
             editor.commit();
+            //ask for a new authentication
             llog.setVisibility(View.VISIBLE);
             lopt.setVisibility(View.INVISIBLE);
             t2.setText(getString(R.string.firstLaunch));
@@ -187,16 +179,15 @@ public class MainActivity extends ActionBarActivity {
         String requestType;
         @Override
         protected String doInBackground(String... params) {
-            InputStream inputStream = null;
-            int count = params.length;
             String uname = params[0], pass = params[1];
             requestType = params[2];
             HttpClient httpclient = new DefaultHttpClient();
             String url = urlBegin+params[2];
             String result = "";
 
-            // make GET request to the given URL
-            HttpResponse httpResponse = null;
+            //create and execute an http request to the given url
+            //The server sends back an acknowledgement code, which is treated in the onPostExecute(
+            //method
             try {
                 HttpPost post = new HttpPost(url);
                 String s = Base64.encodeToString((uname + ":" + pass).getBytes(), Base64.DEFAULT);
@@ -204,8 +195,8 @@ public class MainActivity extends ActionBarActivity {
                 post.setHeader("Host", "10.0.2.2:8182");
                 post.setHeader("Authorization", "Basic " + s);
 
-                httpResponse = httpclient.execute(post);
-                inputStream = httpResponse.getEntity().getContent();
+                HttpResponse httpResponse = httpclient.execute(post);
+                InputStream inputStream = httpResponse.getEntity().getContent();
 
                 String line = "";
                 BufferedReader rd = new BufferedReader(new InputStreamReader(inputStream));
@@ -213,31 +204,15 @@ public class MainActivity extends ActionBarActivity {
                     result += line;
                 }
             } catch (IOException e) {
-                e.printStackTrace();
-            }
 
-
-            //Not implemented yet, but we will probably send back either an acknoledgement code,
-            //or a full itinerary formatted as  a string, or even several full itineraries.
-            //Or it will be formatted differently.
-            //Or we will write in a local db directly after each answer from the server and return nothing.
-            try {
-                //byte[] buffer = new byte[1000];
-                //inputStream.read(buffer,0,1000);
-
-                //return buffer.toString();
             } catch (NullPointerException e) {
                 return "3";
-                //} catch (IOException e) {
-                //e.printStackTrace();
-                //return e.toString();
             }
-            //return inputStream.toString();
             return result;
         }
         @Override
         protected void onPostExecute(String s){
-            Log.d("Result",s);
+            //Log.d("Result",s);
             switch(s){
                 case "0":
                     if(requestType.equals("register")) {
@@ -259,7 +234,6 @@ public class MainActivity extends ActionBarActivity {
                     Toast.makeText(getBaseContext(), getString(R.string.semicolonInUname), Toast.LENGTH_SHORT).show();
                     t2.setText(R.string.firstLaunch);
                     break;
-
                 case "3":
                     Toast.makeText(getBaseContext(), getString(R.string.unknownError), Toast.LENGTH_SHORT).show();
                     t2.setText(R.string.firstLaunch);
@@ -273,8 +247,6 @@ public class MainActivity extends ActionBarActivity {
                     t2.setText(R.string.firstLaunch);
                     break;
             }
-
-
         }
     }
 }

@@ -36,4 +36,22 @@
     <string name="title_activity_transport_request_list">TransportRequestListActivity</string>
     <string name="transportRequestListIntroduction">Voici vos différentes demandes de transports</string>
     <string name="updateTransportRequest">Modifier cette demande de transport</string>
+    <string name="eventCreated">L\'évènement a bien été créé</string>
+    <string name="wrongEndDate">Il y a une erreur dans la date de fin</string>
+    <string name="wrongBeginDate">Il y a une erreur dans la date de début</string>
+    <string name="playServiceRequired">Google Play Services required: after installing, close and relaunch this app.</string>
+    <string name="unspecifiedAccount">Account unspecified.</string>
+    <string name="noConnection">Pas de connection au réseau disponible.</string>
+    <string name="errorRetrievingEvent">Error retrieving events!</string>
+    <string name="noEventFound">Encore évènement trouvé</string>
+    <string name="yourEvents">Voici vos prochains évènements:</string>
+    <string name="noLocation">Localisation non trouvée</string>
+    <string name="eventAlreadyRegistered">Cet évènement a déjà une demande de transport associée</string>
+    <string name="fetchingRoute">Calcul en cours, attendez s\'il vous plait...</string>
+    <string name="transportRequestCreated">La demande de transport a bien été créée</string>
+    <string name="transportRequestCreatedButton">Demande de transport créée</string>
+    <string name="verifying">Vérification en cours...</string>
+    <string name="adressNotFound">L\'adresse n\'existe pas</string>
+    <string name="wrongEnteredDate">Il y a une erreur dans la date entrée</string>
+    <string name="modifiedTransportRequest">Demande de transport modifiée</string>
 </resources>

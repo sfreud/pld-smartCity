@@ -91,14 +91,5 @@ public class TransportRequestListActivity extends Activity {
                 startActivity(mapIntent);
             }
         });
-
-
-        /*transportRequestListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
-            }
-        });*/
-
     }
 }

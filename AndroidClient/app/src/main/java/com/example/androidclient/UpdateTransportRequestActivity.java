@@ -86,7 +86,7 @@ public class UpdateTransportRequestActivity extends Activity {
                         eventStartDate = USER_DATE_FORMAT.parse(eventStartTimeToUpdate.getText().toString());
                     } catch (ParseException e) {
                         errorsInDate = true;
-                        Toast.makeText(getApplicationContext(), "Il y a une erreur dans la date entrée", Toast.LENGTH_LONG).show();
+                        Toast.makeText(getApplicationContext(), getString(R.string.wrongEnteredDate), Toast.LENGTH_LONG).show();
                     }
                     if(!errorsInDate){
                         transportRequestToUpdate.setEventSummary(eventSummaryToUpdate.getText().toString());
@@ -100,7 +100,7 @@ public class UpdateTransportRequestActivity extends Activity {
                         trDAO.open();
                         trDAO.update(transportRequestToUpdate);
                         trDAO.close();
-                        Toast.makeText(getApplicationContext(), "Demande de transport modifiée", Toast.LENGTH_LONG).show();
+                        Toast.makeText(getApplicationContext(), getString(R.string.modifiedTransportRequest), Toast.LENGTH_LONG).show();
                     }
                 }
             });
@@ -158,7 +158,7 @@ public class UpdateTransportRequestActivity extends Activity {
         protected void onPreExecute() {
             super.onPreExecute();
             progressDialog = new ProgressDialog(UpdateTransportRequestActivity.this);
-            progressDialog.setMessage("Vérification en cours...");
+            progressDialog.setMessage(getString(R.string.verifying));
             progressDialog.setIndeterminate(true);
             progressDialog.show();
         }
@@ -194,7 +194,7 @@ public class UpdateTransportRequestActivity extends Activity {
                     eventEndLatLngToUpdate = result.first;
                 }
             } else {
-                adressView.setText("L'adresse n'existe pas");
+                adressView.setText(getString(R.string.adressNotFound));
             }
         }
     };

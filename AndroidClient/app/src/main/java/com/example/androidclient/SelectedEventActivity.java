@@ -39,18 +39,15 @@ import java.util.Date;
 
 public class SelectedEventActivity extends Activity {
     public final static String START_END_LATLNG = "com.example.androidclient.START_END_LATLNG";
-    EditText selectedEventStartLocation;
-    EditText selectedEventEndLocation;
-    Button verifyLocations;
-    Button createTransportRequest;
-    Button selectedEventGetMap;
-    LatLng selectedEventStartLatLng;
-    LatLng selectedEventEndLatLng;
-    String eventID;
-    String summary;
-    long startTime;
-    String endLocation;
-    TransportRequest transportRequest;
+    private EditText selectedEventStartLocation, selectedEventEndLocation;
+    private Button verifyLocations, createTransportRequest,selectedEventGetMap;
+
+    private LatLng selectedEventStartLatLng, selectedEventEndLatLng;
+    private String eventID,summary;
+
+    private long startTime;
+    private String endLocation;
+    private TransportRequest transportRequest;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -89,19 +86,19 @@ public class SelectedEventActivity extends Activity {
         createTransportRequest.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                transportRequest = new TransportRequest(eventID, summary,
-                        selectedEventEndLocation.getText().toString(),selectedEventEndLatLng.latitude,selectedEventEndLatLng.longitude,
-                        selectedEventStartLocation.getText().toString(),selectedEventStartLatLng.latitude,selectedEventStartLatLng.longitude,
-                        startTime);
-                TransportRequestDAO trDAO = new TransportRequestDAO(getApplicationContext());
-                trDAO.open();
-                trDAO.add(transportRequest);
-                trDAO.close();
-                selectedEventGetMap.setEnabled(true);
-                Toast.makeText(getApplicationContext(),"La demande de transport a bien été créée",Toast.LENGTH_SHORT).show();
-                verifyLocations.setEnabled(false);
-                createTransportRequest.setEnabled(false);
-                createTransportRequest.setText("Demande de transport créée");
+            transportRequest = new TransportRequest(eventID, summary,
+                    selectedEventEndLocation.getText().toString(),selectedEventEndLatLng.latitude,selectedEventEndLatLng.longitude,
+                    selectedEventStartLocation.getText().toString(),selectedEventStartLatLng.latitude,selectedEventStartLatLng.longitude,
+                    startTime);
+            TransportRequestDAO trDAO = new TransportRequestDAO(getApplicationContext());
+            trDAO.open();
+            trDAO.add(transportRequest);
+            trDAO.close();
+            selectedEventGetMap.setEnabled(true);
+            Toast.makeText(getApplicationContext(),getString(R.string.transportRequestCreated),Toast.LENGTH_SHORT).show();
+            verifyLocations.setEnabled(false);
+            createTransportRequest.setEnabled(false);
+            createTransportRequest.setText(getString(R.string.transportRequestCreatedButton));
             }
         });
 
@@ -110,20 +107,19 @@ public class SelectedEventActivity extends Activity {
         selectedEventGetMap.setOnClickListener(new View.OnClickListener() {
                                                    @Override
                                                    public void onClick(View v) {
-                                                       Intent intent2 = new Intent(SelectedEventActivity.this, MyMapActivity.class);
-                                                       Bundle bundle = new Bundle();
-                                                       bundle.putString("eventSummary",transportRequest.getEventSummary());
-                                                       bundle.putString("startAdress",transportRequest.getStartAddress());
-                                                       bundle.putDouble("startLat",transportRequest.getStartLat());
-                                                       bundle.putDouble("startLng",transportRequest.getStartLng());
-                                                       bundle.putString("endAdress",transportRequest.getEventAddress());
-                                                       bundle.putDouble("endLat",transportRequest.getEventLat());
-                                                       bundle.putDouble("endLng",transportRequest.getEventLng());
-                                                       intent2.putExtra(START_END_LATLNG, bundle);
-                                                       startActivity(intent2);
-                                                   }
-                                               }
-        );
+           Intent intent2 = new Intent(SelectedEventActivity.this, MyMapActivity.class);
+           Bundle bundle = new Bundle();
+           bundle.putString("eventSummary",transportRequest.getEventSummary());
+           bundle.putString("startAdress",transportRequest.getStartAddress());
+           bundle.putDouble("startLat",transportRequest.getStartLat());
+           bundle.putDouble("startLng",transportRequest.getStartLng());
+           bundle.putString("endAdress",transportRequest.getEventAddress());
+           bundle.putDouble("endLat",transportRequest.getEventLat());
+           bundle.putDouble("endLng",transportRequest.getEventLng());
+           intent2.putExtra(START_END_LATLNG, bundle);
+           startActivity(intent2);
+           }
+        });
     }
 
     @Override
@@ -172,7 +168,7 @@ public class SelectedEventActivity extends Activity {
     }
 
 
-    protected class VerifyLocationTask extends AsyncTask<Void, Void, Pair<LatLng, String>> {
+    private class VerifyLocationTask extends AsyncTask<Void, Void, Pair<LatLng, String>> {
         private ProgressDialog progressDialog;
         EditText adressView;
 
@@ -184,14 +180,13 @@ public class SelectedEventActivity extends Activity {
         protected void onPreExecute() {
             super.onPreExecute();
             progressDialog = new ProgressDialog(SelectedEventActivity.this);
-            progressDialog.setMessage("Vérification en cours...");
+            progressDialog.setMessage(getString(R.string.verifying));
             progressDialog.setIndeterminate(true);
             progressDialog.show();
         }
 
         @Override
         protected Pair<LatLng, String> doInBackground(Void... params) {
-
             Pair<LatLng, String> ll = null;
             JSONParser jParser = new JSONParser();
             String json = null;
@@ -203,7 +198,6 @@ public class SelectedEventActivity extends Activity {
             if (json != null) {
                 ll = getLatLng(json);
             }
-
             return ll;
         }
 
@@ -220,13 +214,12 @@ public class SelectedEventActivity extends Activity {
                     selectedEventEndLatLng = result.first;
                 }
             } else {
-                adressView.setText("L'adresse n'existe pas");
+                adressView.setText(getString(R.string.adressNotFound));
             }
         }
     };
 
     public class JSONParser {
-
         InputStream is = null;
         JSONObject jObj = null;
         String json = "";

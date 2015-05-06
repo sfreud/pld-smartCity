@@ -2,7 +2,6 @@ package com.example.androidclient;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
@@ -43,12 +42,10 @@ public class MyMapActivity extends Activity implements OnMapReadyCallback {
 
     private MapFragment mapFragment = null;
     private GoogleMap myMap = null;
-    LatLng start = null;
-    LatLng end = null;
-    double totalDistance = 0;
-    double totalDuration = 0;
-    String startAdress;
-    String endAdress;
+    private LatLng start = null, end = null;
+    private double totalDistance = 0;
+    //private double totalDuration = 0;
+    String startAdress, endAdress;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -97,28 +94,30 @@ public class MyMapActivity extends Activity implements OnMapReadyCallback {
         myMap.setMyLocationEnabled(true);
         myMap.moveCamera(CameraUpdateFactory.newLatLngZoom(start, 13));
 
+        //gmaps url
         //String url = makeURL(sourcelat, sourcelog, destlat, destlog);
         String url = makeItineraryURLServer(sourcelat, sourcelog, destlat, destlog);
-        //String url ="http://10.0.2.2:8182/itinerary?dlat=45.7819639&dlong=4.8693651&alat=45.7787973&along=4.8700706";
         ConnectAsyncTask cat = new ConnectAsyncTask(url);
         cat.execute();
     }
 
     public void drawPath(String result) {
-        Log.d("JSON recu",result);
+        //Log.d("JSON recu",result);
         try {
             List<LatLng> list = new ArrayList<LatLng>();
 
             //Tranform the string into a json object
+            //decode our own computed itinerary
             final JSONObject json = new JSONObject(result);
             totalDistance = json.getDouble("distance")/1000;
-            totalDuration = totalDistance*1;
+            //totalDuration = totalDistance*1;
             JSONArray points = json.getJSONArray("points");
             int pointsLength = points.length();
             for(int i=0;i<pointsLength;++i){
                 JSONObject point = points.getJSONObject(i);
                 list.add(new LatLng(point.getDouble("latitude"),point.getDouble("longitude")));
             }
+            //decode itinerary returned by GMaps
             /*
             JSONArray routeArray = json.getJSONArray("routes");
             JSONObject routes = routeArray.getJSONObject(0);
@@ -183,7 +182,7 @@ public class MyMapActivity extends Activity implements OnMapReadyCallback {
 
         return poly;
     }
-
+    /*
     public String makeURL(double sourcelat, double sourcelog, double destlat, double destlog) {
         StringBuilder urlString = new StringBuilder();
         urlString.append("http://maps.googleapis.com/maps/api/directions/json");
@@ -199,7 +198,7 @@ public class MyMapActivity extends Activity implements OnMapReadyCallback {
         urlString.append(Double.toString(destlog));
         urlString.append("&sensor=false&mode=driving&alternatives=true");
         return urlString.toString();
-    }
+    }*/
 
     public String makeItineraryURLServer(double sourcelat, double sourcelog, double destlat, double destlog) {
         StringBuilder urlString = new StringBuilder();
@@ -227,7 +226,7 @@ public class MyMapActivity extends Activity implements OnMapReadyCallback {
         protected void onPreExecute() {
             super.onPreExecute();
             progressDialog = new ProgressDialog(MyMapActivity.this);
-            progressDialog.setMessage("Fetching route, Please wait...");
+            progressDialog.setMessage(getString(R.string.fetchingRoute));
             progressDialog.setIndeterminate(true);
             progressDialog.show();
         }

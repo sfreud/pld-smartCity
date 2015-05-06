@@ -1,9 +1,5 @@
 package com.example.androidclient;
 
-import org.apache.http.HttpResponse;
-import org.apache.http.client.HttpClient;
-import org.apache.http.client.methods.HttpGet;
-import org.apache.http.impl.client.DefaultHttpClient;
 import android.accounts.AccountManager;
 import android.app.Activity;
 import android.app.Dialog;
@@ -26,6 +22,8 @@ import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GooglePlayServicesUtil;
 import com.google.api.client.extensions.android.http.AndroidHttp;
 import com.google.api.client.googleapis.extensions.android.gms.auth.GoogleAccountCredential;
+import com.google.api.client.googleapis.extensions.android.gms.auth.GooglePlayServicesAvailabilityIOException;
+import com.google.api.client.googleapis.extensions.android.gms.auth.UserRecoverableAuthIOException;
 import com.google.api.client.http.HttpTransport;
 import com.google.api.client.json.JsonFactory;
 import com.google.api.client.json.gson.GsonFactory;
@@ -33,8 +31,9 @@ import com.google.api.client.util.DateTime;
 import com.google.api.client.util.ExponentialBackOff;
 import com.google.api.services.calendar.CalendarScopes;
 import com.google.api.services.calendar.model.Event;
+import com.google.api.services.calendar.model.Events;
 
-import java.io.InputStream;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
@@ -121,8 +120,7 @@ public class UpcomingEventsActivity extends Activity {
         if (isGooglePlayServicesAvailable()) {
             refreshEventList();
         } else {
-            mStatusText.setText("Google Play Services required: " +
-                    "after installing, close and relaunch this app.");
+            mStatusText.setText(getString(R.string.playServiceRequired));
         }
     }
 
@@ -164,7 +162,7 @@ public class UpcomingEventsActivity extends Activity {
                         refreshEventList();
                     }
                 } else if (resultCode == RESULT_CANCELED) {
-                    mStatusText.setText("Account unspecified.");
+                    mStatusText.setText(getString(R.string.unspecifiedAccount));
                 }
                 break;
             case REQUEST_AUTHORIZATION:
@@ -189,9 +187,9 @@ public class UpcomingEventsActivity extends Activity {
             chooseAccount();
         } else {
             if (isDeviceOnline()) {
-                new EventFetchTask(this).execute();
+                new EventFetchTask().execute();
             } else {
-                mStatusText.setText("No network connection available.");
+                mStatusText.setText(getString(R.string.noConnection));
             }
         }
     }
@@ -222,13 +220,11 @@ public class UpcomingEventsActivity extends Activity {
             @Override
             public void run() {
                 if (events == null) {
-                    mStatusText.setText("Error retrieving events!");
+                    mStatusText.setText(getString(R.string.errorRetrievingEvent));
                 } else if (events.size() == 0) {
-                    mStatusText.setText("No upcoming events found.");
+                    mStatusText.setText(getString(R.string.noEventFound));
                 } else {
-                    mStatusText.setText("Your upcoming events retrieved using" +
-                            " the Google Calendar API:");
-                    //mEventText.setText(TextUtils.join("\n\n", events));
+                    mStatusText.setText(getString(R.string.yourEvents));
                     List<HashMap<String, String>> list = new ArrayList<HashMap<String, String>>();
                     HashMap<String, String> element;
                     for (int i = 0; i < events.size(); i++) {
@@ -246,7 +242,7 @@ public class UpcomingEventsActivity extends Activity {
 
                         String location = event.getLocation();
                         if (location == null) {
-                            location = "No location found";
+                            location = getString(R.string.noLocation);
                         }
                         element.put("location", location);
                         list.add(element);
@@ -275,13 +271,13 @@ public class UpcomingEventsActivity extends Activity {
                                 bundle.putLong("startTime", selectedEvent.getStart().getDateTime().getValue());
                                 String location = selectedEvent.getLocation();
                                 if (location == null) {
-                                    location = "No location found";
+                                    location = getString(R.string.noLocation);
                                 }
                                 bundle.putString("location", location);
                                 intent.putExtra(SELECTED_EVENT, bundle);
                                 startActivity(intent);
                             } else{
-                                Toast.makeText(getApplicationContext(), "Cet évènement a déjà une demande de transport associée", Toast.LENGTH_LONG).show();
+                                Toast.makeText(getApplicationContext(), getString(R.string.eventAlreadyRegistered), Toast.LENGTH_LONG).show();
                             }
                         }
                     });
@@ -367,77 +363,51 @@ public class UpcomingEventsActivity extends Activity {
         });
     }
 
-    private class EventSendTask extends AsyncTask<List<Event>, Void, String>{
-        //Asynchronous call to the server. Sends events retrieved on google calendar. Should be used
-        //once at app first launch, to sync' our server with gcalendar, and each time the user creates
-        //another event from the app thereafter.
+    private class EventFetchTask extends AsyncTask<Void, Void, Void> {
 
+
+        /**
+         * Background task to call Calendar API to fetch event list.
+         *
+         * @param params no parameters needed for this task.
+         */
         @Override
-        protected String doInBackground(List<Event>... params) {
-            InputStream inputStream = null;
-            int count = params.length;
-            for(int i = 0; i< count; i++){
-                try {
+        protected Void doInBackground(Void... params) {
+            try {
+                clearEvents();
+                updateEventList(fetchEventsFromCalendar());
+            } catch (final GooglePlayServicesAvailabilityIOException availabilityException) {
+                showGooglePlayServicesAvailabilityErrorDialog(
+                        availabilityException.getConnectionStatusCode());
+            } catch (UserRecoverableAuthIOException userRecoverableException) {
+                startActivityForResult(
+                        userRecoverableException.getIntent(),
+                        UpcomingEventsActivity.REQUEST_AUTHORIZATION);
 
-
-                    List<Event> events = params[i];
-                    for(int j = 0; j < events.size(); j++){
-                        Event event = events.get(j);
-
-                        HttpClient httpclient = new DefaultHttpClient();
-                        String url = "http://10.0.2.2:8182/event";
-
-                        //build the correct URL given an array of events (see parameter)
-
-                        url += "?summary=" + event.getSummary();
-                        DateTime start = event.getStart().getDateTime();
-                        String s = start.toString();
-                        if (start == null) {
-                            // All-day events don't have start times, so just use
-                            // the start date.
-                            start = event.getStart().getDate();
-                            url += "&date=" + start.toString();
-                        }
-                        else {
-                            Date startDate = new Date(start.getValue());
-                            url += "&date=" + startDate.toString();
-                        }
-                        //element.put("startTime", startDate.toString());
-
-                        String location = event.getLocation();
-                        if (location == null) {
-                            location = "No location found";
-                            url += "&location=null";
-                        }
-                        else {
-                            url += "&location=" + location;
-                        }
-
-
-
-                        // make GET request to the given URL
-                        HttpResponse httpResponse = httpclient.execute(new HttpGet(url));
-
-                        // receive response as inputStream
-                        //What will we send from the server ? We may simply acknowledge at this point,
-                        //and give the itinerary later in answer to a subsequent request,
-                        //or return the full itinerary, because here we know the user expects to
-                        //have a network access, so, take it, heh.
-                        inputStream = httpResponse.getEntity().getContent();
-                    }
-
-
-
-                } catch (Exception e) {
-                    //Log.d("InputStream", e.getLocalizedMessage());
-                }
+            } catch (IOException e) {
+                updateStatus("The following error occurred: " +
+                        e.getMessage());
             }
-
-            //Not implemented yet, but we will probably send back either an acknoledgement code,
-            //or a full itinerary formatted as  a string, or even several full itineraries.
-            //Or it will be formatted differently.
-            //Or we will write in a local db directly after each answer from the server and return nothing.
             return null;
+        }
+
+        /**
+         * Fetch a list of the next 10 events from the primary calendar.
+         *
+         * @return List of events.
+         * @throws IOException
+         */
+        private List<Event> fetchEventsFromCalendar() throws IOException {
+            // List the next 10 events from the primary calendar.
+            DateTime now = new DateTime(System.currentTimeMillis());
+            Events events = mService.events().list("primary")
+                    .setMaxResults(10)
+                    .setTimeMin(now)
+                    .setOrderBy("startTime")
+                    .setSingleEvents(true)
+                    .execute();
+
+            return events.getItems();
         }
     }
 }

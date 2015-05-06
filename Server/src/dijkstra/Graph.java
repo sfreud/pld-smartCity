@@ -33,16 +33,15 @@ public class Graph {
             {
                 if(w.getKey().getKey().equals(nodeDep))
                 {
-                    double latA = coor.get(w.getKey().getKey()).getKey()*Math.PI/360;
-                    double latB = coor.get(w.getKey().getValue()).getKey()*Math.PI/360;
-                    double longA = coor.get(w.getKey().getKey()).getValue()*Math.PI/360;
-                    double longB = coor.get(w.getKey().getValue()).getValue()*Math.PI/360;
+                    double latA = coor.get(w.getKey().getKey()).getKey()*Math.PI/180;
+                    double latB = coor.get(w.getKey().getValue()).getKey()*Math.PI/180;
+                    double longA = coor.get(w.getKey().getKey()).getValue()*Math.PI/180;
+                    double longB = coor.get(w.getKey().getValue()).getValue()*Math.PI/180;
                     double dlat = Math.abs(latA-latB);
                     double dlong = Math.abs(longA-longB);
                     double dy = rayon*dlat;
                     double dx = rayon*Math.cos(latA)*dlong;
                     int dist = (int) Math.sqrt(dx*dx+dy*dy);
-                    System.out.println("dist:"+dist);
                     Pair<Float,String> carac = new Pair<>(new Float(dist),w.getValue());
                     edges.get(w.getKey().getKey()).put(w.getKey().getValue(),carac);
                 }

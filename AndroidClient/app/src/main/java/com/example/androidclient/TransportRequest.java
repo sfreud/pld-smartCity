@@ -12,6 +12,9 @@ public class TransportRequest {
     private double startLng;
     private long eventBeginTime;
 
+    public TransportRequest() {
+    }
+
     public TransportRequest(String eventID, String eventSummary, String eventAddress, double eventLat, double eventLng, String startAddress, double startLat, double startLng, long eventBeginTime) {
         this.eventID = eventID;
         this.eventSummary = eventSummary;
@@ -47,6 +50,10 @@ public class TransportRequest {
 
     public String getEventID() {
         return eventID;
+    }
+
+    public void setEventID(String eventID) {
+        this.eventID = eventID;
     }
 
     public String getEventSummary() {

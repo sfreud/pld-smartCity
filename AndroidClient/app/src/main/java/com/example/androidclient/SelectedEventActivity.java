@@ -2,12 +2,9 @@ package com.example.androidclient;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
-import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.util.Base64;
 import android.util.Log;
 import android.util.Pair;
 import android.view.View;
@@ -34,20 +31,22 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 
 public class SelectedEventActivity extends Activity {
     public final static String START_END_LATLNG = "com.example.androidclient.START_END_LATLNG";
     private EditText selectedEventStartLocation, selectedEventEndLocation;
-    private Button verifyLocations, createTransportRequest,selectedEventGetMap;
+    private Button verifyLocations, createTransportRequest, selectedEventGetMap;
 
     private LatLng selectedEventStartLatLng, selectedEventEndLatLng;
-    private String eventID,summary;
+    private String eventID, summary;
 
     private long startTime;
     private String endLocation;
-    private TransportRequest transportRequest;
+    private TransportRequest transportRequest = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,7 +63,8 @@ public class SelectedEventActivity extends Activity {
         TextView selectedEventSummary = (TextView) findViewById(R.id.selected_event_summary);
         selectedEventSummary.setText(summary);
         TextView selectedEventStartTime = (TextView) findViewById(R.id.selected_event_startTime);
-        selectedEventStartTime.setText((new Date(startTime)).toString());
+        DateFormat USER_DATE_FORMAT = new SimpleDateFormat("dd/MM/yyyy kk:mm");
+        selectedEventStartTime.setText(USER_DATE_FORMAT.format(new Date(startTime)));
         selectedEventStartLocation = (EditText) findViewById(R.id.selectedEventStartLocation);
         selectedEventEndLocation = (EditText) findViewById(R.id.selectedEventEndLocation);
         selectedEventEndLocation.setText(endLocation);
@@ -86,55 +86,101 @@ public class SelectedEventActivity extends Activity {
         createTransportRequest.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-            transportRequest = new TransportRequest(eventID, summary,
-                    selectedEventEndLocation.getText().toString(),selectedEventEndLatLng.latitude,selectedEventEndLatLng.longitude,
-                    selectedEventStartLocation.getText().toString(),selectedEventStartLatLng.latitude,selectedEventStartLatLng.longitude,
-                    startTime);
-            TransportRequestDAO trDAO = new TransportRequestDAO(getApplicationContext());
-            trDAO.open();
-            trDAO.add(transportRequest);
-            trDAO.close();
-            selectedEventGetMap.setEnabled(true);
-            Toast.makeText(getApplicationContext(),getString(R.string.transportRequestCreated),Toast.LENGTH_SHORT).show();
-            verifyLocations.setEnabled(false);
-            createTransportRequest.setEnabled(false);
-            createTransportRequest.setText(getString(R.string.transportRequestCreatedButton));
+                transportRequest = new TransportRequest(eventID, summary,
+                        selectedEventEndLocation.getText().toString(), selectedEventEndLatLng.latitude, selectedEventEndLatLng.longitude,
+                        selectedEventStartLocation.getText().toString(), selectedEventStartLatLng.latitude, selectedEventStartLatLng.longitude,
+                        startTime);
+                TransportRequestDAO trDAO = new TransportRequestDAO(getApplicationContext());
+                trDAO.open();
+                trDAO.add(transportRequest);
+                trDAO.close();
+                selectedEventGetMap.setEnabled(true);
+                Toast.makeText(getApplicationContext(), getString(R.string.transportRequestCreated), Toast.LENGTH_SHORT).show();
+                verifyLocations.setEnabled(false);
+                createTransportRequest.setEnabled(false);
+                createTransportRequest.setText(getString(R.string.transportRequestCreatedButton));
             }
         });
 
         selectedEventGetMap = (Button) findViewById(R.id.selected_event_get_Map);
         selectedEventGetMap.setEnabled(false);
         selectedEventGetMap.setOnClickListener(new View.OnClickListener() {
-                                                   @Override
-                                                   public void onClick(View v) {
-           Intent intent2 = new Intent(SelectedEventActivity.this, MyMapActivity.class);
-           Bundle bundle = new Bundle();
-           bundle.putString("eventSummary",transportRequest.getEventSummary());
-           bundle.putString("startAdress",transportRequest.getStartAddress());
-           bundle.putDouble("startLat",transportRequest.getStartLat());
-           bundle.putDouble("startLng",transportRequest.getStartLng());
-           bundle.putString("endAdress",transportRequest.getEventAddress());
-           bundle.putDouble("endLat",transportRequest.getEventLat());
-           bundle.putDouble("endLng",transportRequest.getEventLng());
-           intent2.putExtra(START_END_LATLNG, bundle);
-           startActivity(intent2);
-           }
+            @Override
+            public void onClick(View v) {
+                Intent intent2 = new Intent(SelectedEventActivity.this, MyMapActivity.class);
+                Bundle bundle = new Bundle();
+                bundle.putString("eventSummary", transportRequest.getEventSummary());
+                bundle.putString("startAdress", transportRequest.getStartAddress());
+                bundle.putDouble("startLat", transportRequest.getStartLat());
+                bundle.putDouble("startLng", transportRequest.getStartLng());
+                bundle.putString("endAdress", transportRequest.getEventAddress());
+                bundle.putDouble("endLat", transportRequest.getEventLat());
+                bundle.putDouble("endLng", transportRequest.getEventLng());
+                intent2.putExtra(START_END_LATLNG, bundle);
+                startActivity(intent2);
+            }
         });
     }
 
     @Override
-    protected void onPause() {
-        super.onPause();
+    public void onSaveInstanceState(Bundle savedInstanceState) {
+        savedInstanceState.putString("selectedEventStartLocation", selectedEventStartLocation.getText().toString());
+        savedInstanceState.putString("selectedEventEndLocation", selectedEventEndLocation.getText().toString());
+        savedInstanceState.putString("eventID", eventID);
+        savedInstanceState.putString("summary", summary);
+        savedInstanceState.putLong("startTime", startTime);
+        savedInstanceState.putString("endLocation", endLocation);
+        savedInstanceState.putDouble("selectedEventStartLatLngLat", selectedEventStartLatLng.latitude);
+        savedInstanceState.putDouble("selectedEventStartLatLngLng", selectedEventStartLatLng.longitude);
+        savedInstanceState.putDouble("selectedEventEndLatLngLat", selectedEventEndLatLng.latitude);
+        savedInstanceState.putDouble("selectedEventEndLatLngLng", selectedEventEndLatLng.longitude);
+
+        if (transportRequest != null) {
+            savedInstanceState.putBoolean("transportRequestNotNull", true);
+            savedInstanceState.putLong("transportRequestID", transportRequest.getId());
+            savedInstanceState.putString("transportRequestEventID", transportRequest.getEventID());
+            savedInstanceState.putString("transportRequestEventSummary", transportRequest.getEventSummary());
+            savedInstanceState.putString("transportRequestEventAddress", transportRequest.getEventAddress());
+            savedInstanceState.putDouble("transportRequestEventLat", transportRequest.getEventLat());
+            savedInstanceState.putDouble("transportRequestEventLng", transportRequest.getEventLng());
+            savedInstanceState.putString("transportRequesStartAddress", transportRequest.getStartAddress());
+            savedInstanceState.putDouble("transportRequestStartLat", transportRequest.getStartLat());
+            savedInstanceState.putDouble("transportRequestStartLng", transportRequest.getStartLng());
+            savedInstanceState.putLong("transportRequestEventBeginTime", transportRequest.getEventBeginTime());
+        } else {
+            savedInstanceState.putBoolean("transportRequestNotNull", false);
+        }
+
+        savedInstanceState.putBoolean("verifyLocationsIsEnabled",verifyLocations.isEnabled());
+        savedInstanceState.putBoolean("createTransportRequest",createTransportRequest.isEnabled());
+        savedInstanceState.putBoolean("selectedEventGetMap",selectedEventGetMap.isEnabled());
+
+        super.onSaveInstanceState(savedInstanceState);
     }
 
     @Override
-    protected void onStop() {
-        super.onStop();
-    }
+    public void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
 
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
+        selectedEventStartLocation.setText(savedInstanceState.getString("selectedEventStartLocation"));
+        selectedEventEndLocation.setText(savedInstanceState.getString("selectedEventEndLocation"));
+        eventID = savedInstanceState.getString("eventID");
+        summary = savedInstanceState.getString("summary");
+        startTime = savedInstanceState.getLong("startTime");
+        endLocation = savedInstanceState.getString("endLocation");
+        selectedEventStartLatLng = new LatLng(savedInstanceState.getDouble("selectedEventStartLatLngLat"), savedInstanceState.getDouble("selectedEventStartLatLngLng"));
+        selectedEventEndLatLng = new LatLng(savedInstanceState.getDouble("selectedEventEndLatLngLat"), savedInstanceState.getDouble("selectedEventEndLatLngLng"));
+
+        if (savedInstanceState.getBoolean("transportRequestNotNull")) {
+            transportRequest = new TransportRequest(savedInstanceState.getLong("transportRequestID"), savedInstanceState.getString("transportRequestEventID"), savedInstanceState.getString("transportRequestEventSummary"),
+                    savedInstanceState.getString("transportRequestEventAddress"), savedInstanceState.getDouble("transportRequestEventLat"), savedInstanceState.getDouble("transportRequestEventLng"),
+                    savedInstanceState.getString("transportRequesStartAddress"), savedInstanceState.getDouble("transportRequestStartLat"), savedInstanceState.getDouble("transportRequestStartLng"),
+                    savedInstanceState.getLong("transportRequestEventBeginTime"));
+        }
+
+        verifyLocations.setEnabled(savedInstanceState.getBoolean("verifyLocationsIsEnabled"));
+        createTransportRequest.setEnabled(savedInstanceState.getBoolean("createTransportRequestIsEnabled"));
+        selectedEventGetMap.setEnabled(savedInstanceState.getBoolean("selectedEventGetMapIsEnabled"));
     }
 
     public String makeGeocodingRequestURL(String adress) throws UnsupportedEncodingException {
@@ -217,7 +263,9 @@ public class SelectedEventActivity extends Activity {
                 adressView.setText(getString(R.string.adressNotFound));
             }
         }
-    };
+    }
+
+    ;
 
     public class JSONParser {
         InputStream is = null;
@@ -263,6 +311,8 @@ public class SelectedEventActivity extends Activity {
             return json;
 
         }
-    };
+    }
+
+    ;
 
 }

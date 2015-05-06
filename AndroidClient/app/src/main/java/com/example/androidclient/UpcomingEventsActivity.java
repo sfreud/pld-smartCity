@@ -34,6 +34,8 @@ import com.google.api.services.calendar.model.Event;
 import com.google.api.services.calendar.model.Events;
 
 import java.io.IOException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
@@ -62,8 +64,6 @@ public class UpcomingEventsActivity extends Activity {
     private static final String PREF_ACCOUNT_NAME = "accountName";
     private static final String[] SCOPES = {CalendarScopes.CALENDAR, CalendarScopes.CALENDAR_READONLY};
 
-
-
     /**
      * Create the main activity.
      *
@@ -89,21 +89,6 @@ public class UpcomingEventsActivity extends Activity {
                 transport, jsonFactory, credential)
                 .setApplicationName("AndroidClient")
                 .build();
-    }
-
-    @Override
-    protected void onPause() {
-        super.onPause();
-    }
-
-    @Override
-    protected void onStop() {
-        super.onStop();
-    }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
     }
 
     /**
@@ -234,7 +219,8 @@ public class UpcomingEventsActivity extends Activity {
                             start = event.getStart().getDate();
                         }
                         Date startDate = new Date(start.getValue());
-                        element.put("startTime", startDate.toString());
+                        DateFormat USER_DATE_FORMAT = new SimpleDateFormat("dd/MM/yyyy kk:mm");
+                        element.put("startTime", USER_DATE_FORMAT.format(startDate));
 
                         String location = event.getLocation();
                         if (location == null) {

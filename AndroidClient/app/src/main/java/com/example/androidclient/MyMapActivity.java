@@ -58,22 +58,6 @@ public class MyMapActivity extends Activity implements OnMapReadyCallback {
     }
 
     @Override
-    protected void onPause() {
-        super.onPause();
-    }
-
-    @Override
-    protected void onStop() {
-        super.onStop();
-    }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-    }
-
-
-    @Override
     public void onMapReady(GoogleMap map) {
         myMap = map;
         Intent intent = getIntent();

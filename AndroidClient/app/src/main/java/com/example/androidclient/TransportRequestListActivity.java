@@ -11,6 +11,8 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
@@ -19,6 +21,7 @@ import java.util.List;
 public class TransportRequestListActivity extends Activity {
 
     private ListView transportRequestListView;
+    List<TransportRequest> ltr;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,26 +29,6 @@ public class TransportRequestListActivity extends Activity {
         setContentView(R.layout.activity_transport_request_list);
 
         transportRequestListView = (ListView) findViewById(R.id.transportRequestListView);
-
-        TransportRequestDAO trDAO = new TransportRequestDAO(getApplicationContext());
-        trDAO.open();
-        final List<TransportRequest> ltr = trDAO.selectAll();
-        trDAO.close();
-        int ltrSize = ltr.size();
-        String[] transportRequests = new String[ltrSize];
-        for (int i=0;i<ltrSize;++i) {
-            TransportRequest tr = ltr.get(i);
-            String trString = "";
-            trString += tr.getEventSummary()+"\n";
-            trString +=(new Date(tr.getEventBeginTime())).toString()+"\n";
-            trString +=tr.getStartAddress()+"\n";
-            trString += tr.getEventAddress();
-            transportRequests[i]=trString;
-        }
-
-        transportRequestListView.setAdapter(new ArrayAdapter<String>(this,
-                R.layout.simple_transport_request_list,
-                android.R.id.text1, transportRequests));
 
         Button selectedTRToUpdate = (Button) findViewById(R.id.selectedTRToUpdate);
         selectedTRToUpdate.setOnClickListener(new View.OnClickListener() {
@@ -91,5 +74,34 @@ public class TransportRequestListActivity extends Activity {
                 startActivity(mapIntent);
             }
         });
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        displayTransportRequestList();
+    }
+
+    private void displayTransportRequestList()
+    {
+        TransportRequestDAO trDAO = new TransportRequestDAO(getApplicationContext());
+        trDAO.open();
+        ltr = trDAO.selectAll();
+        trDAO.close();
+        int ltrSize = ltr.size();
+        String[] transportRequests = new String[ltrSize];
+        for (int i=0;i<ltrSize;++i) {
+            TransportRequest tr = ltr.get(i);
+            String trString = "";
+            trString += tr.getEventSummary()+"\n";
+            DateFormat USER_DATE_FORMAT = new SimpleDateFormat("dd/MM/yyyy kk:mm");
+            trString +=USER_DATE_FORMAT.format(new Date(tr.getEventBeginTime()))+"\n";
+            trString +=tr.getStartAddress()+"\n";
+            trString += tr.getEventAddress();
+            transportRequests[i]=trString;
+        }
+        transportRequestListView.setAdapter(new ArrayAdapter<String>(this,
+                R.layout.simple_transport_request_list,
+                android.R.id.text1, transportRequests));
     }
 }

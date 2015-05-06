@@ -11,7 +11,6 @@ import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Base64;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -147,6 +146,30 @@ public class CreateEventActivity extends Activity {
             emailKnownAndDeviceOnline();
         } else {
             mStatusText.setText(getString(R.string.playServiceRequired));
+        }
+    }
+
+    @Override
+    public void onSaveInstanceState(Bundle savedInstanceState) {
+        savedInstanceState.putString("enteredEventSummary",enteredEventSummary.getText().toString());
+        savedInstanceState.putString("enteredEventLocation",enteredEventLocation.getText().toString());
+        savedInstanceState.putString("enteredEventStartDate",enteredEventStartDate.getText().toString());
+        savedInstanceState.putString("enteredEventStartDate",enteredEventEndDate.getText().toString());
+        savedInstanceState.putBoolean("createThisEventIsEnabled",createThisEvent.isEnabled());
+
+        super.onSaveInstanceState(savedInstanceState);
+    }
+
+    @Override
+    public void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+
+        if(savedInstanceState!=null){
+            enteredEventSummary.setText(savedInstanceState.getString("enteredEventSummary"));
+            enteredEventLocation.setText(savedInstanceState.getString("enteredEventLocation"));
+            enteredEventStartDate.setText(savedInstanceState.getString("enteredEventStartDate"));
+            enteredEventEndDate.setText(savedInstanceState.getString("enteredEventEndDate"));
+            createThisEvent.setEnabled(savedInstanceState.getBoolean("createThisEventIsEnabled",true));
         }
     }
 
@@ -294,22 +317,6 @@ public class CreateEventActivity extends Activity {
         });
     }
 
-    @Override
-    protected void onPause() {
-        super.onPause();
-    }
-
-    @Override
-    protected void onStop() {
-        super.onStop();
-    }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-    }
-
-
     private class CreateEventTask extends AsyncTask<Void, Void, Void> {
         private Event event;
 
@@ -329,7 +336,6 @@ public class CreateEventActivity extends Activity {
                 SharedPreferences settings = getSharedPreferences("preferences", Context.MODE_PRIVATE);
                 String login = settings.getString("login", null);
                 String pass = settings.getString("pass", null);
-                Log.d("LOGIN_PASS", login + " " + pass);
                 String s = Base64.encodeToString((login + ":" + pass).getBytes(), Base64.DEFAULT);
                 post.setHeader("Accept", "text/html");
                 post.setHeader("Host", "10.0.2.2:8182");

@@ -5,7 +5,8 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
     tools:context="com.example.androidclient.UpdateTransportRequestActivity"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="@drawable/backgroundtransportrequestactivity" >
 
     <EditText
         android:id="@+id/event_summary_to_update"

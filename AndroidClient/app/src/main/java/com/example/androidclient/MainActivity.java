@@ -8,7 +8,6 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.util.Base64;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -120,9 +119,18 @@ public class MainActivity extends ActionBarActivity {
             editor.remove("pass");
             editor.commit();
             //ask for a new authentication
+            String login = "";
+            //pop a windows asking for authentication
+            //get google account as default login
+            t2.setText(getString(R.string.firstLaunch));
+            AccountManager manager = (AccountManager) getSystemService(ACCOUNT_SERVICE);
+            Account[] list = manager.getAccounts();
+            if(list.length!=0)
+                login = list[0].name;
             llog.setVisibility(View.VISIBLE);
             lopt.setVisibility(View.INVISIBLE);
-            t2.setText(getString(R.string.firstLaunch));
+
+            uname.setText(login);
             return true;
         }
 
@@ -130,23 +138,23 @@ public class MainActivity extends ActionBarActivity {
     }
 
     @Override
-    protected void onPause() {
-        super.onPause();
+    public void onSaveInstanceState(Bundle savedInstanceState) {
+        savedInstanceState.putString("uname",uname.getText().toString());
+        savedInstanceState.putString("pass",pass.getText().toString());
+
+        super.onSaveInstanceState(savedInstanceState);
     }
 
     @Override
-    protected void onStop() {
-        super.onStop();
+    public void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        if(savedInstanceState!=null) {
+            uname.setText(savedInstanceState.getString("uname"));
+            pass.setText(savedInstanceState.getString("pass"));
+        }
     }
 
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-    }
-
-
-    public void connectToExistingAccount(View view)
-    {
+    public void connectToExistingAccount(View view) {
         if(uname.getText().toString().equals("")|| pass.getText().toString().equals("")){
             Toast.makeText(this, getString(R.string.incoherentCredentials), Toast.LENGTH_SHORT).show();
         }

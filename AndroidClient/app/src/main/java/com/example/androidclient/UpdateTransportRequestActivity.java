@@ -123,18 +123,38 @@ public class UpdateTransportRequestActivity extends Activity {
     }
 
     @Override
-    protected void onPause() {
-        super.onPause();
+    public void onSaveInstanceState(Bundle savedInstanceState) {
+        savedInstanceState.putString("eventSummaryToUpdate",eventSummaryToUpdate.getText().toString());
+        savedInstanceState.putString("eventStartTimeToUpdate",eventStartTimeToUpdate.getText().toString());
+        savedInstanceState.putString("eventStartLocationToUpdate",eventStartLocationToUpdate.getText().toString());
+        savedInstanceState.putString("eventEndLocationToUpdate",eventEndLocationToUpdate.getText().toString());
+        savedInstanceState.putDouble("eventStartLatLngToUpdateLat", eventStartLatLngToUpdate.latitude);
+        savedInstanceState.putDouble("eventStartLatLngToUpdateLng", eventStartLatLngToUpdate.longitude);
+        savedInstanceState.putDouble("eventEndLatLngToUpdateLat",eventEndLatLngToUpdate.latitude);
+        savedInstanceState.putDouble("eventEndLatLngToUpdateLng",eventEndLatLngToUpdate.longitude);
+        savedInstanceState.putLong("transportRequestToUpdateId", transportRequestToUpdate.getId());
+        savedInstanceState.putString("transportRequestToUpdateEventId", transportRequestToUpdate.getEventID());
+
+        super.onSaveInstanceState(savedInstanceState);
     }
 
     @Override
-    protected void onStop() {
-        super.onStop();
-    }
+    public void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
 
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
+        if(savedInstanceState!=null) {
+            eventSummaryToUpdate.setText(savedInstanceState.getString("eventSummaryToUpdate"));
+            eventStartTimeToUpdate.setText(savedInstanceState.getString("eventStartTimeToUpdate"));
+            eventStartLocationToUpdate.setText(savedInstanceState.getString("eventStartLocationToUpdate"));
+            eventEndLocationToUpdate.setText(savedInstanceState.getString("eventEndLocationToUpdate"));
+            eventStartLatLngToUpdate = new LatLng(savedInstanceState.getDouble("eventStartLatLngToUpdateLat"), savedInstanceState.getDouble("eventStartLatLngToUpdateLng"));
+            eventEndLatLngToUpdate = new LatLng(savedInstanceState.getDouble("eventEndLatLngToUpdateLat"), savedInstanceState.getDouble("eventEndLatLngToUpdateLng"));
+            long transportRequestToUpdateId = savedInstanceState.getLong("transportRequestToUpdateId");
+            String transportRequestToUpdateEventId = savedInstanceState.getString("transportRequestToUpdateEventId");
+            transportRequestToUpdate = new TransportRequest();
+            transportRequestToUpdate.setId(transportRequestToUpdateId);
+            transportRequestToUpdate.setEventID(transportRequestToUpdateEventId);
+        }
     }
 
     public String makeGeocodingRequestURL(String adress) throws UnsupportedEncodingException {
@@ -185,6 +205,7 @@ public class UpdateTransportRequestActivity extends Activity {
         protected void onPostExecute(Pair<LatLng, String> result) {
             super.onPostExecute(result);
             progressDialog.hide();
+            progressDialog.dismiss();
 
             if (result != null) {
                 adressView.setText(result.second);
@@ -247,6 +268,4 @@ public class UpdateTransportRequestActivity extends Activity {
 
         }
     };
-
-
 }

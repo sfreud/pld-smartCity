@@ -51,7 +51,6 @@ public class UpcomingEventsActivity extends Activity {
     com.google.api.services.calendar.Calendar mService;
 
     GoogleAccountCredential credential;
-    protected TextView debugText;
     protected TextView mStatusText;
     protected ListView eventsListView;
     final HttpTransport transport = AndroidHttp.newCompatibleTransport();
@@ -75,8 +74,6 @@ public class UpcomingEventsActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_upcoming_events);
 
-        debugText = (TextView) findViewById(R.id.debugText);
-
         mStatusText = (TextView) findViewById(R.id.mStatusText);
 
         eventsListView = (ListView) findViewById(R.id.eventsListView);
@@ -87,7 +84,6 @@ public class UpcomingEventsActivity extends Activity {
                 getApplicationContext(), Arrays.asList(SCOPES))
                 .setBackOff(new ExponentialBackOff())
                 .setSelectedAccountName(settings.getString(PREF_ACCOUNT_NAME, null));
-        debugText.setText(credential.getSelectedAccountName());
 
         mService = new com.google.api.services.calendar.Calendar.Builder(
                 transport, jsonFactory, credential)

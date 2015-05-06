@@ -27,8 +27,6 @@
   
 	<nd ref="1"/>
  
-	<nd ref="10"/>
-
 	<nd ref="9"/>
  
 	<nd ref="8"/>
@@ -45,6 +43,7 @@
   
 	<tag k="wall" v="no"/>
  
+	<tag k="name" v="Rue Geoffray"/>
 </way>
 
 <way id="2" visible="true" version="5" changeset="27689945" timestamp="2014-12-25T14:20:19Z" user="gileri" uid="593214">
@@ -63,6 +62,8 @@
   
 	<tag k="source" v="cadastre-dgi-fr source : Direction Générale des Impôts - Cadastre. Mise à jour : 2010"/>
 
+	<tag k="name" v="Rue Édouard Vaillant"/>
+
 </way>
 
 <way id="3" visible="true" version="5" changeset="27689945" timestamp="2014-12-25T14:20:19Z" user="gileri" uid="593214">
@@ -79,6 +80,8 @@
   
 	<tag k="source" v="cadastre-dgi-fr source : Direction Générale des Impôts - Cadastre. Mise à jour : 2010"/>
 
+	<tag k="name" v="Rue Albert Einstein"/>
+
 </way>
  
 <way id="4" visible="true" version="5" changeset="27689945" timestamp="2014-12-25T14:20:19Z" user="gileri" uid="593214">
@@ -94,6 +97,8 @@
 	<tag k="building" v="yes"/>
   
 	<tag k="source" v="cadastre-dgi-fr source : Direction Générale des Impôts - Cadastre. Mise à jour : 2010"/>
+
+	<tag k="name" v="Rue des Lumières"/>
 
 </way>
 

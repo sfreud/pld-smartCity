@@ -74,7 +74,7 @@ public class test {
  
                         map.displayGraph();
                         GraphNode n1 = map.getNode(4.8785753,45.7738037);
-                        GraphNode n2 = map.getNode(4.8788661,45.7736091);
+                        GraphNode n2 = map.getNode(4.8785753,45.7738037);
                         if(n1!=null&&n2!=null){
                         System.out.println(n1.getID());
                         System.out.println(n2.getID());

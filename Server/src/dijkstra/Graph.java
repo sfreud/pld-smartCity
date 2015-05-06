@@ -112,6 +112,7 @@ public class Graph {
                    System.out.println("Impossible d'ajouter un chemin de "+cur+" à "+arr);
                    throw new GraphException();
                }
+               System.out.println("Ajout noeud("+coor.get(arr).getKey()+","+coor.get(arr).getValue()+")");
                if(!nodesGrey.contains(arr)&&!nodesBlack.contains(arr))
                {
                      nodesGrey.add(arr);
@@ -235,7 +236,7 @@ public class Graph {
             List<GraphEdge> listEdge = dep.getEdgeLeaving();
             for(GraphEdge leav : listEdge)
             {
-                System.out.println(dep.getID().toString()+" ->("+leav.getWeight().toString()+","+leav.getName()+") "+leav.getEnd().getID().toString());
+                System.out.println(dep.getID().toString()+"("+dep.getLatitude()+","+dep.getLongitude()+")"+" ->("+leav.getWeight().toString()+","+leav.getName()+") "+leav.getEnd().getID().toString()+"("+leav.getEnd().getLatitude()+","+leav.getEnd().getLongitude()+")");
 
             }
         }
@@ -284,11 +285,13 @@ public class Graph {
     
     public final GraphNode getNode(double lo, double la)
     {
+        lo = ((int)(lo*Math.pow(10, 7)))/Math.pow(10, 7);
+        la = ((int)(la*Math.pow(10, 7)))/Math.pow(10, 7);
         GraphNode ret = null;
         List<GraphNode> greyNodes = new ArrayList<>();
         List<GraphNode> blackNodes = new ArrayList<>();
         greyNodes.add(begin);
-        if(Math.abs(begin.getLongitude()-lo)<Math.pow(10, -6) &&Math.abs(begin.getLatitude()-la)<Math.pow(10, -6))
+        if(Math.abs(begin.getLongitude()-lo)<Math.pow(10, -5) &&Math.abs(begin.getLatitude()-la)<Math.pow(10, -5))
         {
             ret=begin;
         }
@@ -301,7 +304,7 @@ public class Graph {
                     if(!(greyNodes.contains(n))&&!(blackNodes.contains(n)))
                     {
                         greyNodes.add(n);
-                        if(Math.abs(n.getLongitude()-lo)<Math.pow(10, -6) &&Math.abs(n.getLatitude()-la)<Math.pow(10, -6))
+                        if(Math.abs(n.getLongitude()-lo)<Math.pow(10, -5) &&Math.abs(n.getLatitude()-la)<Math.pow(10, -5))
                         {
                             ret=n;
                         }

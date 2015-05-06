@@ -23,8 +23,8 @@ public class GraphNode {
     
     public GraphNode(long i, double lat,double longi){
         ID=i;
-        longitude = longi;
-        latitude= lat;
+        longitude = ((int)(longi*Math.pow(10, 7)))/Math.pow(10, 7);
+        latitude= ((int)(lat*Math.pow(10, 7)))/Math.pow(10, 7);
         edgeLeaving = new ArrayList<>();
     }
     
